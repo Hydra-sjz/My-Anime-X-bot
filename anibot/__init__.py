@@ -5,7 +5,7 @@ from aiohttp import ClientSession
 TRIGGERS = os.environ.get("TRIGGERS", "/ !").split()
 API_HASH = os.environ.get("API_HASH")
 BOT_TOKEN = os.environ.get("BOT_TOKEN")
-BOT_NAME = os.environ.get("BOT_NAME")
+BOT_NAME = os.environ.get("BOT_NAME", "Spotify")
 DB_URL = os.environ.get("DB_URL")
 ANILIST_CLIENT = os.environ.get("ANILIST_CLIENT")
 ANILIST_SECRET = os.environ.get("ANILIST_SECRET")
