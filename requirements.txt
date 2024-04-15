@@ -1,5 +1,5 @@
-pyrogram
-tgcrypto
+Pyrogram==2.0.106
+TgCrypto==1.2.5
 requests
 aiofiles>=0.6.0
 aiohttp[speedups]>=3.7.3
