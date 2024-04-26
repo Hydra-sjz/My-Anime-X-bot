@@ -338,7 +338,7 @@ async def db_cleanup(client: Client, message: Message, mdata: dict):
 
 
 @anibot.on_message(
-    filters.command(['start', f'start{BOT_NAME}'], prefixes=trg)
+    filters.private & filters.command(['start', f'start{BOT_NAME}'], prefixes=trg)
 )
 @control_user
 async def start_(client: Client, message: Message, mdata: dict):
@@ -439,13 +439,14 @@ ID: `{user}`""",
         await client.send_message(
             gid,
             text=(
-                f"Kon'nichiwa!!!\n"
+                f"Kon'nichiwa!!! [😈](https://telegra.ph/file/5bf31a4e8e15e9f631aba.jpg)\n"
                 +f"I'm {bot.first_name} bot and I can help you get info on "
                 +f"Animes, Mangas, Characters, Airings, Schedules, Watch "
                 +f"Orders of Animes, etc."
                 +f"\n\nFor more info send /help in here."
                 +f"If you wish to use me in a group start me by "
-                +f"/start{BOT_NAME} command after adding me in the group.")
+                +f"/start{BOT_NAME} command after adding me in the group."
+                +f"\n**Powered by: @XBOTS_X**")
         )
     else:
         if not await (GROUPS.find_one({"_id": gid})):
@@ -463,7 +464,7 @@ ID: `{user}`""",
 
 
 @anibot.on_message(
-    filters.command(['help', f'help{BOT_NAME}'], prefixes=trg)
+    filters.private & filters.command(['help', f'help{BOT_NAME}'], prefixes=trg)
 )
 @control_user
 async def help_(client: Client, message: Message, mdata: dict):
@@ -500,7 +501,10 @@ Use /feedback cmd to contact bot owner'''
 - __/stats__ `to get stats on bot like no. of users, grps and authorised users`
 - __/dbcleanup__ `to remove obsolete/useless entries in database`
 
-Apart from above shown cmds"""
+Apart from above shown cmds
+
+©️ @XBOTS_X
+"""
         )
     else:
         if gid==id_:
@@ -644,7 +648,10 @@ async def help_list_parser(client: Client, cq: CallbackQuery, cdata: dict):
 Use /ping or !ping cmd to check if bot is online
 Use /start or !start cmd to start bot in group or pm
 Use /help or !help cmd to get interactive help on available bot cmds
-Use /feedback cmd to contact bot owner'''
+Use /feedback cmd to contact bot owner
+
+©️ @XBOTS_X
+'''
     await cq.edit_message_text(text=text, reply_markup=buttons)
 
 
@@ -701,6 +708,8 @@ Stats:-
 **Stargazers:** {kk.get("stargazers_count")}
 **Forks:** {kk.get("forks")}
 **Ping:** `{pt} ms`
+
+©️ @XBOTS_X
 """
     )
 
