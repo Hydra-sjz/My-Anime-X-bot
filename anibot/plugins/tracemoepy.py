@@ -86,11 +86,12 @@ async def trace_bek(client: anibot, message: Message, mdata: dict):
                 return
             result = search["result"][0]
             caption_ = (
-                f"**Title**: {result['anilist']['title']['english']}"
+                f"**Title**: __{result['anilist']['title']['english']}__"
                 +f" (`{result['anilist']['title']['native']}`)\n"
                 +f"**Anilist ID:** `{result['anilist']['id']}`\n"
                 +f"**Similarity**: `{(str(result['similarity']*100))[:5]}`\n"
                 +f"**Episode**: `{result['episode']}`"
+                +f"\n**Powered by: @XBOTS_X**"
             )
             preview = result['video']
             dls_js = rand_key()
@@ -150,11 +151,12 @@ async def tracemoe_btn(client: anibot, cq: CallbackQuery, cdata: dict):
     search = TRACE_MOE[dls_loc]
     result = search["result"][int(page)]
     caption = (
-        f"**Title**: {result['anilist']['title']['english']}"
+        f"**Title**: __{result['anilist']['title']['english']}__"
         +f" (`{result['anilist']['title']['native']}`)\n"
         +f"**Anilist ID:** `{result['anilist']['id']}`\n"
         +f"**Similarity**: `{(str(result['similarity']*100))[:5]}`\n"
         +f"**Episode**: `{result['episode']}`"
+        +f"\n**Powered by: @XBOTS_X**"
     )
     preview = result['video']
     button = []
