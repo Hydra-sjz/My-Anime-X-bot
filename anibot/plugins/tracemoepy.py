@@ -43,7 +43,7 @@ TRACE_MOE = {}
 )
 @control_user
 async def trace_bek(client: anibot, message: Message, mdata: dict):
-    """ Reverse Search Anime Clips/Photos """
+    """ __Reverse Search Anime Clips/Photos__ """
     gid = mdata['chat']['id']
     try:
         user = mdata['from_user']['id']
@@ -52,10 +52,10 @@ async def trace_bek(client: anibot, message: Message, mdata: dict):
     find_gc = await DC.find_one({'_id': gid})
     if find_gc is not None and 'reverse' in find_gc['cmd_list'].split():
         return
-    x = await message.reply_text("Reverse searching the given media")
+    x = await message.reply_text("__Reverse searching the given media__")
     replied = message.reply_to_message
     if not replied:
-        await x.edit_text("Reply to some media !")
+        await x.edit_text("__Reply to some media__ !")
         await asyncio.sleep(5)
         await x.delete()
         return
@@ -70,7 +70,7 @@ async def trace_bek(client: anibot, message: Message, mdata: dict):
                 try:
                     search = await tracemoe.search(dls_loc, upload_file=True)
                 except ServerError:
-                    await x.edit_text('Couldnt parse results!!!')
+                    await x.edit_text('__Couldnt parse results!!!__')
                     return
             except RuntimeError:
                 cs = ClientSession()
@@ -80,18 +80,18 @@ async def trace_bek(client: anibot, message: Message, mdata: dict):
                 e = err()
                 await x.edit_text(
                     e.split("\n").pop(-2)
-                    +"\n\nTrying again in 2-3 minutes might just fix this"
+                    +"\n\n__Trying again in 2-3 minutes might just fix this__"
                 )
                 await clog("ANIBOT", e, "TRACEMOE", replied=replied)
                 return
             result = search["result"][0]
             caption_ = (
-                f"**Title**: __{result['anilist']['title']['english']}__"
+                f"🔖 **Title**: __{result['anilist']['title']['english']}__"
                 +f" (`{result['anilist']['title']['native']}`)\n"
-                +f"**Anilist ID:** `{result['anilist']['id']}`\n"
-                +f"**Similarity**: `{(str(result['similarity']*100))[:5]}`\n"
-                +f"**Episode**: `{result['episode']}`"
-                +f"\n**Powered by: @XBOTS_X**"
+                +f"🆔 **Anilist ID:** `{result['anilist']['id']}`\n"
+                +f"👾 **Similarity**: `{(str(result['similarity']*100))[:5]}`\n"
+                +f"📺 **Episode**: `{result['episode']}`"
+                +f"\n\n🌟 **Powered by: @XBOTS_X**"
             )
             preview = result['video']
             dls_js = rand_key()
@@ -104,19 +104,19 @@ async def trace_bek(client: anibot, message: Message, mdata: dict):
             await SFW_GRPS.find_one({"id": gid})
         ):
             msg = no_pic[random.randint(0, 4)]
-            caption="The results seems to be 18+ and not allowed in this group"
+            caption="__🔞 The results seems to be 18+ and not allowed in this group__"
             nsfw = True
         else:
             msg = preview
             caption=caption_
             button.append([
                 InlineKeyboardButton(
-                    "More Info",
+                    "➕ More Info",
                     url=f"https://anilist.co/anime/{result['anilist']['id']}")
             ])
         button.append([
             InlineKeyboardButton(
-                "Next", callback_data=f"tracech_1_{dls_js}_{user}"
+                "Next ➡️", callback_data=f"tracech_1_{dls_js}_{user}"
             )
         ])
         try:
@@ -129,12 +129,12 @@ async def trace_bek(client: anibot, message: Message, mdata: dict):
             e = err()
             await x.edit_text(
                 e.split("\n").pop(-2)
-                +"\n\nTrying again in 2-3 minutes might just fix this"
+                +"\n\n♒__Trying again in 2-3 minutes might just fix this__"
             )
             await clog("ANIBOT", e, "TRACEMOE", replied=replied)
             return
     else:
-        await message.reply_text("Couldn't parse results!!!")
+        await message.reply_text("❌ __Couldn't parse results!!!__")
     await x.delete()
 
 
@@ -146,17 +146,17 @@ async def tracemoe_btn(client: anibot, cq: CallbackQuery, cdata: dict):
         TRACE_MOE[dls_loc]
     except KeyError:
         return await cq.answer(
-            "Query Expired!!!\nCreate new one", show_alert=True
+            "😔__Query Expired!!!\nCreate new one__", show_alert=True
         )
     search = TRACE_MOE[dls_loc]
     result = search["result"][int(page)]
     caption = (
-        f"**Title**: __{result['anilist']['title']['english']}__"
+        f"🔖**Title**: __{result['anilist']['title']['english']}__"
         +f" (`{result['anilist']['title']['native']}`)\n"
-        +f"**Anilist ID:** `{result['anilist']['id']}`\n"
-        +f"**Similarity**: `{(str(result['similarity']*100))[:5]}`\n"
-        +f"**Episode**: `{result['episode']}`"
-        +f"\n**Powered by: @XBOTS_X**"
+        +f"🆔**Anilist ID:** `{result['anilist']['id']}`\n"
+        +f"👾**Similarity**: `{(str(result['similarity']*100))[:5]}`\n"
+        +f"📺**Episode**: `{result['episode']}`"
+        +f"\n\n🌟 **Powered by: @XBOTS_X**"
     )
     preview = result['video']
     button = []
@@ -167,36 +167,36 @@ async def tracemoe_btn(client: anibot, cq: CallbackQuery, cdata: dict):
     ):
         msg = InputMediaPhoto(
             no_pic[random.randint(0, 4)],
-            caption="The results seems to be 18+ and not allowed in this group"
+            caption="🔞 __The results seems to be 18+ and not allowed in this group__"
         )
     else:
         msg = InputMediaVideo(preview, caption=caption)
         button.append([
             InlineKeyboardButton(
-                "More Info",
+                "➕ More Info",
                 url=f"https://anilist.co/anime/{result['anilist']['id']}"
             )
         ])
     if int(page)==0:
         button.append([
             InlineKeyboardButton(
-                "Next", callback_data=f"tracech_{int(page)+1}_{dls_loc}_{user}"
+                "Next ➡️", callback_data=f"tracech_{int(page)+1}_{dls_loc}_{user}"
             )
         ])
     elif int(page)==(len(search['result'])-1):
         button.append([
             InlineKeyboardButton(
-                "Back", callback_data=f"tracech_{int(page)-1}_{dls_loc}_{user}"
+                "⬅️ Back", callback_data=f"tracech_{int(page)-1}_{dls_loc}_{user}"
             )
         ])
     else:
         button.append([
             InlineKeyboardButton(
-                "Back",
+                "⬅️ Back",
                 callback_data=f"tracech_{int(page)-1}_{dls_loc}_{user}"
                 ),
             InlineKeyboardButton(
-                "Next",
+                "Next ➡️",
                 callback_data=f"tracech_{int(page)+1}_{dls_loc}_{user}"
             )
         ])
