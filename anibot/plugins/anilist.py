@@ -115,7 +115,7 @@ async def anime_cmd(client: Client, message: Message, mdata: dict):
         return
     if len(text) == 1:
         k = await message.reply_text(
-"""Please give a query to search about
+"""__Please give a query to search about__
 example: /anime Ao Haru Ride"""
         )
         await asyncio.sleep(5)
@@ -146,7 +146,7 @@ example: /anime Ao Haru Ride"""
         await client.send_photo(
             gid,
             no_pic[random.randint(0, 4)],
-            caption="This anime is marked 18+ and not allowed in this group\n\n©️ @XBOTS_X"
+            caption="🔞 __This anime is marked 18+ and not allowed in this group\n\n©️ @XBOTS_X__"
         )
         return
     try:
@@ -185,7 +185,7 @@ async def manga_cmd(client: Client, message: Message, mdata: dict):
         return
     if len(text) == 1:
         k = await message.reply_text(
-"""Please give a query to search about
+"""😕__Please give a query to search about__
 example: /manga The teasing master Takagi san"""
         )
         await asyncio.sleep(5)
@@ -225,7 +225,7 @@ example: /manga The teasing master Takagi san"""
         await client.send_photo(
             gid,
             no_pic[random.randint(0, 4)],
-            caption="This manga is marked 18+ and not allowed in this group",
+            caption="🔞 __This manga is marked 18+ and not allowed in this group__",
             reply_markup=buttons
         )
         return
@@ -265,7 +265,7 @@ async def character_cmd(client: Client, message: Message, mdata: dict):
         return
     if len(text) == 1:
         k = await message.reply_text(
-            "Please give a query to search about\nexample: /character Nezuko"
+            "__Please give a query to search about__\nexample: /character Nezuko"
         )
         await asyncio.sleep(5)
         return await k.delete()
@@ -323,7 +323,7 @@ async def anilist_cmd(client: Client, message: Message, mdata: dict):
         return
     if len(text) == 1:
         k = await message.reply_text(
-            "Please give a query to search about\nexample: /anilist rezero"
+            "__Please give a query to search about__\nexample: /anilist rezero"
         )
         await asyncio.sleep(5)
         return await k.delete()
@@ -362,7 +362,7 @@ async def anilist_cmd(client: Client, message: Message, mdata: dict):
         await client.send_photo(
             gid,
             no_pic[random.randint(0, 4)],
-            caption="This anime is marked 18+ and not allowed in this group\n\n©️ @XBOTS_X",
+            caption="🔞__This anime is marked 18+ and not allowed in this group__\n\n©️ @XBOTS_X",
             reply_markup=buttons
         )
         return
@@ -394,7 +394,7 @@ async def flex_cmd(client: Client, message: Message, mdata: dict):
             return
         if not len(query) == 2:
             k = await message.reply_text(
-"""Please give an anilist username to search about
+"""__Please give an anilist username to search about__
 example: /user Lostb053"""
 )
             await asyncio.sleep(5)
@@ -417,8 +417,8 @@ example: /user Lostb053"""
         await AUTH_USERS.find_one({"id": auser})
     ):
         return await message.reply_text(
-"""Please connect your account first to use this cmd
-Or connect your channel with /connect cmd if you are anonymous""",
+"""__Please connect your account first to use this cmd
+Or connect your channel with /connect cmd if you are anonymous__""",
             reply_markup=InlineKeyboardMarkup(
                 [[InlineKeyboardButton(
                     "Auth",
@@ -482,7 +482,7 @@ async def studio_cmd(client: Client, message: Message, mdata: dict):
     if find_gc is not None and 'studio' in find_gc['cmd_list'].split():
         return
     if len(text) == 1:
-        x = await message.reply_text("Please give a query to search about!!!\nExample: /studio ufotable")
+        x = await message.reply_text("__Please give a query to search about!!!__\nExample: /studio ufotable")
         await asyncio.sleep(5)
         await x.delete()
         return
@@ -504,7 +504,7 @@ async def studio_cmd(client: Client, message: Message, mdata: dict):
         auth = True
     result = await get_studios(qdb, 1, user=auser, duser=user, auth=auth)
     if len(result)==1:
-        x = await message.reply_text("No results found!!!")
+        x = await message.reply_text("😔__No results found!!!__")
         await asyncio.sleep(5)
         return await x.delete()
     msg, buttons = result[0], result[1]
@@ -518,7 +518,7 @@ async def studio_cmd(client: Client, message: Message, mdata: dict):
 )
 @control_user
 async def airing_cmd(client: Client, message: Message, mdata: dict):
-    """Get Airing Detail of Anime"""
+    """__Get Airing Detail of Anime__"""
     text = mdata['text'].split(" ", 1)
     gid = mdata['chat']['id']
     find_gc = await DC.find_one({'_id': gid})
@@ -526,7 +526,7 @@ async def airing_cmd(client: Client, message: Message, mdata: dict):
         return
     if len(text) == 1:
         k = await message.reply_text(
-"""Please give a query to search about
+"""__Please give a query to search about__
 example: /airing Fumetsu no Anata e""")
         await asyncio.sleep(5)
         return await k.delete()
@@ -573,7 +573,7 @@ example: /airing Fumetsu no Anata e""")
         await client.send_photo(
             gid,
             no_pic[random.randint(0, 4)],
-            caption="This anime is marked 18+ and not allowed in this group",
+            caption="🔞__This anime is marked 18+ and not allowed in this group__",
             reply_markup=btn
         )
         return
@@ -599,12 +599,12 @@ async def auth_link_cmd(client, message: Message, mdata: dict):
     except KeyError:
         user = 00000000
     if mdata['chat']['id'] == user:
-        text = "Click the below button to authorize yourself"
+        text = "__Click the below button to authorize yourself__"
         if not os.environ.get('ANILIST_REDIRECT_URL'):
-            text = """Follow the steps to complete Authorization:
+            text = """__Follow the steps to complete Authorization:
 1. Click the below button
 2. Authorize the app and copy the authorization code
-3. Send the copied code followed by the command /code'
+3. Send the copied code followed by the command /code__
 
 ©️ @XBOTS_X
 """
@@ -615,14 +615,14 @@ async def auth_link_cmd(client, message: Message, mdata: dict):
             text=text,
             reply_markup=InlineKeyboardMarkup(
                 [[InlineKeyboardButton(
-                    text="Authorize",
+                    text="♨️ Authorize",
                     url=f"{base}{ac}&redirect_uri={aru}&response_type=code"
                 )]]
             )
         )
     else:
         await message.reply_text(
-            "Go to bot pm to authorize yourself!!!",
+            "🫵 __Go to bot pm to authorize yourself!!!__",
             reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(
                 "Auth",
                 url=f"https://t.me/{BOT_NAME.replace('@', '')}/?start=auth")]]
