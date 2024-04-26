@@ -146,7 +146,7 @@ async def livechart_parser():
                     clc[i[0][0]].append([i[0][1], i[1]])
                 else:
                     msgscr.append([
-f"""**New anime released on Crunchyroll**
+f"""🆕 **New anime released on Crunchyroll**
 **Title:** {i[0][0]}""",
                         i[1]
                     ])
@@ -338,7 +338,7 @@ f"""**New anime released on Crunchyroll**
         for i in msgscr:
             async for id_ in CR_GRPS.find():
                 btn = InlineKeyboardMarkup([[
-                    InlineKeyboardButton("More Info", url=i[1])
+                    InlineKeyboardButton("➕ More Info", url=i[1])
                 ]])
                 try:
                     await anibot.send_message(
@@ -384,8 +384,8 @@ f"""**New anime released on Crunchyroll**
             async for id_ in HD_GRPS.find():
                 var_dict = {}
                 btn = InlineKeyboardMarkup([[
-                    InlineKeyboardButton("More Info", url=i[2]),
-                    InlineKeyboardButton("Source", url=i[3]),
+                    InlineKeyboardButton("➕ More Info", url=i[2]),
+                    InlineKeyboardButton("📃 Source", url=i[3]),
                 ]])
                 try:
                     try:
@@ -430,7 +430,7 @@ f"""**New anime released on Crunchyroll**
             async for id_ in MAL_HD_GRPS.find():
                 var_dict = {}
                 btn = InlineKeyboardMarkup([[
-                    InlineKeyboardButton("More Info", url=i[2]),
+                    InlineKeyboardButton("➕ More Info", url=i[2]),
                 ]])
                 try:
                     try:
