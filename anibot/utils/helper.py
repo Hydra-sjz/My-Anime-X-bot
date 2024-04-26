@@ -449,31 +449,31 @@ def get_btns(
     if media == "ANIME" and sfw == "False":
         buttons.append([
             InlineKeyboardButton(
-                text="Characters",
+                text="🧑‍💼 Characters",
                 callback_data=(
                     f"char_{result[2][0]}_ANI"
                     +f"{qry}{pg}_{str(auth)}_1_{user}"
                 )
             ),
             InlineKeyboardButton(
-                text="Description",
+                text="📜 Description",
                 callback_data=(
                     f"desc_{result[2][0]}_ANI"
                     +f"{qry}{pg}_{str(auth)}_{user}"
                 )
             ),
             InlineKeyboardButton(
-                text="List Series",
+                text="📋 List Series",
                 callback_data=(
                     f"ls_{result[2][0]}_ANI"
                     +f"{qry}{pg}_{str(auth)}_{user}"
                 )
             ),
         ])
-    if media == "CHARACTER":
+    if media == "🫂 CHARACTER":
         buttons.append([
             InlineKeyboardButton(
-                "Description",
+                "📜 Description",
                 callback_data=(
                     f"desc_{result[2][0]}_CHAR"
                     +f"{qry}{pg}_{str(auth)}_{user}"
@@ -482,7 +482,7 @@ def get_btns(
         ])
         buttons.append([
             InlineKeyboardButton(
-                "List Series",
+                "📋 List Series",
                 callback_data=f"lsc_{result[2][0]}{qry}{pg}_{str(auth)}_{user}"
             )
         ])
@@ -558,7 +558,7 @@ def get_btns(
             if result[1][1] is True:
                 buttons.append([
                     InlineKeyboardButton(
-                        text="Next",
+                        text="Next ➡️",
                         callback_data=(
                             f"page_{media}{qry}_{int(lspage)+1}_{str(auth)}_{user}"
                         )
@@ -570,7 +570,7 @@ def get_btns(
             if result[1][1] is False:
                 buttons.append([
                     InlineKeyboardButton(
-                        text="Prev",
+                        text="⬅️ Prev",
                         callback_data=(
                             f"page_{media}{qry}_{int(lspage)-1}_{str(auth)}_{user}"
                         )
@@ -579,13 +579,13 @@ def get_btns(
             else:
                 buttons.append([
                     InlineKeyboardButton(
-                        text="Prev",
+                        text="⬅️ Prev",
                         callback_data=(
                             f"page_{media}{qry}_{int(lspage)-1}_{str(auth)}_{user}"
                         )
                     ),
                     InlineKeyboardButton(
-                        text="Next",
+                        text="Next➡️ ",
                         callback_data=(
                             f"page_{media}{qry}_{int(lspage)+1}_{str(auth)}_{user}"
                         )
@@ -602,7 +602,7 @@ def get_auth_btns(media, user, data, lsqry: str = None, lspage: int = None):
         btn.append(
             InlineKeyboardButton(
                 text=(
-                    "Add to Favs" if data[1] is not True
+                    "➕Add to Favs🌟" if data[1] is not True
                     else "Remove from Favs"
                 ),
                 callback_data=f"fav_{media}_{data[0]}{qry}{pg}_{user}"
@@ -612,14 +612,14 @@ def get_auth_btns(media, user, data, lsqry: str = None, lspage: int = None):
         btn.append(
             InlineKeyboardButton(
                 text=(
-                    "Add to Favs" if data[3] is not True 
+                    "➕Add to Favs🌟" if data[3] is not True 
                     else "Remove from Favs"
                 ),
                 callback_data=f"fav_{media}_{data[0]}{qry}{pg}_{user}"
             )
         )
         btn.append(InlineKeyboardButton(
-            text="Add to List" if data[1] is False else "Update in List",
+            text="➕Add to List📋" if data[1] is False else "Update in List",
             callback_data=(
                 f"lsadd_{media}_{data[0]}{qry}{pg}_{user}" if data[1] is False 
                 else f"lsupdt_{media}_{data[0]}_{data[2]}{qry}{pg}_{user}"
