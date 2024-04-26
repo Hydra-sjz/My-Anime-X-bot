@@ -338,7 +338,7 @@ async def db_cleanup(client: Client, message: Message, mdata: dict):
 
 
 @anibot.on_message(
-    filters.private & filters.command(['start', f'start{BOT_NAME}'], prefixes=trg)
+    filters.command(['start', f'start{BOT_NAME}'], prefixes=trg)
 )
 @control_user
 async def start_(client: Client, message: Message, mdata: dict):
@@ -360,7 +360,7 @@ async def start_(client: Client, message: Message, mdata: dict):
             await USERS.insert_one({"id": user, "user": usertitle})
             await clog(
                 "ANIBOT",
-f"""New User started bot
+f"""🆕 NEW USER STARTED @GojoSatoru_Xbot BOT 🥳
 
 <a url="tg://user?id={user}">{usertitle}</a>
 ID: `{user}`""",
@@ -440,13 +440,13 @@ ID: `{user}`""",
             gid,
             text=(
                 f"Kon'nichiwa!!! [😈](https://telegra.ph/file/5bf31a4e8e15e9f631aba.jpg)\n"
-                +f"I'm {bot.first_name} bot and I can help you get info on "
-                +f"Animes, Mangas, Characters, Airings, Schedules, Watch "
-                +f"Orders of Animes, etc."
-                +f"\n\nFor more info send /help in here."
-                +f"If you wish to use me in a group start me by "
-                +f"/start{BOT_NAME} command after adding me in the group."
-                +f"\n**Powered by: @XBOTS_X**")
+                +f"🕵️ I'm {bot.first_name} bot and I can help you get info on "
+                +f"🎱Animes,🎍 Mangas,👯 Characters,🎐 Airings, 🗓️Schedules, 📺Watch "
+                +f"Orders of Animes, etc. 😜"
+                +f"\n\nFor more info send /help command in here.😌 "
+                +f"🫂If you wish to use me in a group start me by "
+                +f"👉🫵 /start{BOT_NAME} command after adding me in the group."
+                +f"\n\n**Powered by: @XBOTS_X**")
         )
     else:
         if not await (GROUPS.find_one({"_id": gid})):
@@ -457,7 +457,7 @@ ID: `{user}`""",
             await GROUPS.insert_one({"_id": gid, "grp": gidtitle})
             await clog(
                 "ANIBOT",
-                f"Bot added to a new group\n\n{gidtitle}\nID: `{gid}`",
+                f"🆕🥳Bot ADDED TO A NEW GROUP\n\n{gidtitle}\n🆔 ID: `{gid}`",
                 "NEW_GROUP"
             )
         await client.send_message(gid, text="Bot seems online!!!")
@@ -738,7 +738,7 @@ async def feed_(client: Client, message: Message, mdata: dict):
     await client.send_message(
         mdata['chat']['id'],
         f"For issues or queries please contact "
-        +f"@{owner} or join @hanabi_support"
+        +f"@{owner} or join @XBOTS_X"
     )
 
 ###### credits to @NotThatMF on tg since he gave me the code for it ######
