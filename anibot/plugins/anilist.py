@@ -633,7 +633,7 @@ async def auth_link_cmd(client, message: Message, mdata: dict):
 setting_text = """
 <b>This allows you to change group settings</b>
         
-NSFW toggle switches on filtering of 18+ marked content
+__NSFW toggle switches on filtering of 18+ marked content
 
 Airing notifications notifies about airing of anime in recent
 
@@ -641,7 +641,7 @@ Crunchyroll updates will toggle notifications about release of animes on crunchy
 
 Subsplease updates will toggle notifications about release of animes on subsplease site
 
-Click Headlines button to enable headlines. You can choose from given sources
+Click Headlines button to enable headlines. You can choose from given sources__
 
 ©️ @XBOTS_X
 """
@@ -1903,25 +1903,25 @@ async def featured_in_switch_btn(
         if int(reqpg) == 0:
             button.append([
                 InlineKeyboardButton(
-                    text="Next",
+                    text="Next ➡️",
                     callback_data=nex
                 )
             ])
         elif int(reqpg) == totalpg:
             button.append([
                 InlineKeyboardButton(
-                    text="Back",
+                    text="⬅️ Back",
                     callback_data=bac
                 )
             ])
         else:
             button.append([
                 InlineKeyboardButton(
-                    text="Back",
+                    text="⬅️ Back",
                     callback_data=bac
                 ),
                 InlineKeyboardButton(
-                    text="Next",
+                    text="Next ➡️",
                     callback_data=nex
                 )
             ])
@@ -1930,7 +1930,7 @@ async def featured_in_switch_btn(
         callback_data=f"{reqb}_{idm}_0_{qry}_{pg}_{auth}_{user}"
     )])
     button.append([InlineKeyboardButton(
-        text="Back",
+        text="◀️ Back",
         callback_data=f"page_CHARACTER_{qry}_{pg}_{auth}_{user}"
     )])
     try:
@@ -1947,11 +1947,11 @@ async def featured_in_switch_btn(
 
 
 headlines_text = '''
-Turn LiveChart option on to get news feeds from livechart.me
+__Turn LiveChart option on to get news feeds from livechart.me
 Turn MyAnimeList option on to get news feeds from myanimelist.net
 
 For Auto Pin and Auto Unpin features, give the bot "Pin Message" and "Delete Message" perms
-Auto Unpin can be customized, click on the button to see available options.
+Auto Unpin can be customized, click on the button to see available options.__
 
 ©️ @XBOTS_X
 '''
@@ -2049,7 +2049,7 @@ async def headlines_btn(client: Client, cq: CallbackQuery):
                 InlineKeyboardButton(text="Auto Unpin (MAL)", callback_data=f"unpin_call_mal_{gid}")
             ],
             [
-                InlineKeyboardButton(text="Back", callback_data=f"settogl_call_{gid}")
+                InlineKeyboardButton(text="⬅️ Back", callback_data=f"settogl_call_{gid}")
             ]
         ]
     )
