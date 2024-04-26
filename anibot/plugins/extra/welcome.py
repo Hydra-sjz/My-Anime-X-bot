@@ -1,10 +1,11 @@
 import os
+
 from unidecode import unidecode
 from PIL import ImageDraw, Image, ImageFont, ImageChops
 from pyrogram import *
 from pyrogram.types import *
 from logging import getLogger
-from mbot import LOGGER
+from anibot import LOGGER
 from pyrogram.types import Message
 import pytz
 from datetime import datetime
