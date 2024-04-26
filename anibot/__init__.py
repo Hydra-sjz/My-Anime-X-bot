@@ -1,6 +1,20 @@
 import os
 from pyrogram import Client
 from aiohttp import ClientSession
+from dotenv import load_dotenv
+import logging
+
+
+
+# Log
+logging.basicConfig(
+    level=logging.DEBUG,
+    format="%(asctime)s - %(message)s",
+    handlers=[logging.FileHandler("bot.log"), logging.StreamHandler()],
+)
+logging.getLogger("pyrogram").setLevel(logging.WARNING)
+LOGGER = logging.getLogger(__name__)
+
 
 TRIGGERS = os.environ.get("TRIGGERS", "/ !").split()
 API_HASH = os.environ.get("API_HASH")
