@@ -146,7 +146,7 @@ example: /anime Ao Haru Ride"""
         await client.send_photo(
             gid,
             no_pic[random.randint(0, 4)],
-            caption="This anime is marked 18+ and not allowed in this group"
+            caption="This anime is marked 18+ and not allowed in this group\n\n©️ @XBOTS_X"
         )
         return
     try:
@@ -362,7 +362,7 @@ async def anilist_cmd(client: Client, message: Message, mdata: dict):
         await client.send_photo(
             gid,
             no_pic[random.randint(0, 4)],
-            caption="This anime is marked 18+ and not allowed in this group",
+            caption="This anime is marked 18+ and not allowed in this group\n\n©️ @XBOTS_X",
             reply_markup=buttons
         )
         return
@@ -605,6 +605,8 @@ async def auth_link_cmd(client, message: Message, mdata: dict):
 1. Click the below button
 2. Authorize the app and copy the authorization code
 3. Send the copied code followed by the command /code'
+
+©️ @XBOTS_X
 """
         base = "https://anilist.co/api/v2/oauth/authorize?client_id="
         ac = ANILIST_CLIENT
@@ -639,7 +641,10 @@ Crunchyroll updates will toggle notifications about release of animes on crunchy
 
 Subsplease updates will toggle notifications about release of animes on subsplease site
 
-Click Headlines button to enable headlines. You can choose from given sources"""
+Click Headlines button to enable headlines. You can choose from given sources
+
+©️ @XBOTS_X
+"""
 
 
 @anibot.on_message(
@@ -1946,7 +1951,9 @@ Turn LiveChart option on to get news feeds from livechart.me
 Turn MyAnimeList option on to get news feeds from myanimelist.net
 
 For Auto Pin and Auto Unpin features, give the bot "Pin Message" and "Delete Message" perms
-Auto Unpin can be customized, click on the button to see available options
+Auto Unpin can be customized, click on the button to see available options.
+
+©️ @XBOTS_X
 '''
 
 @anibot.on_callback_query(filters.regex(pattern=r"headlines_(.*)"))
