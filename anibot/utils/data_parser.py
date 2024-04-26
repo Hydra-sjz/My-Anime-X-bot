@@ -27,7 +27,7 @@ async def uidata(id_):
         if data['bl'] is None:
             bullet = ""
         return bullet, data['cs']
-    return ["➤ ", "UPPER"]
+    return ["» ", "UPPER"] #➤
 
 
 async def get_ui_text(case):
@@ -771,14 +771,14 @@ async def get_studios(qry, page, user, duser = None, auth: bool = False):
     btns = []
     btns.append([
         InlineKeyboardButton(
-            "List Animes",
+            "📃 List Animes",
             callback_data=f"stuani_1_{data['id']}_{page}_{qry}_{auth}_{duser}"
         )
     ])
     if auth:
         btns.append([
             InlineKeyboardButton(
-                "Remove from Favs" if isFav else "Add To Favs",
+                "📛 Remove from Favs" if isFav else "Add To Favs",
                 callback_data=f"fav_STUDIO_{data['id']}_{qry}_{page}_{duser}"
             )
         ])
@@ -789,7 +789,7 @@ async def get_studios(qry, page, user, duser = None, auth: bool = False):
         else:
             btns.append([
                 InlineKeyboardButton(
-                    "Prev",
+                    "⬅️ Prev",
                     callback_data=f"pgstudio_{page-1}_{qry}_{auth}_{duser}"
                 )
             ])
@@ -797,17 +797,17 @@ async def get_studios(qry, page, user, duser = None, auth: bool = False):
         if int(page)==1:
             btns.append([
                 InlineKeyboardButton(
-                    "Next", callback_data=f"pgstudio_2_{qry}_{auth}_{duser}"
+                    "Next ➡️", callback_data=f"pgstudio_2_{qry}_{auth}_{duser}"
                 )
             ])
         else:
             btns.append(
                 [
                     InlineKeyboardButton(
-                        "Prev", callback_data=f"pgstudio_{page-1}_{qry}_{auth}_{duser}"
+                        "⬅️ Prev", callback_data=f"pgstudio_{page-1}_{qry}_{auth}_{duser}"
                     ),
                     InlineKeyboardButton(
-                        "Next", callback_data=f"pgstudio_{page+1}_{qry}_{auth}_{duser}"
+                        "Next ➡️", callback_data=f"pgstudio_{page+1}_{qry}_{auth}_{duser}"
                     )
                 ]
             )
@@ -819,8 +819,8 @@ async def get_studio_animes(id_, page, qry, rp, user, duser = None, auth: bool =
     result = await return_json_senpai(STUDIO_ANI_QUERY, vars_, auth, user)
     data = result['data']['Studio']['media']['edges']
     if data==[]:
-        return ["No results found"]
-    msg = f"List of animes by {result['data']['Studio']['name']} studio\n"
+        return ["😔 No results found"]
+    msg = f"__List of animes by {result['data']['Studio']['name']} studio__\n"
     for i in data:
         msg += (
             f"\n⚬ `{i['node']['title']['romaji']}`"
@@ -834,14 +834,14 @@ async def get_studio_animes(id_, page, qry, rp, user, duser = None, auth: bool =
         if int(page)==1:
             btns.append([
                 InlineKeyboardButton(
-                    "Back", callback_data=f"pgstudio_{rp}_{qry}_{auth}_{duser}"
+                    "◀️ Back", callback_data=f"pgstudio_{rp}_{qry}_{auth}_{duser}"
                 )
             ])
             return msg, btns
         else:
             btns.append([
                 InlineKeyboardButton(
-                    "Prev",
+                    "⬅️ Prev",
                     callback_data=f"stuani_{int(page)-1}_{id_}_{rp}_{qry}_{auth}_{duser}"
                 )
             ])
@@ -849,23 +849,23 @@ async def get_studio_animes(id_, page, qry, rp, user, duser = None, auth: bool =
         if int(page)==1:
             btns.append([
                 InlineKeyboardButton(
-                    "Next", callback_data=f"stuani_2_{id_}_{rp}_{qry}_{auth}_{duser}"
+                    "Next ➡️", callback_data=f"stuani_2_{id_}_{rp}_{qry}_{auth}_{duser}"
                 )
             ])
         else:
             btns.append([
                 InlineKeyboardButton(
-                    "Prev",
+                    "⬅️ Prev",
                     callback_data=f"stuani_{int(page)-1}_{id_}_{rp}_{qry}_{auth}_{duser}"
                 ),
                 InlineKeyboardButton(
-                    "Next",
+                    "Next ➡️",
                     callback_data=f"stuani_{int(page)+1}_{id_}_{rp}_{qry}_{auth}_{duser}"
                 )
             ])
     btns.append([
         InlineKeyboardButton(
-            "Back", callback_data=f"pgstudio_{rp}_{qry}_{auth}_{duser}"
+            "◀️ Back", callback_data=f"pgstudio_{rp}_{qry}_{auth}_{duser}"
         )
     ])
     return msg, InlineKeyboardMarkup(btns)
@@ -929,7 +929,7 @@ async def get_user_activity(id_, user, duser = None):
             pass
     if duser is None:
         duser = user
-    btn = [[InlineKeyboardButton("Back", callback_data=f"getusrbc_{duser}")]]
+    btn = [[InlineKeyboardButton("◀️ Back", callback_data=f"getusrbc_{duser}")]]
     return [
         f"https://img.anili.st/user/{id_}?a={time.time()}",
         msg,
@@ -984,25 +984,25 @@ async def get_top_animes(gnr: str, page, user):
         if int(data['pageInfo']['lastPage'])!=1:
             btn.append([
                 InlineKeyboardButton(
-                    "Next",
+                    "Next ➡️",
                     callback_data=f"topanimu_{gnr}_{int(page)+1}_{user}"
                 )
             ])
     elif int(page) == int(data['pageInfo']['lastPage']):
         btn.append([
             InlineKeyboardButton(
-                "Prev",
+                "⬅️ Prev",
                 callback_data=f"topanimu_{gnr}_{int(page)-1}_{user}"
             )
         ])
     else:
         btn.append([
             InlineKeyboardButton(
-                "Prev",
+                "⬅️ Prev",
                 callback_data=f"topanimu_{gnr}_{int(page)-1}_{user}"
             ),
             InlineKeyboardButton(
-                "Next",
+                "Next ➡️",
                 callback_data=f"topanimu_{gnr}_{int(page)+1}_{user}"
             )
         ])
@@ -1046,7 +1046,7 @@ async def get_user_favourites(id_, user, req, page, sighs, duser = None):
         if int(data['pageInfo']['lastPage'])!=1:
             btn.append([
                 InlineKeyboardButton(
-                    "Next",
+                    "Next ➡️",
                     callback_data=(
                         f"myfavqry_{req}_{id_}_{str(int(page)+1)}"
                         +f"_{sighs}_{duser}"
@@ -1056,7 +1056,7 @@ async def get_user_favourites(id_, user, req, page, sighs, duser = None):
     elif int(page) == int(data['pageInfo']['lastPage']):
         btn.append([
             InlineKeyboardButton(
-                "Prev",
+                "⬅️ Prev",
                 callback_data=(
                     f"myfavqry_{req}_{id_}_{str(int(page)-1)}_{sighs}_{duser}"
                 )
@@ -1065,13 +1065,13 @@ async def get_user_favourites(id_, user, req, page, sighs, duser = None):
     else:
         btn.append([
             InlineKeyboardButton(
-                "Prev",
+                "⬅️ Prev",
                 callback_data=(
                     f"myfavqry_{req}_{id_}_{str(int(page)-1)}_{sighs}_{duser}"
                 )
             ),
             InlineKeyboardButton(
-                "Next",
+                "Next ➡️",
                 callback_data=(
                     f"myfavqry_{req}_{id_}_{str(int(page)+1)}_{sighs}_{duser}"
                 )
@@ -1079,7 +1079,7 @@ async def get_user_favourites(id_, user, req, page, sighs, duser = None):
         ])
     btn.append([
         InlineKeyboardButton(
-            "Back", callback_data=f"myfavs_{id_}_{sighs}_{user}"
+            "◀️ Back", callback_data=f"myfavs_{id_}_{sighs}_{user}"
         )
     ])
     return [
@@ -1693,17 +1693,17 @@ Average Score: `{manga['meanScore']}`
     if not "user" in req:
         btn.append([
             InlineKeyboardButton(
-                "Favourites",
+                "🌟 Favourites",
                 callback_data=f"myfavs_{data['id']}_yes_{display_user}"
             ),
             InlineKeyboardButton(
-                "Activity",
+                "💡 Activity",
                 callback_data=f"myacc_{data['id']}_{display_user}"
             )
         ])
     btn.append([
         InlineKeyboardButton(
-            "Profile", url=str(data['siteUrl'])
+            "👤 Profile", url=str(data['siteUrl'])
         )
     ])
     return [
