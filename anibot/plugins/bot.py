@@ -464,7 +464,7 @@ ID: `{user}`""",
 
 
 @anibot.on_message(
-    filters.private & filters.command(['help', f'help{BOT_NAME}'], prefixes=trg)
+    filters.private & filters.command(['hp', f'hp{BOT_NAME}'], prefixes=trg)
 )
 @control_user
 async def help_(client: Client, message: Message, mdata: dict):
