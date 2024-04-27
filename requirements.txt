@@ -15,5 +15,4 @@ html5lib
 Flask==2.2.2
 gunicorn==20.1.0
 pillow==9.5.0
-unidecode
 pytz
