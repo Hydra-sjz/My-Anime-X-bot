@@ -483,13 +483,16 @@ async def help_(client: Client, message: Message, mdata: dict):
         )
         return
     buttons = help_btns(id_)
-    text='''This is a small guide on how to use me
+    text='''__This is a small guide on how to use me
     
 **Basic Commands:**
 Use /ping or !ping cmd to check if bot is online
 Use /start or !start cmd to start bot in group or pm
 Use /help or !help cmd to get interactive help on available bot cmds
-Use /feedback cmd to contact bot owner'''
+Use /feedback cmd to contact bot owner__
+
+©️ @XBOTS_X
+'''
     if id_ in OWNER:
         await client.send_message(gid, text=text, reply_markup=buttons)
         await client.send_message(
@@ -580,7 +583,7 @@ async def connect_(client: Client, message: Message, mdata: dict):
                     text=(
                         "Channel already connected"
                         +"\nIf someone else has access to it who doesn't own "
-                        +"the channel, contact @hanabi_support"
+                        +"the channel, contact @XBOTS_X"
                     )
                 )
                 return
