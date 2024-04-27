@@ -32,8 +32,9 @@ __Hey there {} Welcome to my ๛ {} Group🎵__
 × User name: @{}
 × User ID: `{}`
 
- ๛ {} Your are here {count}Th member of the group!
-Time » {}
+ ๛ {} Your are here {}Th member of the group!
+Joined On:
+{}
 
 [Read Rules!!](http://t.me/Hydra_Maneger_bot?start=regole_-1001671054664)
 """
@@ -69,7 +70,7 @@ markup2 = InlineKeyboardMarkup(
 async def welcome(bot, message: Message):
     count = await bot.get_chat_members_count(message.chat.id)
     datetime_ist = datetime.now(IST)
-    joined_date = datetime_ist.strftime("`%I:%M:%S %p`\nDate: `%d/%B/%Y`")
+    joined_date = datetime_ist.strftime("`%I:%M %p` | (%d/%B/%Y)")
     ab = await message.reply_photo(
         photo=random.choice(PICS),
         caption=wlc_text.format(message.from_user.mention, message.chat.title, message.from_user.first_name, message.from_user.username, message.from_user.id, message.from_user.first_name, count, joined_date),
