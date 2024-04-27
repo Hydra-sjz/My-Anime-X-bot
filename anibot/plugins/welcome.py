@@ -93,8 +93,8 @@ async def auto_state(_, message):
 """
 #bhag 
 
-@app.on_chat_member_updated(filters.new_chat_members, group=-3)
-async def greet_group(bot, member: ChatMemberUpdated):
+@app.on_chat_member_updated(filters.new_chat_members)
+async def greet_group(bot, member):
     chat_id = member.chat.id
     count = await bot.get_chat_members_count(member.chat.id)
     datetime_ist = datetime.now(IST)
