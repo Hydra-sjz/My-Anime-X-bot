@@ -141,7 +141,15 @@ Use /watch cmd to get watch order of searched anime
 
 Use /fillers cmd to get a list of fillers for an anime
 
-Use /quote cmd to get a random quote__ 
+Use /quote cmd to get a random quote
+
+Use /studio give a query to search about anime!!!
+
+Use /airing give a query to search about airing
+
+Just type /browse to get anime list
+
+Use /gettags to get Anime #tags__ 
 
 ©️ @XBOTS_X
 """
