@@ -299,6 +299,12 @@ Use /unzip Reply to Zipped files to separates files from zip.
 **Whisper:**
 Use `@GojoSatoru_Xbot (Target Username or ID) (Your Message)` In inline to use this on group.
 Use /imdb [Movename/Series Name]­ Get information about a Movie/Series­..
+Use /googleimg It retrieves and displays images obtained through a Google image search.
+Use /google_search To get Google search result with links.
+Use /bingimg It retrieves and displays images obtained through a Bing image search.
+Use /bingsearch To get Bing search result with links.
+Use /news_search To search Latest news.
+Use /wikisearch To Search Wikipedia quarys.
 
 ©️ @XBOTS_X
 """
