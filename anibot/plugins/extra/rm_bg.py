@@ -58,7 +58,7 @@ async def RemoveBG(input_file_name):
 bgr = InlineKeyboardMarkup(
                [
                    [
-                      InlineKeyboardButton('My Group', url='https://t.me/songdownload_group')
+                      InlineKeyboardButton('My Channel', url='https://t.me/xbots_x')
                    ]
                ]
          )
