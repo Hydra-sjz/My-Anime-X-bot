@@ -13,6 +13,7 @@ apscheduler
 lxml
 lexica-api
 lottie
+imdbpy
 html5lib
 httpx[http2]
 Flask==2.2.2
