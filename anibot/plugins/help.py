@@ -347,6 +347,7 @@ Use /bing2 search any from Bing browser.
 Use /info To get your information.
 Use /upscale Upscales your image quality.
 Use /tagall to Mention all members in Group, or you can type /stop to mentioning to.__
+Use /generate to generate your fakemail address.
 
 ©️ @XBOTS_X
 """
