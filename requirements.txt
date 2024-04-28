@@ -22,3 +22,4 @@ gtts
 pillow==9.5.0
 pytz
 openai==0.28.0
+wikipedia
