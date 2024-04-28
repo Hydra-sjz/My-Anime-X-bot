@@ -49,7 +49,7 @@ async def hlp_cmd(bot, message):
     await message.reply_photo(
         photo="https://telegra.ph/file/6efbdbcb4038e995ac6af.jpg",
         caption=hlp_cmd, 
-        reply_markup=hlp_bt 
+        reply_markup=hlp_bt,
     )
     await message.delete()
 
