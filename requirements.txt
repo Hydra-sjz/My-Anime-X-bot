@@ -16,6 +16,7 @@ lottie
 html5lib
 Flask==2.2.2
 gunicorn==20.1.0
+google-generativeai
 gtts
 pillow==9.5.0
 pytz
