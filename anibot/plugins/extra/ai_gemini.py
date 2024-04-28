@@ -80,7 +80,7 @@ AISELL = """
 
 
 #=×=×=×=×=×=×=×=×=×=×=×=×=×=×=×=×=×=×=×=×=×=×=×=×=×=×=×=×=×=×=×=×=×=×=×=×=×=×=×=×=×=×=×=×=×=×=×=×=×=×=×=×=×=×=×=×=×
-@app.on_message(filters.command("askai", CMD) & pyro_cooldown.wait(10))
+@app.on_message(filters.command("askai"))
 async def say_ask(bot, message: Message):
     try:
         i = await message.reply_text("<code>Please Wait...</code>")
@@ -106,7 +106,7 @@ async def say_ask(bot, message: Message):
         await i.delete()
         await message.reply_text(f"An error occurred: {str(e)}")
 
-@app.on_message(filters.command("aii", CMD) & pyro_cooldown.wait(10))
+@app.on_message(filters.command("aii"))
 async def getaie(bot, message: Message):
     try:
         i = await message.reply_text("<code>Please Wait. Extracting image...</code>")
@@ -127,7 +127,7 @@ async def getaie(bot, message: Message):
         await i.delete()
         await message.reply_text(str(e))
 
-@app.on_message(filters.command("aicook", CMD) & pyro_cooldown.wait(10))
+@app.on_message(filters.command("aicook"))
 async def say_cook(bot, message: Message):
     try:
         i = await message.reply_text("<code>Some thing Cooking. please wait...</code>")
@@ -152,7 +152,7 @@ async def say_cook(bot, message: Message):
         await i.delete()
         await message.reply_text(f"please reply to an image.")
       
-@app.on_message(filters.command("aiseller", CMD) & pyro_cooldown.wait(10))
+@app.on_message(filters.command("aiseller"))
 async def say_sell(bot, message: Message):
     try:
         i = await message.reply_text("<code>Generating your request. please wait...</code>")
