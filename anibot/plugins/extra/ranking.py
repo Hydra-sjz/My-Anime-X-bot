@@ -83,7 +83,7 @@ async def today_(bot, message):
         sorted_users_data = sorted(users_data, key=lambda x: x[1], reverse=True)[:10]
 
         if sorted_users_data:
-            response = "**✦ 📈 ᴛᴏᴅᴀʏ ʟᴇᴀᴅᴇʀʙᴏᴀʀᴅ**\n\n"
+            response = "**📈 Today Leaderboard**\n\n"
             for idx, (user_id, total_messages) in enumerate(sorted_users_data, start=1):
                 try:
                     user_name = (await bot.get_users(user_id)).first_name
@@ -93,13 +93,13 @@ async def today_(bot, message):
                 response += user_info
             button = InlineKeyboardMarkup(
                 [[    
-                   InlineKeyboardButton("ᴏᴠᴇʀᴀʟʟ ʟᴇᴀᴅᴇʀʙᴏᴀʀᴅ", callback_data="overall"),
+                   InlineKeyboardButton("Overall Leaderboard", callback_data="overall"),
                 ]])
             await message.reply_photo(random.choice(MISHI), caption=response, reply_markup=button)
         else:
-            await message.reply_text("❅ ɴᴏ ᴅᴀᴛᴀ ᴀᴠᴀɪʟᴀʙʟᴇ ғᴏʀ ᴛᴏᴅᴀʏ.")
+            await message.reply_text("No data available for today.")
     else:
-        await message.reply_text("❅ ɴᴏ ᴅᴀᴛᴀ ᴀᴠᴀɪʟᴀʙʟᴇ ғᴏʀ ᴛᴏᴅᴀʏ.")
+        await message.reply_text("No data available for today.")
 
 
 
@@ -107,7 +107,7 @@ async def today_(bot, message):
 async def ranking(bot, message):
     top_members = collection.find().sort("total_messages", -1).limit(10)
 
-    response = "**✦ 📈 ᴄᴜʀʀᴇɴᴛ ʟᴇᴀᴅᴇʀʙᴏᴀʀᴅ**\n\n"
+    response = "**✦ 📈 Current Leaderboard**\n\n"
     for idx, member in enumerate(top_members, start=1):
         user_id = member["_id"]
         total_messages = member["total_messages"]
@@ -120,7 +120,7 @@ async def ranking(bot, message):
         response += user_info 
     button = InlineKeyboardMarkup(
             [[    
-               InlineKeyboardButton("ᴛᴏᴅᴀʏ ʟᴇᴀᴅᴇʀʙᴏᴀʀᴅ", callback_data="today"),
+               InlineKeyboardButton("Today Leaderboard", callback_data="today"),
             ]])
     await message.reply_photo(random.choice(MISHI), caption=response, reply_markup=button)
 
@@ -136,23 +136,23 @@ async def today_rank(bot, query):
         sorted_users_data = sorted(users_data, key=lambda x: x[1], reverse=True)[:10]
 
         if sorted_users_data:
-            response = "**✦ 📈 ᴛᴏᴅᴀʏ ʟᴇᴀᴅᴇʀʙᴏᴀʀᴅ**\n\n"
+            response = "**✦ 📈 Today Leaderboard**\n\n"
             for idx, (user_id, total_messages) in enumerate(sorted_users_data, start=1):
                 try:
                     user_name = (await bot.get_users(user_id)).first_name
                 except:
                     user_name = "Unknown"
-                user_info = f"**{idx}**.   {user_name} ➠ {total_messages}\n"
+                user_info = f"**{idx}**.   {user_name} » {total_messages}\n"
                 response += user_info
             button = InlineKeyboardMarkup(
                 [[    
-                   InlineKeyboardButton("ᴏᴠᴇʀᴀʟʟ ʟᴇᴀᴅᴇʀʙᴏᴀʀᴅ", callback_data="overall"),
+                   InlineKeyboardButton("Overall Leaderboard", callback_data="overall"),
                 ]])
             await query.message.edit_text(response, reply_markup=button)
         else:
-            await query.answer("❅ ɴᴏ ᴅᴀᴛᴀ ᴀᴠᴀɪʟᴀʙʟᴇ ғᴏʀ ᴛᴏᴅᴀʏ.")
+            await query.answer("No data available for today.")
     else:
-        await query.answer("❅ ɴᴏ ᴅᴀᴛᴀ ᴀᴠᴀɪʟᴀʙʟᴇ ғᴏʀ ᴛᴏᴅᴀʏ.")
+        await query.answer("No data available for today.")
 
 
 
@@ -160,7 +160,7 @@ async def today_rank(bot, query):
 async def overall_rank(bot, query):
     top_members = collection.find().sort("total_messages", -1).limit(10)
 
-    response = "**✦ 📈 ᴏᴠᴇʀᴀʟʟ ʟᴇᴀᴅᴇʀʙᴏᴀʀᴅ**\n\n"
+    response = "**✦ 📈 Overall Leaderboard**\n\n"
     for idx, member in enumerate(top_members, start=1):
         user_id = member["_id"]
         total_messages = member["total_messages"]
@@ -169,10 +169,10 @@ async def overall_rank(bot, query):
         except:
             user_name = "Unknown"
 
-        user_info = f"**{idx}**.   {user_name} ➠ {total_messages}\n"
+        user_info = f"**{idx}**.   {user_name} » {total_messages}\n"
         response += user_info 
     button = InlineKeyboardMarkup(
             [[    
-               InlineKeyboardButton("ᴛᴏᴅᴀʏ ʟᴇᴀᴅᴇʀʙᴏᴀʀᴅ", callback_data="today"),
+               InlineKeyboardButton("Today Leaderboard", callback_data="today"),
             ]])
     await query.message.edit_text(response, reply_markup=button)
