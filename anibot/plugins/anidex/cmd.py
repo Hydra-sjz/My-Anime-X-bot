@@ -12,7 +12,7 @@ from anibot.plugins.anidex.stats import day, over
 QUERY = '**Search Results:** `{}`'
 
 
-@app.on_message(filters.command(['asearch', 's']))
+@app.on_message(filters.command(['anidex'))
 async def searcdhCMD(_, message: Message):
     try:
         user = message.from_user.id
@@ -29,8 +29,8 @@ async def searcdhCMD(_, message: Message):
             return
 
 
-@app.on_message(filters.command('stats'))
-async def stats(_, message: Message):
+@app.on_message(filters.command('sta'))
+async def statffs(_, message: Message):
     try:
         await message.reply_text('Use /stats1 For Day Wise Stats\nAnd /stats2 For Overall Stats')
     except:
