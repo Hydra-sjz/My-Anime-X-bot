@@ -4,13 +4,15 @@ requests
 aiofiles>=0.6.0
 aiohttp[speedups]>=3.7.3
 tracemoepy
-lottie
+
 bs4
 motor
 dnspython
 natsort
 apscheduler
 lxml
+lexica-api
+lottie
 html5lib
 Flask==2.2.2
 gunicorn==20.1.0
