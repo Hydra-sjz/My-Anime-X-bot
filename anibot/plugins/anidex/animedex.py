@@ -1,7 +1,7 @@
 import requests
 import urllib.parse
 from bs4 import BeautifulSoup as bs
-from mbot.plugins.aniplay.other import emoji
+from anibot.plugins.anidex.other import emoji
 
 
 class AnimeDex:
