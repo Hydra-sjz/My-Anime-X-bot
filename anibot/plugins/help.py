@@ -28,7 +28,7 @@ Use /feedback cmd to contact bot owner__
 
 ©️ @XBOTS_X
 """
-startbt = InlineKeyboardMarkup(
+hlp_bt = InlineKeyboardMarkup(
         [
             [
                 InlineKeyboardButton('Additional', callback_data="adl"),
@@ -47,7 +47,7 @@ async def hlp_cmd(bot, message):
     await bot.send_message(LOG_CHANNEL_ID, SPO.format(message.from_user.mention, message.from_user.username, message.from_user.dc_id, message.from_user.id))
     await message.reply_text(
         text=hlp_cmd.format(message.from_user.first_name), 
-        reply_markup=hlpbt,
+        reply_markup=hlp_bt,
     )
     await message.delete()
 
@@ -57,7 +57,7 @@ async def cb_handler(bot, update):
     if update.data == "hlp":
         await update.message.edit_text(
             text=hlp_cmd.format(update.from_user.first_name), #update.from_user.first_name
-            reply_markup=startbt,
+            reply_markup=hlp_bt,
             disable_web_page_preview=True
         )
         await update.answer("👋Hey i am Gojo Satoru 𝕏 Bot")
