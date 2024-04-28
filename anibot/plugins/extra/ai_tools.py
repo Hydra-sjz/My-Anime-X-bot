@@ -5,7 +5,7 @@ from pyrogram import filters, Client
 import requests
 from anibot import anibot as app
 from pyrogram.enums import ChatAction, ParseMode
-#from gtts import gTTS
+from gtts import gTTS
 import requests
 import requests as r
 from config import GPT_API, DEEP_API
@@ -18,12 +18,13 @@ openai.api_key = GPT_API
 
 api_key = DEEP_API
 
+API_URL = "https://sugoi-api.vercel.app/search"
 
 # ----------------------------------------
 
 
 
-@app.on_message(filters.command(["ai"],  prefixes=["/"]))
+@app.on_message(filters.command(["ai"]))
 async def chat_gpt(bot, message):
     try:
         start_time = time.time()
@@ -44,7 +45,7 @@ async def chat_gpt(bot, message):
                     end_time = time.time()
                     telegram_ping = str(round((end_time - start_time) * 1000, 3)) + " ms"
                     await message.reply_text(
-                        f" {x}      ᴀɴsᴡᴇʀɪɴɢ ʙʏ ➛  @GojoSatoru_Xbot",
+                        f" {x}      ©️  @GojoSatoru_Xbot",
                         parse_mode=ParseMode.MARKDOWN
                     )
                 else:
@@ -55,7 +56,8 @@ async def chat_gpt(bot, message):
     except Exception as e:
         await message.reply_text(f"**á´‡Ê€Ê€á´Ê€: {e} ")
 
-#=======
+
+#(;)-8-8
 api_url_gpt = "https://nandha-api.onrender.com/ai/gpt"
 api_url_bard = "https://nandha-api.onrender.com/ai/bard"
 
@@ -70,7 +72,7 @@ def fetch_data(api_url: str, query: str) -> tuple:
     except Exception as e:
         return None, f"An error occurred: {str(e)}"
 
-@app.on_message(filters.command(["chatg1", "task", "gput"]))
+@app.on_message(filters.command(["chatg1"]))
 async def chatgptt(_, message):
     if len(message.command) < 2:
         return await message.reply_text("**Please provide a query.**")
@@ -81,7 +83,7 @@ async def chatgptt(_, message):
     api_response, error_message = fetch_data(api_url_gpt, query)
     await txt.edit(api_response or error_message)
 
-#==========
+#(:8:8
 
 @app.on_message(filters.command(["tbard", "gemini"]))
 async def bardb(_, message):
@@ -136,7 +138,7 @@ async def bardb(_, message):
 
 
 # ----------------------------------------
-@app.on_message(filters.command(["chatgpt2","ai","ask"],  prefixes=["+", ".", "/", "-", "?", "$","#","&"]))
+@app.on_message(filters.command(["chatgpt2"]))
 async def chat(app :app, message):
     
     try:
@@ -158,7 +160,58 @@ async def chat(app :app, message):
 # --------------------------------------------------------------------------------
 # --------------------------------------------------------------------------------
 
-@app.on_message(filters.command(["deep"],  prefixes=["+", ".", "/", "-", "?", "$", "#", "&"]))
+@app.on_message(filters.command(["iri" , ]))
+async def chat(app :app, message):
+    
+    try:
+        start_time = time.time()
+        await app.send_chat_action(message.chat.id, ChatAction.TYPING)
+        if len(message.command) < 2:
+            await message.reply_text(
+            "**ʜᴇʟʟᴏ sɪʀ**\n**ᴇxᴀᴍᴘʟᴇ:-**`.ask How to set girlfriend ?`")
+        else:
+            a = message.text.split(' ', 1)[1]
+            MODEL = "gpt-3.5-turbo"
+            resp = openai.ChatCompletion.create(model=MODEL,messages=[{"role": "user", "content": a}],
+    temperature=0.2)
+            x=resp['choices'][0]["message"]["content"]
+            await message.reply_text(f"{x}")     
+    except Exception as e:
+        await message.reply_text(f"**ᴇʀʀᴏʀ**: {e} ")        
+
+
+# --------------------------------------------------------------------------------
+# --------------------------------------------------------------------------------
+
+@app.on_message(filters.command(["assis"]))
+async def chat(app :app, message):
+    
+    try:
+        start_time = time.time()
+        await app.send_chat_action(message.chat.id, ChatAction.TYPING)
+        if len(message.command) < 2:
+            await message.reply_text(
+            "**ʜᴇʟʟᴏ sɪʀ**\n**ᴇxᴀᴍᴘʟᴇ:-**`.assis How to set girlfriend ?`")
+        else:
+            a = message.text.split(' ', 1)[1]
+            MODEL = "gpt-3.5-turbo"
+            resp = openai.ChatCompletion.create(model=MODEL,messages=[{"role": "user", "content": a}],
+    temperature=0.2)
+            x=resp['choices'][0]["message"]["content"]
+            text = x    
+            tts = gTTS(text, lang='en')
+            tts.save('output.mp3')
+            await app.send_voice(chat_id=message.chat.id, voice='output.mp3')
+            os.remove('output.mp3')            
+            
+    except Exception as e:
+        await message.reply_text(f"**ᴇʀʀᴏʀ**: {e} ") 
+        
+        
+# --------------------------------------------------------------------------------
+# --------------------------------------------------------------------------------
+
+@app.on_message(filters.command(["deep"]))
 async def deepchat(app: app, message):
     name = message.from_user.first_name
     try:
@@ -187,7 +240,7 @@ async def deepchat(app: app, message):
 #--------------------------------------------------------------------------------
 #--------------------------------------------------------------------------------
 
-@app.on_message(filters.command(["qu" , ],  prefixes=["e","E"]))
+@app.on_message(filters.command(["qu"]))
 async def deepchat(app: app, message):
     name = message.from_user.first_name
     try:
@@ -213,3 +266,32 @@ async def deepchat(app: app, message):
         await message.reply_text(f"ᴇʀʀᴏʀ: {e}")
 
 # -----------------------------------------------------------------------------------
+
+@app.on_message(filters.command(["bing2"]))
+async def bing_search(app, message):
+    try:
+        if len(message.command) == 1:
+            await message.reply_text("Please provide a keyword to search.")
+            return
+
+        keyword = " ".join(
+            message.command[1:]
+        )  # Assuming the keyword is passed as arguments
+        params = {"keyword": keyword}
+        response = r.get(API_URL, params=params)
+
+        if response.status_code == 200:
+            results = response.json()
+            if not results:
+                await message.reply_text("No results found.")
+            else:
+                message_text = ""
+                for result in results[:7]:
+                    title = result.get("\x74\x69\x74\x6C\x65", "")
+                    link = result.get("\x6C\x69\x6E\x6B", "")
+                    message_text += f"{title}\n{link}\n\n"
+                await message.reply_text(message_text.strip())
+        else:
+            await message.reply_text("Sorry, something went wrong with the search.")
+    except Exception as e:
+        await message.reply_text(f"An error occurred: {str(e)}")
