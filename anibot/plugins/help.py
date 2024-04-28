@@ -53,7 +53,8 @@ async def hlp_cmd(bot, message):
     )
     await message.delete()
 
-#CALLBACK
+#CALLBACK 1
+"""
 @anibot.on_callback_query()
 async def cb_handler(bot, update):
     if update.data == "hlp":
@@ -100,8 +101,28 @@ async def cb_handler(bot, update):
     elif update.data == "close":
         await update.message.delete()
         await update.answer("Successfully Closed ❌")
+"""
+#===============
 
+#Callback 2=========
 
+@anibot.on_callback_query(filters.regex("help_callback"))
+async def cb_handler(client, CallbackQuery):
+    callback_data = CallbackQuery.data.strip()
+    cb = callback_data.split(None, 1)[1]
+    if cb == "hlp":
+        await CallbackQuery.edit_message_text(
+            text=hlp_cmd, 
+            reply_markup=hlp_bt
+        )
+    elif cb == "adl":
+        await CallbackQuery.edit_message_text(
+            text=ADL_TEXT, 
+            reply_markup=ADL_BUTTONS
+        )
+    
+
+#==========≠==
 
 
 ADL_TEXT = """
