@@ -62,7 +62,7 @@ bgr = InlineKeyboardMarkup(
                    ]
                ]
          )
-@app.on_message(filters.command("rmbg", CMD) & pyro_cooldown.wait(10))
+@app.on_message(filters.command("rmbg"))
 async def rmbg(bot, message):
   rmbg = await message.reply("__Processing your image...__") 
   replied = message.reply_to_message
@@ -85,7 +85,7 @@ async def rmbg(bot, message):
 #===8
 
 
-@app.on_message(filters.command("upscale", CMD) & pyro_cooldown.wait(10))
+@app.on_message(filters.command("upscale"))
 async def upscaleImages(_, message):
     file = await getFile(message)
     if file is None:
