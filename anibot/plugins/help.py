@@ -16,6 +16,23 @@ SPO = """
 ➕➕➕➕➕➕➕➕➕➕➕➕➕
 """
 
+buttons=InlineKeyboardMarkup(
+                             [
+                             [
+            InlineKeyboardButton('Generate', callback_data='generate'),
+            InlineKeyboardButton('Refresh', callback_data='refresh'),
+            InlineKeyboardButton('Close', callback_data='close')
+                   ] 
+                             ])
+
+msg_buttons=InlineKeyboardMarkup(
+                             [
+                             [
+            InlineKeyboardButton('View message', callback_data='view_msg'),
+            InlineKeyboardButton('Close', callback_data='close')
+                   ] 
+                             ])
+
 
 
 hlp_cmd = """
