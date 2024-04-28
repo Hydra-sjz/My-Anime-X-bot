@@ -28,6 +28,8 @@ Use /feedback cmd to contact bot owner__
 
 ©️ @XBOTS_X
 """
+
+
 hlp_bt = InlineKeyboardMarkup(
         [
             [
@@ -46,7 +48,7 @@ async def hlp_cmd(bot, message):
     await bot.send_message(LOG_CHANNEL_ID, SPO.format(message.from_user.mention, message.from_user.username, message.from_user.dc_id, message.from_user.id))
     await message.reply_photo(
         photo="https://telegra.ph/file/6efbdbcb4038e995ac6af.jpg",
-        text=hlp_cmd, 
+        caption=hlp_cmd, 
         reply_markup=hlp_bt 
     )
     await message.delete()
