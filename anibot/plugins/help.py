@@ -39,7 +39,7 @@ hlp_bt = InlineKeyboardMarkup(
                 InlineKeyboardButton("👥 Group", callback_data="grp"),
                 InlineKeyboardButton("🕵️ Oauth", callback_data="oth")
             ],[
-                InlineKeyboardButton("➕ Extras", callback_data="oth")
+                InlineKeyboardButton("➕ Extras", callback_data="ext")
             ]
         ]
 )
@@ -102,8 +102,15 @@ async def cb_handler(bot, update):
         
     elif update.data == "ext":
         await update.message.edit_text(
-            text=OTH_TEXT,
-            reply_markup=OTH_BUTTONS,
+            text=EXT_TEXT,
+            reply_markup=EXT_BUTTONS,
+            disable_web_page_preview=True
+        )
+        await update.answer("👋Hey i am Gojo Satoru 𝕏 Bot")
+    elif update.data == "ext2":
+        await update.message.edit_text(
+            text=EXT2_TEXT,
+            reply_markup=EXT2_BUTTONS,
             disable_web_page_preview=True
         )
         await update.answer("👋Hey i am Gojo Satoru 𝕏 Bot")
@@ -253,22 +260,51 @@ OTH_BUTTONS = InlineKeyboardMarkup(
         ]]
     ) 
 
-_TEXT = """
+EXT_TEXT = """
+__I have some more Extra commands, you can just try it out.
 
+Use /afk [Reason > Optional] - Tell others that you are AFK (Away From Keyboard).
+/afk [reply to media] - AFK with media.
+Use /askai Ask questions using ai for responding to user queries feom Gamini.
+Use /aii Reply to image to containing text that you want transcripts, and  I'll process the image and provide you with the transcribed text.
+Use /aicook Reply to image To get cooking instruction of the food in it.
+Use /aiseller Reply to image and create you product desc.
+Use /gptai /gpt2 /iri /assis Ask anything to gpt ai.
+Use /bard Ask anything to Bard ai.
+Use /deep ask questions to Deep Ai.
+Use /bing2 search any from Bing browser.
+Use /info To get your information.
+Use /upscale Upscales your image quality.
+Use /tagall to Mention all members in Group, or you can type /stop to mentioning to.__
+
+©️ @XBOTS_X
 """
-_BUTTONS = InlineKeyboardMarkup(
+EXT_BUTTONS = InlineKeyboardMarkup(
         [[
         InlineKeyboardButton("⬅️ Back", callback_data="hlp"),
-        InlineKeyboardButton("❌ Cancel", callback_data="close")
+        InlineKeyboardButton("❌ Cancel", callback_data="close"),
+        InlineKeyboardButton("Next ➡️", callback_data="ext2")
         ]]
     ) 
 
-_TEXT = """
+EXT2_TEXT = """
+**Extraas 2**
+__Use /ranking /today to Check it out your Top ranking.
+Use /nightmode To set your group night Mod.
+Use /rmbg Reply to image to remove Background.
+Use /sangmata_set [on/off] created simple detection to check user data include username, first_name, and last_name sangmata in groups.
+Use /tmdb to get Move informations from The Movie Database [[TMDB](https://www.themoviedb.org)]
+Use /unpic, /unrand to get images from [Unsplash](https://unsplash.com/)
+Use /unzip Reply to Zipped files to separates files from zip.
+**Whisper:**
+Use `@GojoSatoru_Xbot (Target Username or ID) (Your Message)` In inline to use this on group.
 
+
+©️ @XBOTS_X
 """
-_BUTTONS = InlineKeyboardMarkup(
+EXT2_BUTTONS = InlineKeyboardMarkup(
         [[
-        InlineKeyboardButton("⬅️ Back", callback_data="hlp"),
+        InlineKeyboardButton("⬅️ Back", callback_data="ext"),
         InlineKeyboardButton("❌ Cancel", callback_data="close")
         ]]
     ) 
