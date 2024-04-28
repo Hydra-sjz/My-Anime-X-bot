@@ -8,10 +8,6 @@ from anibot.plugins.anidex.stats import day, over
 
 
 
-
-QUERY = '**Search Results:** `{}`'
-
-
 @app.on_message(filters.command(['anidex'))
 async def searcdhCMD(_, message: Message):
     try:
@@ -21,7 +17,7 @@ async def searcdhCMD(_, message: Message):
             return await message.reply_text('Give me something to search ^_^')
         data = AnimeDex.search(query)
         button = BTN.searchCMD(user, data, query)
-        await message.reply_text(QUERY.format(query), reply_markup=button)
+        await message.reply_text(f"**Search Results:** `{query}`", reply_markup=button)
     except Exception as e:
         try:
             return await message.reply_text('**Anime Not Found...**\n\nProbably Incorrect Name, Try again')
