@@ -60,7 +60,7 @@ async def hlp_cmd(bot, message):
 email=''
 @anibot.on_callback_query()
 async def cb_handler(bot, update):
-    response=message.data
+    response=update.data
     
     if update.data == "hlp":
         await update.message.edit_text(
@@ -73,7 +73,7 @@ async def cb_handler(bot, update):
     elif response=='generate':
        global email
        email = re.get("https://www.1secmail.com/api/v1/?action=genRandomMailbox&count=1").json()[0]
-       await message.edit_message_text('__**Your Temporary E-mail: **__`'+str(email)+'`',
+       await update.edit_message_text('__**Your Temporary E-mail: **__`'+str(email)+'`',
                                        reply_markup=buttons)
        print(email)
 
@@ -81,7 +81,7 @@ async def cb_handler(bot, update):
         print(email)
         try:
             if email=='':
-                await message.edit_message_text('Genaerate a email',reply_markup=buttons)
+                await update.edit_message_text('Genaerate a email',reply_markup=buttons)
             else: 
                 getmsg_endp =  "https://www.1secmail.com/api/v1/?action=getMessages&login=" + email[:email.find("@")] + "&domain=" + email[email.find("@") + 1:]
                 print(getmsg_endp)
@@ -91,10 +91,10 @@ async def cb_handler(bot, update):
                 from_msg=ref_response[0]['from']
                 subject=ref_response[0]['subject']
                 refreshrply='You a message from '+from_msg+'\n\nSubject : '+subject
-                await message.edit_message_text(refreshrply,
+                await update.edit_message_text(refreshrply,
                                                 reply_markup=msg_buttons)
         except:
-            await message.answer('No messages were received..\nin your Mailbox '+email)
+            await update.answer('No messages were received..\nin your Mailbox '+email)
     elif response=='view_msg':
         msg =re.get("https://www.1secmail.com/api/v1/?action=readMessage&login=" + email[:email.find("@")] + "&domain=" + email[email.find("@") + 1:] + "&id=" + idnum).json()
         print(msg)
@@ -107,24 +107,21 @@ async def cb_handler(bot, update):
             pass
         body=msg['body']
         mailbox_view='ID No : '+idnum+'\nFrom : '+from_mail+'\nDate : '+date+'\nSubject : '+subjectt+'\nmessage : \n'+body
-        await message.edit_message_text(mailbox_view,reply_markup=buttons)
+        await update.edit_message_text(mailbox_view,reply_markup=buttons)
         mailbox_view='ID No : '+idnum+'\nFrom : '+from_mail+'\nDate : '+date+'\nSubject : '+subjectt+'\nmessage : \n'+body
         if attachments == "[]":
-            await message.edit_message_text(mailbox_view,reply_markup=buttons)
-            await message.answer("No Messages Were Recieved..", show_alert=True)
+            await update.edit_message_text(mailbox_view,reply_markup=buttons)
+            await update.answer("No Messages Were Recieved..", show_alert=True)
         else:
             dlattach=attachments['filename']
             attc="https://www.1secmail.com/api/v1/?action=download&login=" + email[:email.find("@")] + "&domain=" + email[email.find("@") + 1:] + "&id=" + idnum+"&file="+dlattach
             print(attc)
             mailbox_vieww='ID No : '+idnum+'\nFrom : '+from_mail+'\nDate : '+date+'\nSubject : '+subjectt+'\nmessage : \n'+body+'\n\n'+'[Download]('+attc+') Attachments'
             filedl=wget.download(attc)
-            await message.edit_message_text(mailbox_vieww,reply_markup=buttons)
+            await update.edit_message_text(mailbox_vieww,reply_markup=buttons)
             os.remove(dlattach)
-
-
     
  #MAINE CM
-   
     elif update.data == "adl":
         await update.message.edit_text(
             text=ADL_TEXT,
