@@ -1,8 +1,9 @@
 from pyrogram import filters
 from pyrogram.types import CallbackQuery, InlineKeyboardButton, InlineKeyboardMarkup
 from anibot import anibot, LOG_CHANNEL_ID
-
-
+import wget
+import requests as re
+from pyrogram import *
 SPO = """
 ➡️ **☠️LOG STURO☠️** ⬅️
 
@@ -56,9 +57,11 @@ async def hlp_cmd(bot, message):
     await message.delete()
 
 #CALLBACK 1
-
+email=''
 @anibot.on_callback_query()
 async def cb_handler(bot, update):
+    response=message.data
+    
     if update.data == "hlp":
         await update.message.edit_text(
             text=hlp_cmd, #update.from_user.first_name
@@ -66,7 +69,61 @@ async def cb_handler(bot, update):
             disable_web_page_preview=True
         )
         await update.answer("👋Hey i am Gojo Satoru 𝕏 Bot")
-#MAINE CM
+
+    elif response=='generate':
+       global email
+       email = re.get("https://www.1secmail.com/api/v1/?action=genRandomMailbox&count=1").json()[0]
+       await message.edit_message_text('__**Your Temporary E-mail: **__`'+str(email)+'`',
+                                       reply_markup=buttons)
+       print(email)
+
+    elif response=='refresh':
+        print(email)
+        try:
+            if email=='':
+                await message.edit_message_text('Genaerate a email',reply_markup=buttons)
+            else: 
+                getmsg_endp =  "https://www.1secmail.com/api/v1/?action=getMessages&login=" + email[:email.find("@")] + "&domain=" + email[email.find("@") + 1:]
+                print(getmsg_endp)
+                ref_response = re.get(getmsg_endp).json()
+                global idnum
+                idnum=str(ref_response[0]['id'])
+                from_msg=ref_response[0]['from']
+                subject=ref_response[0]['subject']
+                refreshrply='You a message from '+from_msg+'\n\nSubject : '+subject
+                await message.edit_message_text(refreshrply,
+                                                reply_markup=msg_buttons)
+        except:
+            await message.answer('No messages were received..\nin your Mailbox '+email)
+    elif response=='view_msg':
+        msg =re.get("https://www.1secmail.com/api/v1/?action=readMessage&login=" + email[:email.find("@")] + "&domain=" + email[email.find("@") + 1:] + "&id=" + idnum).json()
+        print(msg)
+        from_mail=msg['from']
+        date=msg['date']
+        subjectt=msg['subject']
+        try:
+          attachments=msg['attachments'][0]
+        except:
+            pass
+        body=msg['body']
+        mailbox_view='ID No : '+idnum+'\nFrom : '+from_mail+'\nDate : '+date+'\nSubject : '+subjectt+'\nmessage : \n'+body
+        await message.edit_message_text(mailbox_view,reply_markup=buttons)
+        mailbox_view='ID No : '+idnum+'\nFrom : '+from_mail+'\nDate : '+date+'\nSubject : '+subjectt+'\nmessage : \n'+body
+        if attachments == "[]":
+            await message.edit_message_text(mailbox_view,reply_markup=buttons)
+            await message.answer("No Messages Were Recieved..", show_alert=True)
+        else:
+            dlattach=attachments['filename']
+            attc="https://www.1secmail.com/api/v1/?action=download&login=" + email[:email.find("@")] + "&domain=" + email[email.find("@") + 1:] + "&id=" + idnum+"&file="+dlattach
+            print(attc)
+            mailbox_vieww='ID No : '+idnum+'\nFrom : '+from_mail+'\nDate : '+date+'\nSubject : '+subjectt+'\nmessage : \n'+body+'\n\n'+'[Download]('+attc+') Attachments'
+            filedl=wget.download(attc)
+            await message.edit_message_text(mailbox_vieww,reply_markup=buttons)
+            os.remove(dlattach)
+
+
+    
+ #MAINE CM
    
     elif update.data == "adl":
         await update.message.edit_text(
