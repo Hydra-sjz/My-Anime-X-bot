@@ -40,25 +40,13 @@ hlp_bt = InlineKeyboardMarkup(
         ]
 )
 
-start_cmd = """
-Hello {} Welcome to Gojo Satoru 𝕏 Bot
-"""
-startbt = InlineKeyboardMarkup(
-        [
-            [
-                InlineKeyboardButton('📣 My Channel', url='https://t.me/XBots_X')
-            ],[
-                InlineKeyboardButton("Only for Owner", callback_data="own")
-            ]
-        ]
-)
 
 @anibot.on_message(filters.private & filters.command("help"))
 async def hlp_cmd(bot, message):
     await bot.send_message(LOG_CHANNEL_ID, SPO.format(message.from_user.mention, message.from_user.username, message.from_user.dc_id, message.from_user.id))
     await message.reply_photo(
         photo="https://telegra.ph/file/6efbdbcb4038e995ac6af.jpg",
-        caption=hlp_cmd, 
+        text=hlp_cmd, 
         reply_markup=hlp_bt 
     )
     await message.delete()
@@ -68,7 +56,7 @@ async def hlp_cmd(bot, message):
 async def cb_handler(bot, update):
     if update.data == "hlp":
         await update.message.edit_text(
-            text=hlp_cmd.format(update.from_user.first_name), #update.from_user.first_name
+            text=hlp_cmd, #update.from_user.first_name
             reply_markup=hlp_bt,
             disable_web_page_preview=True
         )
