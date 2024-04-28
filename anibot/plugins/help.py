@@ -298,7 +298,7 @@ Use /unpic, /unrand to get images from [Unsplash](https://unsplash.com/)
 Use /unzip Reply to Zipped files to separates files from zip.
 **Whisper:**
 Use `@GojoSatoru_Xbot (Target Username or ID) (Your Message)` In inline to use this on group.
-
+Use /imdb [Movename/Series Name]­ Get information about a Movie/Series­..
 
 ©️ @XBOTS_X
 """
