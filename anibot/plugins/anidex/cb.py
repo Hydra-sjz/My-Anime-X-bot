@@ -2,7 +2,7 @@ from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from pyrogram.types import Message, CallbackQuery, InputMediaPhoto
 from pyrogram import filters
 from anibot import anibot as app
-from anibot.plugins.anidex.animedex import AnimeDex
+from anibot.plugins.anidex.AnimeDex import AnimeDex
 from anibot.plugins.anidex.button import BTN, cache
 
 QUERY = '**Search Results:** `{}`'
