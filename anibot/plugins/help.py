@@ -45,8 +45,9 @@ hlp_bt = InlineKeyboardMarkup(
 @anibot.on_message(filters.private & filters.command("help"))
 async def hlp_cmd(bot, message):
     await bot.send_message(LOG_CHANNEL_ID, SPO.format(message.from_user.mention, message.from_user.username, message.from_user.dc_id, message.from_user.id))
-    await message.reply_text(
-        text=hlp_cmd.format(message.from_user.first_name), 
+    await message.reply_photo(
+        photo="https://telegra.ph/file/6efbdbcb4038e995ac6af.jpg",
+        caption=hlp_cmd, 
         reply_markup=hlp_bt,
     )
     await message.delete()
