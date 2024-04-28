@@ -1,7 +1,7 @@
 from pyrogram.types import Message
 from pyrogram import filters
 from anibot import anibot as app
-from anibot.plugins.anidex.animedex import AnimeDex
+from anibot.plugins.anidex.AnimeDex import AnimeDex
 from anibot.plugins.anidex.button import BTN
 from anibot.plugins.anidex.stats import day, over
 
