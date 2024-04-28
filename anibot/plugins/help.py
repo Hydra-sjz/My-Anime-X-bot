@@ -33,11 +33,13 @@ Use /feedback cmd to contact bot owner__
 hlp_bt = InlineKeyboardMarkup(
         [
             [
-                InlineKeyboardButton("Additional", callback_data="adl"),
-                InlineKeyboardButton("Anilist", callback_data="anl")
+                InlineKeyboardButton("🍃 Additional", callback_data="adl"),
+                InlineKeyboardButton("🌀 Anilist", callback_data="anl")
              ],[
-                InlineKeyboardButton("Group", callback_data="grp"),
-                InlineKeyboardButton("Oauth", callback_data="oth")
+                InlineKeyboardButton("👥 Group", callback_data="grp"),
+                InlineKeyboardButton("🕵️ Oauth", callback_data="oth")
+            ],[
+                InlineKeyboardButton("➕ Extras", callback_data="oth")
             ]
         ]
 )
@@ -91,6 +93,14 @@ async def cb_handler(bot, update):
         await update.answer("👋Hey i am Gojo Satoru 𝕏 Bot")
 
     elif update.data == "oth":
+        await update.message.edit_text(
+            text=OTH_TEXT,
+            reply_markup=OTH_BUTTONS,
+            disable_web_page_preview=True
+        )
+        await update.answer("👋Hey i am Gojo Satoru 𝕏 Bot")
+        
+    elif update.data == "ext":
         await update.message.edit_text(
             text=OTH_TEXT,
             reply_markup=OTH_BUTTONS,
