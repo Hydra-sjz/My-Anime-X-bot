@@ -6,7 +6,7 @@ from anibot import anibot as app
 TMDB_API_KEY = "23c3b139c6d59ebb608fe6d5b974d888"
 
 
-@app.on_message(filters.command("movie"))
+@app.on_message(filters.command("tmdb"))
 async def movie_command(client, message):
     try:
         # Check if the user provided a movie name after the /movie command
@@ -59,13 +59,13 @@ def get_movie_info(movie_name):
         
         # Format and return movie information
         info = (
-            f"Title: {title}\n\n"
-            f"Release Date: {release_date}\n\n"
-            f"Overview: {overview}\n\n"
-            f"Vote Average: {vote_average}\n\n"
-            f"Actor Names: {actors}\n\n"
-            f"Total Collection: {revenue}\n\n"
-            f"Available Platforms: {providers}\n"
+            f"🔖 **Title:** __{title}__\n\n"
+            f"📅 **Release Date:** `{release_date}`\n"
+            f"📮 **Vote Average:** `{vote_average}`\n"
+            f"📊 **Total Collection:** `{revenue}`\n\n"
+            f"📱 **Available Platforms:** __{providers}__\n"
+            f"🌀 **Overview:** __{overview}__\n\n"
+            f"🕴️ **Actor Names:** __{actors}__\n\n"
         )
         return info
     else:
