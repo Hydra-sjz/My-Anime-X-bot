@@ -17,6 +17,16 @@ def pic(client, message):
     random_pic = get_random_picture()
     if random_pic:
         message.reply_photo(random_pic)
+        message.reply_photo(random_pic)
+        message.reply_photo(random_pic)
+        message.reply_photo(random_pic)
+        message.reply_photo(random_pic)
+        message.reply_photo(random_pic)
+        message.reply_photo(random_pic)
+        message.reply_photo(random_pic)
+        message.reply_photo(random_pic)
+        message.reply_photo(random_pic)
+        message.reply_photo(random_pic)
     else:
         message.reply("Sorry, I couldn't get a random picture at the moment. 😔")
 
@@ -28,7 +38,7 @@ def pic_command(client, message: Message):
     try:
         name = message.command[1]
     except IndexError:
-        client.send_message(message.chat.id, "Please provide a name after the /pic command.")
+        client.send_message(message.chat.id, "Please provide a name after the /unpic command.")
         return
 
    
