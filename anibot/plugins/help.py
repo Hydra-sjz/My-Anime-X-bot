@@ -31,13 +31,24 @@ Use /feedback cmd to contact bot owner__
 hlp_bt = InlineKeyboardMarkup(
         [
             [
-                InlineKeyboardButton('Additional', callback_data="adl"),
-                InlineKeyboardButton('Anilist', callback_data="anl")
-            ],[
+                InlineKeyboardButton("Additional", callback_data="adl"),
+                InlineKeyboardButton("Anilist", callback_data="anl")
+             ],[
                 InlineKeyboardButton("Group", callback_data="grp"),
-                InlineKeyboardButton('Oauth', callback_data="oth")
+                InlineKeyboardButton("Oauth", callback_data="oth")
+            ]
+        ]
+)
+
+start_cmd = """
+Hello {} Welcome to Gojo Satoru 𝕏 Bot
+"""
+startbt = InlineKeyboardMarkup(
+        [
+            [
+                InlineKeyboardButton('📣 My Channel', url='https://t.me/XBots_X')
             ],[
-                InlineKeyboardButton('❌', callback_data="")
+                InlineKeyboardButton("Only for Owner", callback_data="own")
             ]
         ]
 )
