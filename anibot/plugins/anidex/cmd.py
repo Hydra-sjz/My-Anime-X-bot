@@ -1,9 +1,9 @@
 from pyrogram.types import Message
 from pyrogram import filters
-from mbot import Mbot as app
-from mbot.plugins.aniplay.AnimeDex import AnimeDex
-from mbot.plugins.aniplay.button import BTN
-from mbot.plugins.aniplay.stats import day, over
+from anibot import anibot as app
+from anibot.plugins.anidex.animedex import AnimeDex
+from anibot.plugins.anidex.button import BTN
+from anibot.plugins.anidex.stats import day, over
 
 
 
