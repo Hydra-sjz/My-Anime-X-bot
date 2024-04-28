@@ -120,6 +120,11 @@ async def cb_handler(client, CallbackQuery):
             text=ADL_TEXT, 
             reply_markup=ADL_BUTTONS
         )
+    elif cb == "anl":
+        await CallbackQuery.edit_message_text(
+            text=ANL_TEXT, 
+            reply_markup=ANL_BUTTONS
+        )
     
 
 #==========≠==
