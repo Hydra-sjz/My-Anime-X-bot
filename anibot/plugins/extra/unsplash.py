@@ -17,16 +17,7 @@ def pic(client, message):
     random_pic = get_random_picture()
     if random_pic:
         message.reply_photo(random_pic)
-        message.reply_photo(random_pic)
-        message.reply_photo(random_pic)
-        message.reply_photo(random_pic)
-        message.reply_photo(random_pic)
-        message.reply_photo(random_pic)
-        message.reply_photo(random_pic)
-        message.reply_photo(random_pic)
-        message.reply_photo(random_pic)
-        message.reply_photo(random_pic)
-        message.reply_photo(random_pic)
+
     else:
         message.reply("Sorry, I couldn't get a random picture at the moment. 😔")
 
