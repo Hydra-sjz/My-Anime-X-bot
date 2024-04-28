@@ -59,14 +59,14 @@ def get_movie_info(movie_name):
         
         # Format and return movie information
         info = (
-            f"🔖 **Title:** __{title}__\n\n"
+            f"🔖 **Title:** __{title}__\n"
             f"📅 **Release Date:** `{release_date}`\n"
             f"📮 **Vote Average:** `{vote_average}`\n"
             f"📊 **Total Collection:** `{revenue}`\n\n"
             f"📱 **Available Platforms:** __{providers}__\n"
             f"🌀 **Overview:** __{overview}__\n\n"
             f"🕴️ **Actor Names:** __{actors}__\n\n"
-            f"cast_response : {cast_response}\n\ncast_data: {cast_data}\n\ncast_url: {cast_url}"
+            f"cast_response : {cast_response}" #\ncast_data: {cast_data}\ncast_url: {cast_url}
         )
         return info
     else:
