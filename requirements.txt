@@ -4,7 +4,6 @@ requests
 aiofiles>=0.6.0
 aiohttp[speedups]>=3.7.3
 tracemoepy
-
 bs4
 motor
 dnspython
