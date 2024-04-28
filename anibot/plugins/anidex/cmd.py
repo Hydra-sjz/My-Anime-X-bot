@@ -8,7 +8,7 @@ from anibot.plugins.anidex.stats import day, over
 
 
 
-@app.on_message(filters.command(['anidex'))
+@app.on_message(filters.command(['anidex']))
 async def searcdhCMD(_, message: Message):
     try:
         user = message.from_user.id
