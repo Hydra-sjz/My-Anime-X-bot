@@ -18,3 +18,8 @@ DEEP_API = os.environ.get("DEEP_API")
 UNSPLASH_ACCESS_KEY = os.getenv('UNSPLASH_ACCESS_KEY','')
 GENIUS_API = os.getenv('GEMINI_API')
 GEMINI_API = os.getenv('GEMINI_API')
+
+#BORADCAST
+BROADCAST_AS_COPY = bool(os.environ.get("BROADCAST_AS_COPY", True))
+AUTH_USERS = set(int(x) for x in os.environ.get("AUTH_USERS", "784589736").split())
+LOG_CHANNEL = int(os.environ.get("LOG_CHANNEL", "-1001997285269"))
