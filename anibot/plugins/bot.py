@@ -447,6 +447,7 @@ ID: `{user}`""",
                 +f"🫂If you wish to use me in a group start me by "
                 +f"👉🫵 /start{BOT_NAME} command after adding me in the group."
                 +f"\n\n**Powered by: @XBOTS_X**")
+            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("➕ Add Me to Group ➕", url=f"http://t.me/GojoSatoru_Xbot?startgroup=start")]])
         )
     else:
         if not await (GROUPS.find_one({"_id": gid})):
