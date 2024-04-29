@@ -446,7 +446,7 @@ ID: `{user}`""",
                 +f"\n\nFor more info send /help command in here.😌 "
                 +f"🫂If you wish to use me in a group start me by "
                 +f"👉🫵 /start{BOT_NAME} command after adding me in the group."
-                +f"\n\n**Powered by: @XBOTS_X**")
+                +f"\n\n**Powered by: @XBOTS_X**"),
             reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("➕ Add Me to Group ➕", url=f"http://t.me/GojoSatoru_Xbot?startgroup=start")]])
         )
     else:
