@@ -29,11 +29,11 @@ OPEN_CHAT = ChatPermissions(
     can_pin_messages = True,
     can_invite_users = True )
     
-buttons = InlineKeyboardMarkup([[InlineKeyboardButton("๏ ᴇɴᴀʙʟᴇ ๏", callback_data="add_night"),InlineKeyboardButton("๏ ᴅɪsᴀʙʟᴇ ๏", callback_data="rm_night")]])         
+buttons = InlineKeyboardMarkup([[InlineKeyboardButton("🍀 ON", callback_data="add_night"),InlineKeyboardButton("🍂 OFF", callback_data="rm_night")]])         
 
 @app.on_message(filters.command("nightmode") & filters.group)
 async def _nightmode(_, message):
-    return await message.reply_photo(photo="https://telegra.ph//file/06649d4d0bbf4285238ee.jpg", caption="**ᴄʟɪᴄᴋ ᴏɴ ᴛʜᴇ ʙᴇʟᴏᴡ ʙᴜᴛᴛᴏɴ ᴛᴏ ᴇɴᴀʙʟᴇ ᴏʀ ᴅɪsᴀʙʟᴇ ɴɪɢʜᴛᴍᴏᴅᴇ ɪɴ ᴛʜɪs ᴄʜᴀᴛ.**",reply_markup=buttons)
+    return await message.reply_photo(photo="https://telegra.ph/file/2720c796a1a27eb018e3d.jpg", caption="**Click on the below button to On or Off Night Mod in this Chat.**\n\n©️ @GojoSatoru_Xbot",reply_markup=buttons)
               
      
 @app.on_callback_query(filters.regex("^(add_night|rm_night)$"))
@@ -48,16 +48,16 @@ async def nightcb(bot, query: CallbackQuery):
     if user_id in administrators:   
         if data == "add_night":
             if check_night:        
-                await query.message.edit_caption("**๏ ɴɪɢʜᴛᴍᴏᴅᴇ ɪs ᴀʟʀᴇᴀᴅʏ ᴇɴᴀʙʟᴇᴅ ɪɴ ᴛʜɪs ᴄʜᴀᴛ.**")
+                await query.message.edit_caption("**Night Mod is Already enable in this Chat**")
             elif not check_night :
                 await nightmode_on(chat_id)
-                await query.message.edit_caption("**๏ ᴀᴅᴅᴇᴅ ᴄʜᴀᴛ ᴛᴏ ᴍʏ ᴅᴀᴛᴀʙᴀsᴇ . ᴛʜɪs ɢʀᴏᴜᴘ ᴡɪʟʟ ʙᴇ ᴄʟᴏsᴇᴅ ᴏɴ 𝟷𝟸ᴀᴍ [IST] ᴀɴᴅ ᴡɪʟʟ ᴏᴘᴇɴᴇᴅ ᴏɴ 𝟶𝟼ᴀᴍ [IST] .**") 
+                await query.message.edit_caption("**Added to my Database. This group be closed on 12 am [IST] And I will opened on 06 Am.**") 
         if data == "rm_night":
             if check_night:  
                 await nightmode_off(chat_id)      
-                await query.message.edit_caption("**๏ ɴɪɢʜᴛᴍᴏᴅᴇ ʀᴇᴍᴏᴠᴇᴅ ғʀᴏᴍ ᴍʏ ᴅᴀᴛᴀʙᴀsᴇ !**")
+                await query.message.edit_caption("**Night mod Removed from my Database!**")
             elif not check_night:
-                await query.message.edit_caption("**๏  ɴɪɢʜᴛᴍᴏᴅᴇ ɪs ᴀʟʀᴇᴀᴅʏ ᴅɪsᴀʙʟᴇᴅ  ɪɴ ᴛʜɪs ᴄʜᴀᴛ.**") 
+                await query.message.edit_caption("**Night Mod os already disable in this chat.**") 
             
     
     
@@ -72,8 +72,8 @@ async def start_nightmode() :
         try:
             await app.send_photo(
                 add_chat,
-                photo="https://telegra.ph//file/06649d4d0bbf4285238ee.jpg",
-                caption= f"**ᴍᴀʏ ᴛʜᴇ ᴀɴɢᴇʟs ғʀᴏᴍ ʜᴇᴀᴠᴇɴ ʙʀɪɴɢ ᴛʜᴇ sᴡᴇᴇᴛᴇsᴛ ᴏғ ᴀʟʟ ᴅʀᴇᴀᴍs ғᴏʀ ʏᴏᴜ. ᴍᴀʏ ʏᴏᴜ ʜᴀᴠᴇ ʟᴏɴɢ ᴀɴᴅ ʙʟɪssғᴜʟ sʟᴇᴇᴘ ғᴜʟʟ ᴏғ ʜᴀᴘᴘʏ ᴅʀᴇᴀᴍs.\n\nɢʀᴏᴜᴘ ɪs ᴄʟᴏsɪɴɢ ɢᴏᴏᴅ ɴɪɢʜᴛ ᴇᴠᴇʀʏᴏɴᴇ  !**")
+                photo="https://telegra.ph/file/439776047f545a22fa817.jpg",
+                caption= f"**Good night 💤🌉, Group is closing!**")
             
             await app.set_chat_permissions(add_chat,CLOSE_CHAT)
 
@@ -96,7 +96,7 @@ async def close_nightmode():
             await app.send_photo(
                 rm_chat,
                 photo="https://telegra.ph/file/e1ecea4a99b1a0d45d1d8.jpg",
-                caption= f"**🍃 Good morning 🌄 everyone, Group is Opening.**")
+                caption= f"**🍃 Good morning 🌄 everyone, Group is Opening!**")
             
             await app.set_chat_permissions(rm_chat,OPEN_CHAT)
 
