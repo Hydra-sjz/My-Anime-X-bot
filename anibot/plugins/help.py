@@ -62,7 +62,18 @@ hlp_bt = InlineKeyboardMarkup(
         ]
 )
 
+txt = """
+__Owners / Sudos can also use
 
+- __/term__ `to run a cmd in terminal`
+- __/eval__ `to run a python code like `__/eval print('UwU')__` `
+- __/stats__ `to get stats on bot like no. of users, grps and authorised users`
+- __/dbcleanup__ `to remove obsolete/useless entries in database`
+
+Apart from above shown cmds__
+
+©️ @XBOTS_X
+"""
 @anibot.on_message(filters.private & filters.command("help"))
 async def hlp_cmd(bot, message):
     await bot.send_message(LOG_CHANNEL_ID, SPO.format(message.from_user.mention, message.from_user.username, message.from_user.dc_id, message.from_user.id))
@@ -71,6 +82,7 @@ async def hlp_cmd(bot, message):
         caption=hlp_cmd, 
         reply_markup=hlp_bt,
     )
+    await message.reply_text(txt)
     await message.delete()
 
 #CALLBACK 1
