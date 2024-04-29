@@ -452,7 +452,7 @@ EXT2_BUTTONS = InlineKeyboardMarkup(
     ) 
 
 #==================•BROADCAST•==================
-@Mbot.on_message(filters.private & filters.command(["broadcast", "send"]))
+@anibot.on_message(filters.private & filters.command(["broadcast", "send"]))
 async def broadcast_handler_open(_, m):
     if m.from_user.id not in AUTH_USERS:
         await m.delete()
@@ -462,7 +462,7 @@ async def broadcast_handler_open(_, m):
     else:
         await broadcast(m, db)
 
-@Mbot.on_message(filters.private & filters.command("stat"))
+@anibot.on_message(filters.private & filters.command("stat"))
 async def tsts(c, m):
     if m.from_user.id not in AUTH_USERS:
         await m.delete()
@@ -475,7 +475,7 @@ async def tsts(c, m):
     await asyncio.sleep(180)
     await sat.delete()
 
-@Mbot.on_message(filters.private & filters.command("ban_user"))
+@anibot.on_message(filters.private & filters.command("ban_user"))
 async def ban(c, m):
     if m.from_user.id not in AUTH_USERS:
         await m.delete()
@@ -514,7 +514,7 @@ async def ban(c, m):
             quote=True
         )
 
-@Mbot.on_message(filters.private & filters.command("unban_user"))
+@anibot.on_message(filters.private & filters.command("unban_user"))
 async def unban(c, m):
     if m.from_user.id not in AUTH_USERS:
         await m.delete()
@@ -548,7 +548,7 @@ async def unban(c, m):
             quote=True,
         )
 
-@Mbot.on_message(filters.private & filters.command("banned_users"))
+@anibot.on_message(filters.private & filters.command("banned_users"))
 async def banned_usrs(c, m):
     if m.from_user.id not in AUTH_USERS:
         await m.delete()
