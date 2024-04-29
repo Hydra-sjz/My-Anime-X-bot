@@ -81,7 +81,7 @@ async def start_nightmode() :
             print(f"[bold red] Unable To close Group {add_chat} - {e}")
 
 scheduler = AsyncIOScheduler(timezone="Asia/Kolkata")
-scheduler.add_job(start_nightmode, trigger="cron", hour=00, minute=25) #hour=23, minute=59
+scheduler.add_job(start_nightmode, trigger="cron", hour=23, minute=59) #hour=23, minute=59
 scheduler.start()
 
 async def close_nightmode():
@@ -95,8 +95,8 @@ async def close_nightmode():
         try:
             await app.send_photo(
                 rm_chat,
-                photo="https://telegra.ph//file/14ec9c3ff42b59867040a.jpg",
-                caption= f"**ɢʀᴏᴜᴘ ɪs ᴏᴘᴇɴɪɴɢ ɢᴏᴏᴅ ᴍᴏʀɴɪɴɢ ᴇᴠᴇʀʏᴏɴᴇ !\n\nᴍᴀʏ ᴛʜɪs ᴅᴀʏ ᴄᴏᴍᴇ ᴡɪᴛʜ ᴀʟʟ ᴛʜᴇ ʟᴏᴠᴇ ʏᴏᴜʀ ʜᴇᴀʀᴛ ᴄᴀɴ ʜᴏʟᴅ ᴀɴᴅ ʙʀɪɴɢ ʏᴏᴜ ᴇᴠᴇʀʏ sᴜᴄᴄᴇss ʏᴏᴜ ᴅᴇsɪʀᴇ. Mᴀʏ ᴇᴀᴄʜ ᴏғ ʏᴏᴜʀ ғᴏᴏᴛsᴛᴇᴘs ʙʀɪɴɢ Jᴏʏ ᴛᴏ ᴛʜᴇ ᴇᴀʀᴛʜ ᴀɴᴅ ʏᴏᴜʀsᴇʟғ. ɪ ᴡɪsʜ ʏᴏᴜ ᴀ ᴍᴀɢɪᴄᴀʟ ᴅᴀʏ ᴀɴᴅ ᴀ ᴡᴏɴᴅᴇʀғᴜʟ ʟɪғᴇ ᴀʜᴇᴀᴅ.**")
+                photo="https://telegra.ph/file/e1ecea4a99b1a0d45d1d8.jpg",
+                caption= f"**🍃 Good morning 🌄 everyone, Group is Opening.**")
             
             await app.set_chat_permissions(rm_chat,OPEN_CHAT)
 
