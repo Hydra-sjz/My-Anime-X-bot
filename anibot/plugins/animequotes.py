@@ -14,12 +14,12 @@ DC = get_collection('DISABLED_CMDS')
 
 @anibot.on_message(
     filters.command(
-        ["quote", f"quote{BOT_NAME}"],
+        ["quote2", f"quote2{BOT_NAME}"],
         prefixes=trg
     )
 )
 @control_user
-async def quote(_, message: Message, mdata: dict):
+async def quot2e(_, message: Message, mdata: dict):
     gid = mdata['chat']['id']
     try:
         user = mdata['from_user']['id']
