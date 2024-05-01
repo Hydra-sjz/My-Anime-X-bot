@@ -954,7 +954,7 @@ async def image_search(client, message):
 
         
         
-@app.on_message(filters.command("googleimg"))
+@app.on_message(filters.command("ggimg"))
 async def image_search2(client, message):
     try:
         query = " ".join(message.command[1:])
