@@ -412,7 +412,7 @@ def handle_meme_command(client, message):
     else:
         reply_text("Failed to fetch the meme from the API.")
 
-@app.on_message(filters.command("manymeme"))
+@app.on_message(filters.command("mormeme"))
 def handle_many_meme_command(client, message):
 
     api_url = "https://meme-api.com/gimme/5"
@@ -497,7 +497,7 @@ def handle_reddit_command(client, message):
     else:
         message.reply_text("Failed to fetch the meme from the API.")
 
-@app.on_message(filters.command("mreddit"))
+@app.on_message(filters.command("morddit"))
 def handle_multiple_reddit_command(client, message):
     # Specify any subreddits you want
     subreddits = ["wholesomememes", "memes", "funny", "aww"]  
@@ -640,7 +640,7 @@ async def vpex_command(client, message):
 
 
 
-@app.on_message(filters.command("pbay"))
+@app.on_message(filters.command("tor"))
 async def pirate_bay_command(client, message):
     try:
         search_query = " ".join(message.command[1:])
@@ -776,8 +776,8 @@ async def google_search(client, message):
         
         
 
-@app.on_message(filters.command("bing"))
-async def bing_search(client, message):
+@app.on_message(filters.command("bingt"))
+async def bing_sfearch(client, message):
     try:
         query = " ".join(message.command[1:])
         if not query:
@@ -1053,7 +1053,7 @@ async def image_search4(client, message):
 
         
         
-@app.on_message(filters.command("dimg"))
+@app.on_message(filters.command("ddgimg"))
 async def image_search5(client, message):
     try:
         query = " ".join(message.command[1:])
