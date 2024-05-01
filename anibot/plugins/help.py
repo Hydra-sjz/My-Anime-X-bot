@@ -249,6 +249,13 @@ async def cb_handler(bot, update):
             disable_web_page_preview=True
         )
         await update.answer("👋Hey i am Gojo Satoru 𝕏 Bot")
+    elif update.data == "ext3":
+        await update.message.edit_text(
+            text=EXT3_TEXT,
+            reply_markup=EXT3_BUTTONS,
+            disable_web_page_preview=True
+        )
+        await update.answer("👋Hey i am Gojo Satoru 𝕏 Bot")
 
     elif update.data == "close":
         await update.message.delete()
@@ -294,6 +301,7 @@ Use /watch cmd to get watch order of searched anime
 Use /fillers cmd to get a list of fillers for an anime
 
 Use /quote cmd to get a random quote
+Use /mquote cmd to gey more random quote
 
 Use /studio give a query to search about anime!!!
 
@@ -424,7 +432,7 @@ EXT_BUTTONS = InlineKeyboardMarkup(
     ) 
 
 EXT2_TEXT = """
-**Extraas 2**
+**Extra module 2**
 __Use /ranking /today to Check it out your Top ranking.
 Use /nightmode To set your group night Mod.
 Use /rmbg Reply to image to remove Background.
@@ -447,6 +455,40 @@ Use /wikisearch To Search Wikipedia quarys.
 EXT2_BUTTONS = InlineKeyboardMarkup(
         [[
         InlineKeyboardButton("⬅️ Back", callback_data="ext"),
+        InlineKeyboardButton("❌ Cancel", callback_data="close"),
+        InlineKeyboardButton("Next ➡️", callback_data="ext3")
+        ]]
+    ) 
+
+EXT3_TEXT = """
+**Extra module 3**
+
+Use /meme cmd to get meme from meme api.
+Use /mormeme cmd to get more memes.
+Use /reddit cmd to get Random image from Reddit.
+Use /morddit cmd to get more images from Reddit.
+Use /unsplash cmd then your text to get images from unsplash.
+
+Use /pexi cmd to get images from **Pexels**
+Use /pexv cmd to get Videos from **Pexels**
+Use /tor cmd to get Torrent movies links.
+
+Use /repo the repository name to get GitHub repos.
+Use /google cmd to get 10 quarys from Google.
+Use /bingt cmd to get 10 quarys from Bing browser.
+Use /yandex cmd to get 10 quarys from Yandex browser.
+Use /ddg cmd to get 10 quarys from DuckDuckGo browser.
+
+Use /googleimg cmd to get 10 Images from Google.
+Use /bingimg cmd to get 10 Images from Bing.
+Use /yandeximg cmd to get 10 Images from Yandex.
+Use /ddgimg cmd to get 10 Images from DuckDuckGo.
+
+©️ @XBOTS_X
+"""
+EXT3_BUTTONS = InlineKeyboardMarkup(
+        [[
+        InlineKeyboardButton("⬅️ Back", callback_data="ext2"),
         InlineKeyboardButton("❌ Cancel", callback_data="close")
         ]]
     ) 
