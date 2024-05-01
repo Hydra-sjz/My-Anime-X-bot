@@ -479,7 +479,7 @@ Use /bingt cmd to get 10 quarys from Bing browser.
 Use /yandex cmd to get 10 quarys from Yandex browser.
 Use /ddg cmd to get 10 quarys from DuckDuckGo browser.
 
-Use /googleimg cmd to get 10 Images from Google.
+Use /ggimg cmd to get 10 Images from Google.
 Use /bingimg cmd to get 10 Images from Bing.
 Use /yandeximg cmd to get 10 Images from Yandex.
 Use /ddgimg cmd to get 10 Images from DuckDuckGo.
