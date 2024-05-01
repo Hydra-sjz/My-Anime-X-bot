@@ -449,8 +449,6 @@ Use /bingimg It retrieves and displays images obtained through a Bing image sear
 Use /bingsearch To get Bing search result with links.
 Use /news_search To search Latest news.
 Use /wikisearch To Search Wikipedia quarys.
-
-©️ @XBOTS_X
 """
 EXT2_BUTTONS = InlineKeyboardMarkup(
         [[
@@ -462,29 +460,23 @@ EXT2_BUTTONS = InlineKeyboardMarkup(
 
 EXT3_TEXT = """
 **Extra module 3**
-
-Use /meme cmd to get meme from meme api.
+__Use /meme cmd to get meme from meme api.
 Use /mormeme cmd to get more memes.
 Use /reddit cmd to get Random image from Reddit.
 Use /morddit cmd to get more images from Reddit.
 Use /unsplash cmd then your text to get images from unsplash.
-
 Use /pexi cmd to get images from **Pexels**
 Use /pexv cmd to get Videos from **Pexels**
 Use /tor cmd to get Torrent movies links.
-
 Use /repo the repository name to get GitHub repos.
 Use /google cmd to get 10 quarys from Google.
 Use /bingt cmd to get 10 quarys from Bing browser.
 Use /yandex cmd to get 10 quarys from Yandex browser.
 Use /ddg cmd to get 10 quarys from DuckDuckGo browser.
-
 Use /ggimg cmd to get 10 Images from Google.
 Use /bingimg cmd to get 10 Images from Bing.
 Use /yandeximg cmd to get 10 Images from Yandex.
-Use /ddgimg cmd to get 10 Images from DuckDuckGo.
-
-©️ @XBOTS_X
+Use /ddgimg cmd to get 10 Images from DuckDuckGo.__
 """
 EXT3_BUTTONS = InlineKeyboardMarkup(
         [[
