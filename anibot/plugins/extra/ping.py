@@ -48,7 +48,7 @@ async def ping_bot(bot, message):
     await asyncio.sleep(0.4)
     p3 = await p2.edit("¿ Pin**ing..**")
     await asyncio.sleep(0.4)
-    await p3.edit("‽ **Pining..**")
+    p = await p3.edit("‽ **Pining..**")
     n = await message.reply_chat_action(enums.ChatAction.TYPING)
     end_time = time.time()
     ping_time = round((end_time - start_time) * 1000, 3)
