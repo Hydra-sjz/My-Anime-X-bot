@@ -15,7 +15,7 @@ async def search_anime_kitsu(bot, update):
         await bot.send_message(
                 chat_id=update.chat.id,
                 text=f"Searching for: <code>{name}</code>",
-                reply_to_message_id=update.message_id
+                reply_to_message_id=update.message.id
             )
         titles, aids = await kitsu_get_title(name)
         if titles:
@@ -35,7 +35,7 @@ async def get_anime_kitsu_cb(c: Client, cb: CallbackQuery):
     a_id = cb.data.split("_")[1]
     photo, msg = await kitsu_get_anime(a_id)
     if msg:
-        await c.delete_messages(chat_id=cb.message.chat.id, message_ids=[cb.message.message_id])
+        await c.delete_messages(chat_id=cb.message.chat.id, message_ids=[cb.message.id])
         await c.send_photo(
             chat_id=cb.message.chat.id,
             photo=photo,
