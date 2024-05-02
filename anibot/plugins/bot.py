@@ -718,7 +718,7 @@ Stats:-
     )
 
 
-@anibot.on_message(filters.command(['ping', f'ping{BOT_NAME}'], prefixes=trg))
+@anibot.on_message(filters.command(['ping2', f'ping2{BOT_NAME}'], prefixes=trg))
 @control_user
 async def pong_(client: Client, message: Message, mdata: dict):
     find_gc = await DC.find_one({'_id': mdata['chat']['id']})
