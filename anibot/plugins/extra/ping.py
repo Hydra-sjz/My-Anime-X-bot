@@ -5,7 +5,6 @@ from pyrogram.types import Message
 from pyrogram import filters, enums, __version__ as pyrover
 from config import LOG_CHANNEL
 from anibot import anibot as Mbot
-from mbot.cor import pyro_cooldown
 
 
 MP = """
