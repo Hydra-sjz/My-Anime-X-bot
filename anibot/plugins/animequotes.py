@@ -53,9 +53,9 @@ async def quote_btn(client: anibot, cq: CallbackQuery, cdata: dict):
 
 @anibot.on_message(
     filters.command(
-        ["quote", f"quote{BOT_NAME}"],
+        ["qut", f"qut{BOT_NAME}"],
         prefixes=trg
     )
 )
-async def quote_edit(_, message: Message):
+async def quote_ejdit(_, message: Message):
     await quote(_, message)
