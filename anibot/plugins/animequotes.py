@@ -14,7 +14,7 @@ DC = get_collection('DISABLED_CMDS')
 
 @anibot.on_message(
     filters.command(
-        ["quote2", f"quote2{BOT_NAME}"],
+        ["quot", f"quot{BOT_NAME}"],
         prefixes=trg
     )
 )
