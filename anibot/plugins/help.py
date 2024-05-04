@@ -419,7 +419,7 @@ Use /bing2 search any from Bing browser.
 Use /info To get your information.
 Use /upscale Upscales your image quality.
 Use /tagall to Mention all members in Group, or you can type /stop to mentioning to.__
-Use /generate to generate your fakemail address.
+Use /tmail to generate your fakemail address.
 
 ©️ @XBOTS_X
 """
@@ -476,7 +476,8 @@ Use /ddg cmd to get 10 quarys from DuckDuckGo browser.
 Use /ggimg cmd to get 10 Images from Google.
 Use /bingimg cmd to get 10 Images from Bing.
 Use /yandeximg cmd to get 10 Images from Yandex.
-Use /ddgimg cmd to get 10 Images from DuckDuckGo.__
+Use /ddgimg cmd to get 10 Images from DuckDuckGo.
+× [Auto welcome] Just add me to your group, and i will greetings to New members with my advansed future.__
 """
 EXT3_BUTTONS = InlineKeyboardMarkup(
         [[
