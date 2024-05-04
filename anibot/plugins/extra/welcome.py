@@ -130,7 +130,7 @@ async def greet_group(bot, member: ChatMemberUpdated):
 × User name: @{user.username}
 × User id: {user.id}
 
- ๛ {user.first_name} Your are here {count}Th member of the group!
+ ๛ Hey {user.first_name} Your are here {count}Th member of the group!
  Time » {joined_date}
 """,
 reply_markup=InlineKeyboardMarkup(
