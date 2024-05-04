@@ -39,15 +39,15 @@ def circle(pfp, size=(450, 450)):
     return pfp
 
 def welcomepic(pic, user, chat, id, uname):
-    background = Image.open("mbot/assets/WELL2.PNG")
+    background = Image.open("assets/WELL2.PNG")
     pfp = Image.open(pic).convert("RGBA")
     pfp = circle(pfp)
     pfp = pfp.resize(
         (450, 450)
     ) 
     draw = ImageDraw.Draw(background)
-    font = ImageFont.truetype('mbot/assets/font.ttf', size=50)
-    font2 = ImageFont.truetype('mbot/assets/font.ttf', size=90)
+    font = ImageFont.truetype('assets/font.ttf', size=50)
+    font2 = ImageFont.truetype('assets/font.ttf', size=90)
     draw.text((65, 250), f'NAME : {unidecode(user)}', fill=(255, 255, 255), font=font)
     draw.text((65, 340), f'ID : {id}', fill=(255, 255, 255), font=font)
     draw.text((65, 430), f"USERNAME : {uname}", fill=(255,255,255),font=font)
