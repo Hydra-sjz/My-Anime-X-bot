@@ -740,7 +740,7 @@ def get_readable_time(seconds: int) -> str:
     ping_time += ":".join(time_list)
     return ping_time
 
-@anibot.on_message(filters.command(['ping2', f'ping2{BOT_NAME}'], prefixes=trg))
+@anibot.on_message(filters.command(['ping', f'ping{BOT_NAME}'], prefixes=trg))
 @control_user
 async def pong_(client: Client, message: Message, mdata: dict):
     find_gc = await DC.find_one({'_id': mdata['chat']['id']})
@@ -751,7 +751,7 @@ async def pong_(client: Client, message: Message, mdata: dict):
     x = await message.reply_text("__Ping...__")
     et = datetime.now()
     pt = (et-st).microseconds / 1000
-    await message.reply_photo(photo="https://telegra.ph/file/b12593ee7c5662a2f7829.jpg", caption=f"**Pong :** `{pt} ms` \n🆙 **Time :** `{uptime}`")
+    await message.reply_photo(photo="https://telegra.ph/file/b12593ee7c5662a2f7829.jpg", caption=f"🥀 **Ping Pong :** `{pt} ms` \n🆙 **Time :** `{uptime}`")
     await x.delete()
 
 @anibot.on_message(
