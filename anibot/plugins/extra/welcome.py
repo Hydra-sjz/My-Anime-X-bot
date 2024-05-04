@@ -4,13 +4,13 @@ from PIL import ImageDraw, Image, ImageFont, ImageChops
 from pyrogram import *
 from pyrogram.types import *
 from logging import getLogger
-from mbot import LOGGER
+from anibot import LOGGER
 from pyrogram.types import Message
 import pytz
 from datetime import datetime
 
-from mbot import SUDO_USERS as SUDOERS
-from mbot import Mbot as app
+#from mbot import SUDO_USERS as SUDOERS
+from anibot import anibot as app
 #from mbot.utils.Database import *
 #from config import LOG_CHANNEL
 
