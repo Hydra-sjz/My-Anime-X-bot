@@ -718,18 +718,40 @@ Stats:-
     )
 
 
+StartTime = time.time()
+def get_readable_time(seconds: int) -> str:
+    count = 0
+    ping_time = ""
+    time_list = []
+    time_suffix_list = ["s", "m", "h", "days"]
+    while count < 4:
+        count += 1
+        remainder, result = divmod(seconds, 60) if count < 3 else divmod(seconds, 24)
+        if seconds == 0 and remainder == 0:
+            break
+        time_list.append(int(result))
+        seconds = int(remainder)
+    for x in range(len(time_list)):
+        time_list[x] = str(time_list[x]) + time_suffix_list[x]
+    if len(time_list) == 4:
+        ping_time += time_list.pop() + ", "
+    time_list.reverse()
+    ping_time += ":".join(time_list)
+    return ping_time
+
 @anibot.on_message(filters.command(['ping2', f'ping2{BOT_NAME}'], prefixes=trg))
 @control_user
 async def pong_(client: Client, message: Message, mdata: dict):
     find_gc = await DC.find_one({'_id': mdata['chat']['id']})
     if find_gc is not None and 'ping' in find_gc['cmd_list'].split():
         return
+    uptime = get_readable_time((time.time() - StartTime))
     st = datetime.now()
-    x = await message.reply_text("Ping...")
+    x = await message.reply_text("__Ping...__")
     et = datetime.now()
     pt = (et-st).microseconds / 1000
-    await x.edit_text(f"__Pong!!!__\n`{pt} ms`")
-
+    await message.reply_photo(photo="https://telegra.ph/file/b12593ee7c5662a2f7829.jpg", caption=f"**Pong :** `{pt} ms` \n🆙 **Time :** `{uptime}`")
+    await x.delete()
 
 @anibot.on_message(
     filters.private & filters.command(
