@@ -16,6 +16,8 @@ natsort
 lxml
 lexica-api
 lottie
+lexica-api==1.5.5
+
 imdbpy
 html5lib
 httpx[http2]
