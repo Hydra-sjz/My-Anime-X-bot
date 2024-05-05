@@ -28,7 +28,7 @@ fetch = AsyncClient(
 
 
 @app.on_message(filters.command(["ocr"], CMD))
-async def ocr(_, ctx: Message, strings):
+async def ocr(bot, ctx):
     reply = ctx.reply_to_message
     if (
         not reply
@@ -36,10 +36,10 @@ async def ocr(_, ctx: Message, strings):
         and not reply.photo
         and (not reply.document or not reply.document.mime_type.startswith("image"))
     ):
-        return await ctx.reply_msg(
-            strings("no_photo").format(cmd=ctx.command[0]), quote=True
+        return await ctx.reply_text(
+            "Reply photo with /ocr command to scan text from images.", quote=True
         )
-    msg = await ctx.reply_msg(strings("read_ocr"), quote=True)
+    msg = await ctx.reply_text("Scanning your images..", quote=True)
     try:
         file_path = await reply.download()
         if reply.sticker:
@@ -54,7 +54,7 @@ async def ocr(_, ctx: Message, strings):
                 follow_redirects=True,
             )
         ).json()
-        await msg.edit_msg(strings("result_ocr").format(result=req["text"]))
+        await msg.edit(f"Hasil OCR:\n<code>{result=req["text"]}</code>")
         if os.path.exists(file_path):
             os.remove(file_path)
     except Exception as e:
