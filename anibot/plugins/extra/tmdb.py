@@ -65,8 +65,7 @@ def get_movie_info(movie_name):
             f"📊 **Total Collection:** `{revenue}`\n\n"
             f"📱 **Available Platforms:** __{providers}__\n"
             f"🌀 **Overview:** __{overview}__\n\n"
-            f"🕴️ **Actor Names:** __{actors}__\n\n"
-            f"cast_data: {cast_data}" #\n\ncast_url: {cast_url}
+            f"🕴️ **Actor Names:** __{actors}__\n\n©️ @GojoSatoru_Xbot"
         )
         return info
     else:
