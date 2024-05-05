@@ -502,6 +502,7 @@ Use /wallpapers To Get random Wallpapers
 Use  /webgame To play web Games here.
 Use /downl To save your photos and files to local server and /upload to get your saved files.
 Use /paste [reply to message/text file]­ to Pastes the given text in spacebin­.
+Use /ocr [reply to photo] Extract Text From Image
 """
 EXT4_BUTTONS = InlineKeyboardMarkup(
         [[
