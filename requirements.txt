@@ -32,6 +32,7 @@ pillow==9.5.0
 pytz
 
 openai==0.28.0
+opencv-python-headless
 
 wikipedia
 wget
@@ -42,6 +43,8 @@ spotdl==4.2.1
 tpblite==0.8.0
 
 redgifs==1.7.2
+
+qrcode
 
 unidecode
 
