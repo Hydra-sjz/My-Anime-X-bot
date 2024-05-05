@@ -256,6 +256,7 @@ async def cb_handler(bot, update):
             disable_web_page_preview=True
         )
         await update.answer("👋Hey i am Gojo Satoru 𝕏 Bot")
+      
     elif update.data == "ext4":
         await update.message.edit_text(
             text=EXT4_TEXT,
@@ -494,7 +495,7 @@ EXT3_BUTTONS = InlineKeyboardMarkup(
     ) 
 
 
-EXT4_TXT = """
+EXT4_TEXT = """
 Adds MongoDB to database so that u can access­ Database 
 Use /adddb [mongo uri]­ Get access to the MongoDB uri u added using /adddb & and type /showdb­.
 Use /q [reply to a text message / give text as input] to Converts your text into a quote­
