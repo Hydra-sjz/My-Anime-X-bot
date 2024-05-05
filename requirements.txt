@@ -46,6 +46,7 @@ redgifs==1.7.2
 unidecode
 
 telethon
+telegraph
 
 youtube_dl
 yt_dlp
