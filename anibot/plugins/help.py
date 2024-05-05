@@ -256,6 +256,13 @@ async def cb_handler(bot, update):
             disable_web_page_preview=True
         )
         await update.answer("👋Hey i am Gojo Satoru 𝕏 Bot")
+    elif update.data == "ext4":
+        await update.message.edit_text(
+            text=EXT4_TEXT,
+            reply_markup=EXT4_BUTTONS,
+            disable_web_page_preview=True
+        )
+        await update.answer("👋Hey i am Gojo Satoru 𝕏 Bot")
 
     elif update.data == "close":
         await update.message.delete()
@@ -420,8 +427,7 @@ Use /info To get your information.
 Use /upscale Upscales your image quality.
 Use /tagall to Mention all members in Group, or you can type /stop to mentioning to.__
 Use /tmail to generate your fakemail address.
-
-©️ @XBOTS_X
+Use /ping to ping me.
 """
 EXT_BUTTONS = InlineKeyboardMarkup(
         [[
@@ -482,6 +488,24 @@ Use /ddgimg cmd to get 10 Images from DuckDuckGo.
 EXT3_BUTTONS = InlineKeyboardMarkup(
         [[
         InlineKeyboardButton("⬅️ Back", callback_data="ext2"),
+        InlineKeyboardButton("❌ Cancel", callback_data="close"),
+        InlineKeyboardButton("Next ➡️", callback_data="ext4")
+        ]]
+    ) 
+
+
+EXT4_TXT = """
+Adds MongoDB to database so that u can access­ Database 
+Use /adddb [mongo uri]­ Get access to the MongoDB uri u added using /adddb & and type /showdb­.
+Use /q [reply to a text message / give text as input] to Converts your text into a quote­
+Use /wallpapers To Get random Wallpapers
+Use  /webgame To play web Games here.
+Use /downl To save your photos and files to local server and /upload to get your saved files.
+Use /paste [reply to message/text file]­ to Pastes the given text in spacebin­.
+"""
+EXT4_BUTTONS = InlineKeyboardMarkup(
+        [[
+        InlineKeyboardButton("⬅️ Back", callback_data="ext3"),
         InlineKeyboardButton("❌ Cancel", callback_data="close")
         ]]
     ) 
