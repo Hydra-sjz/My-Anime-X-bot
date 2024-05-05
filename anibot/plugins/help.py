@@ -50,7 +50,7 @@ msg_buttons=InlineKeyboardMarkup(
 
 
 hlp_cmd = """
-__This is a small guide on how to use me
+```__This is a small guide on how to use me
     
 **Basic Commands:**
 Use /ping or !ping cmd to check if bot is online
@@ -58,7 +58,7 @@ Use /start or !start cmd to start bot in group or pm
 Use /help or !help cmd to get interactive help on available bot cmds
 Use /feedback cmd to contact bot owner__
 
-©️ @XBOTS_X
+©️ @XBOTS_X```
 """
 
 
