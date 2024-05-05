@@ -9,7 +9,7 @@ from pyrogram import Client
 from pyrogram import filters
 
 
-#
+
 def carbon(code):
     url = f"https://api.safone.dev/carbon?code={quote(code)}"
     resp = requests.get(url)
@@ -20,7 +20,7 @@ def carbon(code):
 @Client.on_message(filters.command(["carbon"]))
 async def make_carbon(bot, message):
     async def car_(bot, message):
-        ok = await message.reply_text("__Making Carbon...__")
+        ok = await message.reply_text("`Making Carbon...`")
         try:
             code = None
             if message.reply_to_message:
@@ -32,7 +32,7 @@ async def make_carbon(bot, message):
                 code = message.text.split(" ", 1)[1]
 
             if not code:
-                return await ok.edit("__Nothing To Carbonize...__")
+                return await ok.edit("`Nothing To Carbonize...`")
 
             x = carbon(code)
             decodeit = open('carbon.jpg', 'wb')
@@ -42,7 +42,7 @@ async def make_carbon(bot, message):
                 user = message.from_user.mention
             else:
                 user = message.sender_chat.title
-            cap = f"__Carbonized By {user}__\n\n__By @GojoSatoru_Xbot | @Xbots_X__"
+            cap = f"__Carbonized By {user}__\n\n__**By @Mr_StarkBot**"
             await message.reply_document("carbon.jpg", caption=cap)
             await ok.delete()
             os.remove("carbon.jpg")
@@ -51,12 +51,12 @@ async def make_carbon(bot, message):
     try:
         await asyncio.wait_for(car_(bot, message), timeout=60)
     except asyncio.TimeoutError:
-        return await message.reply_text("__Timeout Exceeded. Carbonization process took too long__")
+        return await message.reply_text("`Timeout Exceeded. Carbonization process took too long.`")
 
 
 @Client.on_message(filters.command(["icarbon"]))
 async def carbonn(bot, message):
-    ok = await message.reply_text("__Making Carbon...__")
+    ok = await message.reply_text("Making Carbon...")
     code = None
     if message.reply_to_message:
         if message.reply_to_message.caption:
@@ -76,7 +76,7 @@ async def carbonn(bot, message):
         user = message.from_user.mention
     else:
         user = message.sender_chat.title
-    cap = f"__Carbonized By {user}__\n\n__By @GojoSatoru_Xbot | @Xbots_X__"
+    cap = f"__Carbonized By {user}__\n\n__**By @Mr_StarkBot**"
     await bot.send_photo(message.chat.id, "carbon.jpg", caption=cap)
     await ok.delete()
     os.remove("carbon.jpg")
