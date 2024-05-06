@@ -23,10 +23,3 @@ GEMINI_API = os.getenv('GEMINI_API')
 BROADCAST_AS_COPY = bool(os.environ.get("BROADCAST_AS_COPY", True))
 AUTH_USERS = set(int(x) for x in os.environ.get("AUTH_USERS", "784589736").split())
 LOG_CHANNEL = int(os.environ.get("LOG_CHANNEL", "-1001997285269"))
-
-
-
-
-class Config(object):
-      AS_COPY = True if getenv("AS_COPY", False) == "True" else False
-      CHANNEL = list(x for x in getenv("CHANNEL_ID", "").replace("\n", " ").split(' '))
