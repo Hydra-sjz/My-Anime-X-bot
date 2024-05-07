@@ -183,7 +183,7 @@ async def search_command(client, message):
             title = result.get("title")
             url = result.get("url")  
             if url:  
-                await message.reply_text(f"{idx}. {title}\n{url}")
+                await message.reply_text(f"{idx}. {title}\n{url}\n\n**Powered by**: @XBOTS_X | ©️ @GojoSatoru_Xbot")
             else:
                 await message.reply_text(f"{idx}. {title}\nURL not found")
 
