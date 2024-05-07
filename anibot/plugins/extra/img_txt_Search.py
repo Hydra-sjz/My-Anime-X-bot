@@ -76,7 +76,7 @@ async def google(bot, message):
     msg = ""
     for tt, lik, des in zip(titles, links, descriptions):
         msg += f"[{tt}]({lik})\n`{des}`\n\n"
-    await gs.edit("🔎 **Google Search**:\n`" + query + "`\n\n**Results:**\n" + msg, disable_web_page_preview=True)
+    await gs.edit("🔎 **Google Search**:\n`" + query + "`\n\n**Results:**\n" + msg + "\n\n**Powered by**: @XBOTS_X | ©️ @GojoSatoru_Xbot", disable_web_page_preview=True)
 
 
 
