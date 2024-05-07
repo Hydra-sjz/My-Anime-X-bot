@@ -73,7 +73,7 @@ async def start_nightmode() :
             await app.send_photo(
                 add_chat,
                 photo="https://telegra.ph/file/439776047f545a22fa817.jpg",
-                caption= f"**Good night 💤🌉, Group is closing!**")
+                caption= f"**Good night 💤🌉, Group is closing!**\n\n**Powered by**: @GojoSatoru_Xbot")
             
             await app.set_chat_permissions(add_chat,CLOSE_CHAT)
 
@@ -96,7 +96,7 @@ async def close_nightmode():
             await app.send_photo(
                 rm_chat,
                 photo="https://telegra.ph/file/e1ecea4a99b1a0d45d1d8.jpg",
-                caption= f"**🍃 Good morning 🌄 everyone, Group is Opening!**")
+                caption= f"**🍃 Good morning 🌄 everyone, Group is Opening!**\n\n**Powered by**: @GojoSatoru_Xbot")
             
             await app.set_chat_permissions(rm_chat,OPEN_CHAT)
 
