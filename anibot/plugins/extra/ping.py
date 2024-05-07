@@ -53,7 +53,7 @@ async def ping_bot(bot, message):
     end_time = time.time()
     ping_time = round((end_time - start_time) * 1000, 3)
     uptime = get_readable_time((time.time() - StartTime))
-    p = await message.reply_photo(photo="https://telegra.ph/file/b12593ee7c5662a2f7829.jpg", caption=f"Gojo Satoru v3.10.13 Stable based Pyrogram {pyrover}.\n\n**🏓 Ping:** `{ping_time} ms`\n**🆙 Time:** `{uptime}`")
+    p = await message.reply_photo(photo="https://telegra.ph/file/b12593ee7c5662a2f7829.jpg", caption=f"Gojo Satoru v3.10.13 Stable based Pyrogram {pyrover}.\n\n**🏓 Ping:** `{ping_time} ms`\n**🆙 Time:** `{uptime}`\n\n**Powered by**: @XBOTS_X | ©️ @GojoSatoru_Xbot")
     await p4.delete()
     await message.delete()
     await bot.send_message(LOG_CHANNEL, MP.format(message.from_user.mention, message.from_user.username, message.from_user.dc_id, message.from_user.id))
