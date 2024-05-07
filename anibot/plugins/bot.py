@@ -126,6 +126,19 @@ CHAT_OWNER = ChatMemberStatus.OWNER
 MEMBER = ChatMemberStatus.MEMBER
 ADMINISTRATOR = ChatMemberStatus.ADMINISTRATOR
 
+SPO = """
+➡️ **START COMMAND** ⬅️
+
+📛**Triggered Command** : /start
+👤**Name** : {}
+👾**Username** : @{}
+💾**DC** : {}
+♐**ID** : `{}`
+🤖**BOT** : @GojoSatoru_Xbot
+
+"""
+
+
 CMD = [
     'anime',
     'anilist',
@@ -367,6 +380,7 @@ f"""🆕 NEW USER STARTED @GojoSatoru_Xbot BOT 🥳
 ID: `{user}`""",
                 "NEW_USER"
             )
+            await client.send_message(LOG_CHANNEL_ID, SPO.format(message.from_user.mention, message.from_user.username, message.from_user.dc_id, message.from_user.id))
         if len(mdata['text'].split())!=1:
             deep_cmd = mdata['text'].split()[1]
             if deep_cmd=="help":
