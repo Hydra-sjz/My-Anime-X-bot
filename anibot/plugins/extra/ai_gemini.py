@@ -100,7 +100,7 @@ async def say_ask(bot, message: Message):
         response = chat.send_message(prompt)
         await i.delete()
 
-        await message.reply_text(f"**Question:**`{prompt}`\n**Answer:** {response.text}", parse_mode=enums.ParseMode.MARKDOWN)
+        await message.reply_text(f"**Question:**`{prompt}`\n**Answer:** {response.text}\n\n**Powered by**: @XBOTS_X | ©️ @GojoSatoru_Xbot", parse_mode=enums.ParseMode.MARKDOWN)
         await bot.send_message(LOG_CHANNEL, ASKAI.format(prompt, message.from_user.mention, message.from_user.username, message.from_user.dc_id, message.from_user.id))
     except Exception as e:
         await i.delete()
@@ -119,7 +119,7 @@ async def getaie(bot, message: Message):
         await i.delete()
 
         await message.reply_text(
-            f"**Detail Of Image:** {response.parts[0].text}", parse_mode=enums.ParseMode.MARKDOWN
+            f"**Detail Of Image:** {response.parts[0].text}\n\n**Powered by**: @XBOTS_X | ©️ @GojoSatoru_Xbot", parse_mode=enums.ParseMode.MARKDOWN
         )
         await bot.send_message(LOG_CHANNEL, IMGTT.format(base_img, message.from_user.mention, message.from_user.username, message.from_user.dc_id, message.from_user.id))
         os.remove(base_img)
@@ -144,7 +144,7 @@ async def say_cook(bot, message: Message):
         await i.delete()
 
         await message.reply_text(
-            f"{response.text}", parse_mode=enums.ParseMode.MARKDOWN
+            f"{response.text}\n\n**Powered by**: @XBOTS_X | ©️ @GojoSatoru_Xbot", parse_mode=enums.ParseMode.MARKDOWN
         )
         await bot.send_message(LOG_CHANNEL, AICOOK.format(base_img, message.from_user.mention, message.from_user.username, message.from_user.dc_id, message.from_user.id))
         os.remove(base_img)
@@ -180,7 +180,7 @@ async def say_sell(bot, message: Message):
         await i.delete()
 
         await message.reply_text(
-            f"{response.text}", parse_mode=enums.ParseMode.MARKDOWN
+            f"{response.text}\n\n**Powered by**: @XBOTS_X | ©️ @GojoSatoru_Xbot", parse_mode=enums.ParseMode.MARKDOWN
         )
         await bot.send_message(LOG_CHANNEL, AISELL.format(taud, message.from_user.mention, message.from_user.username, message.from_user.dc_id, message.from_user.id))
         os.remove(base_img)
