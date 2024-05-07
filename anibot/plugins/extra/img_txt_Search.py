@@ -76,7 +76,7 @@ async def google(bot, message):
     msg = ""
     for tt, lik, des in zip(titles, links, descriptions):
         msg += f"[{tt}]({lik})\n`{des}`\n\n"
-    await gs.edit("🔎 **Google Search**:\n`" + query + "`\n\n**Results:**\n" + msg + "\n\n**Powered by**: @XBOTS_X | ©️ @GojoSatoru_Xbot", disable_web_page_preview=True)
+    await gs.edit("🔎 **Google Search**:\n`" + query + "`\n\n**Results:**\n" + msg + "\n**Powered by**: @XBOTS_X | ©️ @GojoSatoru_Xbot", disable_web_page_preview=True)
 
 
 
@@ -96,7 +96,7 @@ async def wikipediasearch(_, message: Message):
         except BaseException:
             pass
     await message.reply_text(
-        "🔎 **WikiPedia Search:** {} \n\n**Result:** \n{}".format(query, result))
+        "🔎 **WikiPedia Search:** {} \n\n**Result:** \n{}\n**Powered by**: @XBOTS_X | ©️ @GojoSatoru_Xbot".format(query, result))
 
 @Mbot.on_message(filters.command("newssearch"))
 async def news(_, message: Message):
@@ -122,7 +122,7 @@ async def news(_, message: Message):
                 relative_time = news_item["relative_time"]
                 news_url = news_item["url"]
 
-                message_text = f"**Title**: {title}\n**Source**: {source}\n**Time**: {relative_time}\n**Excerpt**: {excerpt}\n**Link**: {news_url}"
+                message_text = f"**Title**: {title}\n**Source**: {source}\n**Time**: {relative_time}\n**Excerpt**: {excerpt}\n**Link**: {news_url}\n\n**Powered by**: @XBOTS_X | ©️ @GojoSatoru_Xbot"
                 await message.reply_text(message_text)
             else:
                 await message.reply_text("`No news found.`")
@@ -156,7 +156,7 @@ async def bing_search(client: Client, message: Message):
                 for result in results[:7]:
                     title = result.get("title", "")
                     link = result.get("link", "")
-                    message_text += f"{title}\n{link}\n\n"
+                    message_text += f"{title}\n{link}\n\n**Powered by**: @XBOTS_X | ©️ @GojoSatoru_Xbot"
                 await message.reply_text(message_text.strip())
         else:
             await message.reply_text("`Sorry, something went wrong with the search.`")
