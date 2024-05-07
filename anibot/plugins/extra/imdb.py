@@ -11,7 +11,7 @@ async def search_movie(client, message):
     if len(message.command) < 2:
         await client.send_message(
             chat_id=message.chat.id,
-            text="`Please provide a movie or TV series name after the /imdb command.`"
+            text="__Please provide a movie or TV series name after the /imdb command.__"
         )
         return
     # Get the movie name from the user's message 
@@ -19,16 +19,16 @@ async def search_movie(client, message):
     if len(movie_name) < 1:
         await client.send_message(
             chat_id=message.chat.id,
-            text="`Please provide a movie or TV series name after the /imdb command.`"
+            text="__Please provide a movie or TV series name after the /imdb command.__"
         )
         return
     if len(str(movie_name)) > 40:
         await client.send_message(
             chat_id=message.chat.id,
-            text="`Please provide a movie or TV series name. Not a paragraph! :)`"
+            text="__Please provide a movie or TV series name. Not a paragraph! :)__"
         )
         return
-    mv = await message.reply_photo("https://exchange4media.gumlet.io/news-photo/123661-93930-IMDbAmazon.jpg", caption=f"`Searching for {movie_name}`")
+    mv = await message.reply_photo("https://telegra.ph/file/45c3722c81365bb3d9a48.jpg", caption=f"`Searching for {movie_name}`\n\n**Powered by**: @XBOTS_X | ©️ @GojoSatoru_Xbot")
     movies = ia.search_movie(movie_name, results=10)
     if len(movies) == 0:
         await mv.edit("**__No movies found with that name!__**")
