@@ -12,7 +12,7 @@ async def more_details_handler(client, callback_query):
         await callback_query.answer('This is not for you!', show_alert=True)
         return
       imdb_id = int(callback_query.data.split(" ")[1])
-      await callback_query.answer("Hold on..", show_alert=True)
+      await callback_query.answer("Hold on Baby 🍻😎🤏", show_alert=True)
       back = callback_query.data.split(":")[1]
       movie = ia.get_movie(imdb_id)
   
@@ -21,7 +21,7 @@ async def more_details_handler(client, callback_query):
       elif 'cover url' in movie.keys():
           poster_url = movie['cover url']
       else:
-          poster_url = "https://exchange4media.gumlet.io/news-photo/123661-93930-IMDbAmazon.jpg"
+          poster_url = "https://telegra.ph/file/45c3722c81365bb3d9a48.jpg"
   
       # Formatting and displaying movie details
       movie_msg = f"🎬 **Title:** {movie.get('title')}\n"
@@ -138,9 +138,9 @@ async def back_to_search_handler(client, callback_query):
     keyboard = InlineKeyboardMarkup(button_list)
 
     # Send a message to the user with the search results and buttons
-    message_text = f"Found {len(movies)} results. Please select a movie:"
+    message_text = f"__Found {len(movies)} results. Please select a movie:__"
     await callback_query.message.edit_media(
-        media=InputMediaPhoto("https://exchange4media.gumlet.io/news-photo/123661-93930-IMDbAmazon.jpg", caption=message_text),
+        media=InputMediaPhoto("https://telegra.ph/file/45c3722c81365bb3d9a48.jpg", caption=message_text),
         # text=message_text,
         reply_markup=keyboard,
         # disable_web_page_preview=True
