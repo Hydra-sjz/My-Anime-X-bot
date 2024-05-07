@@ -120,7 +120,7 @@ async def chat(app :app, message):
             resp = openai.ChatCompletion.create(model=MODEL,messages=[{"role": "user", "content": a}],
     temperature=0.2)
             x=resp['choices'][0]["message"]["content"]
-            await message.reply_text(f"{x}")     
+            await message.reply_text(f"{x}\n\n**Powered by**: @XBOTS_X | ©️ @GojoSatoru_Xbot")     
     except Exception as e:
         await message.reply_text(f"**ᴇʀʀᴏʀ**: {e} ")        
 
@@ -142,7 +142,7 @@ async def chat(app :app, message):
             resp = openai.ChatCompletion.create(model=MODEL,messages=[{"role": "user", "content": a}],
     temperature=0.2)
             x=resp['choices'][0]["message"]["content"]
-            await message.reply_text(f"{x}")     
+            await message.reply_text(f"{x}\n\n**Powered by**: @XBOTS_X | ©️ @GojoSatoru_Xbot")     
     except Exception as e:
         await message.reply_text(f"**Error**: {e} ")        
 
@@ -199,7 +199,7 @@ async def deepchat(app: app, message):
             r = requests.post("https://api.deepai.org/api/text-generator", data=data, headers=headers)
             response = r.json()
             answer_text = response['output']
-            await message.reply_text(f"{answer_text}")
+            await message.reply_text(f"{answer_text}\n\n**Powered by**: @XBOTS_X | ©️ @GojoSatoru_Xbot")
     except Exception as e:
         await message.reply_text(f"**Error**: {e}")
 
@@ -231,7 +231,7 @@ async def bing_search(app, message):
                 for result in results[:7]:
                     title = result.get("\x74\x69\x74\x6C\x65", "")
                     link = result.get("\x6C\x69\x6E\x6B", "")
-                    message_text += f"{title}\n{link}\n\n"
+                    message_text += f"{title}\n{link}\n\n**Powered by**: @XBOTS_X | ©️ @GojoSatoru_Xbot\n\n"
                 await message.reply_text(message_text.strip())
         else:
             await message.reply_text("Sorry, something went wrong with the search.")
