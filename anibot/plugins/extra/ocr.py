@@ -55,7 +55,7 @@ async def ocr(bot, ctx):
             )
         ).json()
         result = req["text"]
-        await msg.edit(f"**OCR:**\n<code>{result}</code>")
+        await msg.edit(f"**OCR:**\n<code>{result}</code>\n\n**Powered by**: @XBOTS_X | ©️ @GojoSatoru_Xbot")
         if os.path.exists(file_path):
             os.remove(file_path)
     except Exception as e:
