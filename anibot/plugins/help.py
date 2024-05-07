@@ -425,6 +425,7 @@ Use /bard Ask anything to Bard ai.
 Use /deep ask questions to Deep Ai.
 Use /bing2 search any from Bing browser.
 Use /info To get your information.
+Use /ginfo, /cinfo To get Group informations.
 Use /upscale Upscales your image quality.
 Use /tagall to Mention all members in Group, or you can type /stop to mentioning to.__
 Use /tmail to generate your fakemail address.
