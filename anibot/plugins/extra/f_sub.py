@@ -8,7 +8,7 @@ from pyrogram import Client, filters, enums
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from pyrogram.errors import UserNotParticipant
 
-from config import Config
+from config import FORCE_SUB
 from anibot import anibot
 #from helper.utils import Automato
 from anibot.utils2.Database import mongodb as db
