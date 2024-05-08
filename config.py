@@ -18,6 +18,7 @@ DEEP_API = os.environ.get("DEEP_API")
 UNSPLASH_ACCESS_KEY = os.getenv('UNSPLASH_ACCESS_KEY','')
 GENIUS_API = os.getenv('GEMINI_API')
 GEMINI_API = os.getenv('GEMINI_API')
+FORCE_SUB   = environ.get("FORCE_SUB", "XBOTS_X") 
 
 #BORADCAST
 BROADCAST_AS_COPY = bool(os.environ.get("BROADCAST_AS_COPY", True))
