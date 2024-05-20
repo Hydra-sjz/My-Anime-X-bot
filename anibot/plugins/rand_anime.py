@@ -1,8 +1,7 @@
 import requests
 from pyrogram import Client, filters
-from pyrogram.types import Message
-from config import CMD
-from anibot import anibot
+from pyrogram.types import Message 
+from anibot import anibot, CMD
 
 API_URL = "https://api.nekosapi.com/v2/images/random"
 
