@@ -131,11 +131,11 @@ async def greet_group(bot, member: ChatMemberUpdated):
 × User id: {user.id}
 
  ๛ Hey {user.first_name} Your are here {count}Th member of the group!
- Time » {joined_date}
+**Time »** {joined_date}
 """,
 reply_markup=InlineKeyboardMarkup(
 [
-[InlineKeyboardButton(f"Read rules!", url=f"http://t.me/Hydra_Maneger_bot?start=regole_-1001671054664"),
+[InlineKeyboardButton(f"Welcome {user.first_name}!", url=f"t.me/{user.username}"),
 ]
 ]
 ))
