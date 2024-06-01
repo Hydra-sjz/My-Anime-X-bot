@@ -18,7 +18,7 @@ from anibot.utils2.broadcast_db.check_user import handle_user_status
 from anibot.utils2.broadcast_db.database import Database
 from config import AUTH_USERS, DB_URL, DB_NAME
 
-from anibot.data import *
+#from anibot.data import *
 
 db = Database(DB_URL, DB_NAME)
 
@@ -147,10 +147,8 @@ async def hlp_cmd(bot, message):
 #CALLBACK 1
 email=''
 @anibot.on_callback_query()
-async def cb_handler(bot: Client, query: CallbackQuery):
+async def cb_handler(bot, query):
     response=query.data
-    data=json.loads(query.data)
-    game=get_game(query.inline_message_id, data)
     if query.data == "hlp":
         await query.message.edit_text(
             text=hlp_cmd, #update.from_user.first_name
@@ -276,143 +274,6 @@ async def cb_handler(bot: Client, query: CallbackQuery):
     elif query.data == "close":
         await query.message.delete()
         await query.answer("Successfully Closed ❌")
-
-    elif data=="P":  # Player
-        if game.player1["id"] == query.from_user.id:
-            bot.answer_callback_query(
-                query.id,
-                "Wait for opponent!",
-                show_alert=True
-            )
-        elif game.player1["id"] != query.from_user.id:
-            game.player2 = {"type": "P",
-                            "id": query.from_user.id,
-                            "name": query.from_user.first_name
-                            }
-
-            message_text = "{}({})  {}  {}({})\n\n{} **{} ({})**".format(
-                mention(game.player1["name"], game.player1["id"]),
-                emojis.X,
-                emojis.vs,
-                mention(game.player2["name"], game.player2["id"]),
-                emojis.O,
-                emojis.game,
-                mention(game.player1["name"], game.player1["id"]),
-                emojis.X
-            )
-
-            bot.edit_inline_text(
-                query.inline_message_id,
-                message_text,
-                reply_markup=InlineKeyboardMarkup(game.board_keys)
-            )
-    elif data=="K":  # Keyboard
-        if data["end"]:
-            bot.answer_callback_query(
-                query.id,
-                "Match has ended!",
-                show_alert=True
-            )
-
-            return
-
-        if (game.whose_turn and query.from_user.id != game.player1["id"]) \
-                or (not game.whose_turn and query.from_user.id != game.player2["id"]):
-            bot.answer_callback_query(
-                query.id,
-                "Not your turn!"
-            )
-
-            return
-
-        if game.fill_board(query.from_user.id, data["coord"]):
-            game.whose_turn = not game.whose_turn
-
-            if game.check_winner():
-                message_text = "{}({})  {}  {}({})\n\n{} **{} won!**".format(
-                    mention(game.player1["name"], game.player1["id"]),
-                    emojis.X,
-                    emojis.vs,
-                    mention(game.player2["name"], game.player2["id"]),
-                    emojis.O,
-                    emojis.trophy,
-                    mention(game.winner["name"], game.winner["id"])
-                )
-            elif game.is_draw():
-                message_text = "{}({})  {}  {}({})\n\n{} **Draw!**".format(
-                    mention(game.player1["name"], game.player1["id"]),
-                    emojis.X,
-                    emojis.vs,
-                    mention(game.player2["name"], game.player2["id"]),
-                    emojis.O,
-                    emojis.draw
-                )
-            else:
-                message_text = "{}({})  {}  {}({})\n\n{} **{} ({})**".format(
-                    mention(game.player1["name"], game.player1["id"]),
-                    emojis.X,
-                    emojis.vs,
-                    mention(game.player2["name"], game.player2["id"]),
-                    emojis.O,
-                    emojis.game,
-                    mention(game.player1["name"], game.player1["id"]) if game.whose_turn else
-                    mention(game.player2["name"], game.player2["id"]),
-                    emojis.X if game.whose_turn else emojis.O
-                )
-
-            bot.edit_inline_text(
-                query.inline_message_id,
-                message_text,
-                reply_markup=InlineKeyboardMarkup(game.board_keys)
-            )
-        else:
-            bot.answer_callback_query(
-                query.id,
-                "This one is already taken!"
-            )
-    elif data=="R":  # Reset
-        game = reset_game(game)
-
-        message_text = "{}({})  {}  {}({})\n\n{} **{} ({})**".format(
-            mention(game.player1["name"], game.player1["id"]),
-            emojis.X,
-            emojis.vs,
-            mention(game.player2["name"], game.player2["id"]),
-            emojis.O,
-            emojis.game,
-            mention(game.player1["name"], game.player1["id"]),
-            emojis.X
-        )
-
-        bot.edit_inline_text(
-            query.inline_message_id,
-            message_text,
-            reply_markup=InlineKeyboardMarkup(game.board_keys)
-        )
-    elif data=="C":  # Contact
-        if data["action"] == "email":
-            bot.edit_message_text(
-                query.from_user.id,
-                query.message.message_id,
-                "reza.farjam78@gmail.com",
-                reply_markup=InlineKeyboardMarkup(
-                    [[InlineKeyboardButton(
-                        emojis.back + " Back",
-                        json.dumps(
-                            {"type": "C",
-                             "action": "email-back"
-                             }
-                        )
-                    )]]
-                )
-            )
-        elif data=="email-back":
-            bot.edit_message_text(
-                query.from_user.id,
-                query.message.message_id,
-                "Feel free to share your thoughts on XO bot with me.",
-                reply_markup=CONTACT_KEYS
-            )
 
 
 #==========≠==
