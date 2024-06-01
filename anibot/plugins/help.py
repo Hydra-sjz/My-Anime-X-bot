@@ -130,7 +130,7 @@ async def starwkommand(bot, message):
 async def hlp_cmd(bot, message):
     await bot.send_message(LOG_CHANNEL_ID, SPO.format(message.from_user.mention, message.from_user.username, message.from_user.dc_id, message.from_user.id))
     await message.reply_photo(
-        photo="https://telegra.ph/file/6efbdbcb4038e995ac6af.jpg",
+        photo="https://telegra.ph/file/f04e33ed9774304630ab7.jpg",
         caption=hlp_cmd, 
         reply_markup=hlp_bt,
     )
