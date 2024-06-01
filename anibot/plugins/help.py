@@ -393,9 +393,6 @@ OTH_BUTTONS = InlineKeyboardMarkup(
 
 EXT_TEXT = """
 __I have some more Extra commands, you can just try it out.
-
-Use /afk [Reason > Optional] - Tell others that you are AFK (Away From Keyboard).
-/afk [reply to media] - AFK with media.
 Use /askai or /mai Ask questions using ai for responding to user queries feom Gamini.
 Use /aii Reply to image to containing text that you want transcripts, and  I'll process the image and provide you with the transcribed text.
 Use /aicook Reply to image To get cooking instruction of the food in it.
@@ -408,9 +405,9 @@ Use /bing2 search any from Bing browser.
 Use /info To get your information.
 Use /ginfo, /cinfo To get Group informations.
 Use /upscale Upscales your image quality.
-Use /tagall or /mentionall to Mention all members in Group, or you can type /stop to mentioning to.__
+Use /tagall or /mentionall to Mention all members in Group, or you can type /stop to mentioning to.
 Use /tmail to generate your fakemail address.
-Use /ping to ping me.
+Use /ping to ping me.__
 """
 EXT_BUTTONS = InlineKeyboardMarkup(
         [[
@@ -482,6 +479,8 @@ EXT3_BUTTONS = InlineKeyboardMarkup(
 
 EXT4_TEXT = """
 **Extra module 4️⃣**
+Use /afk [Reason > Optional] - Tell others that you are AFK (Away From Keyboard).
+/afk [reply to media] - AFK with media.
 Adds MongoDB to database so that u can access­ Database 
 Use /adddb [mongo uri]­ Get access to the MongoDB uri u added using /adddb & and type /showdb­.
 Use /q [reply to a text message / give text as input] to Converts your text into a quote­
