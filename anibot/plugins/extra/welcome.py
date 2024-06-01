@@ -104,11 +104,11 @@ reply_markup=InlineKeyboardMarkup(
 ]
 ))
 
-    except Exception as e:
-        LOGGER.error(e)
-    try:
-        os.remove(f"downloads/welcome#{user.id}.png")
-        os.remove(f"downloads/pp{user.id}.png")
-    except Exception as e:
-        pass
+        except Exception as e:
+            LOGGER.error(e)
+        try:
+            os.remove(f"downloads/welcome#{user.id}.png")
+            os.remove(f"downloads/pp{user.id}.png")
+        except Exception as e:
+            pass
   
