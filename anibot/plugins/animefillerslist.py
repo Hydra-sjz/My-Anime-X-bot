@@ -89,7 +89,7 @@ async def filler_btn(client: anibot, cq: CallbackQuery, cdata: dict):
 
 
 @anibot.on_message(
-    filters.command(['fillers', f"fillers{BOT_NAME}"], prefixes=trg)
+    filters.command(['filler', f"filler{BOT_NAME}"], prefixes=trg)
 )
 async def fillers_cmd(client: anibot, message: Message):
     await fillers_cmd(client, message)
