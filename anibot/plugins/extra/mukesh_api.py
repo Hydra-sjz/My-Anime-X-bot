@@ -53,9 +53,6 @@ async def imagine_(b, message: Message):
         await message.reply_photo("mukesh.jpg",caption=caption,quote=True)
     except Exception as e:
         await mukesh.edit_text(f"error {e}")
-    
-
-from .. import pbot as Mukesh,BOT_NAME,BOT_USERNAME
 
 @Mukesh.on_message(filters.command(["mai","mask"],  prefixes=["+", ".", "/", "-", "?", "$","#","&"]))
 async def chat_mgpt(bot, message):
