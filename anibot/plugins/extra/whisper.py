@@ -6,7 +6,7 @@ from pyrogram.types import (
 )
 from pyrogram.types import InlineQuery, CallbackQuery
     
-
+from anibot.data import *
 
 whisper_db = {}
 
