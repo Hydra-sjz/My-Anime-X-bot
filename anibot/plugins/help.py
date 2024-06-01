@@ -51,6 +51,9 @@ msg_buttons=InlineKeyboardMarkup(
                              ])
 
 
+def mention(name: str, id: int) -> str:
+    return "[{}](tg://user?id={})".format(name, id)
+
 
 hlp_cmd = """
 ```__This is a small guide on how to use me
