@@ -454,7 +454,7 @@ ID: `{user}`""",
         await client.send_message(
             gid,
             text=(
-                f"Kon'nichiwa!!! [😈](https://telegra.ph/file/5bf31a4e8e15e9f631aba.jpg)\n"
+                f"Kon'nichiwa!!! [😈](https://telegra.ph/file/cadfaa11fcc628b2ac385.jpg)\n"
                 +f"🕵️ I'm {bot.first_name}, and I can help you get info on "
                 +f"🎱Animes,🎍 Mangas,👯 Characters,🎐 Airings, 🗓️Schedules, 📺Watch "
                 +f"Orders of Animes, etc. 😜"
