@@ -149,8 +149,8 @@ email=''
 @anibot.on_callback_query()
 async def cb_handler(bot: Client, query: CallbackQuery):
     response=query.data
-    data = json.loads(query.data)
-    game = get_game(query.inline_message_id, data)
+    data=json.loads(query.data)
+    game=get_game(query.inline_message_id, data)
     if query.data == "hlp":
         await query.message.edit_text(
             text=hlp_cmd, #update.from_user.first_name
@@ -277,7 +277,7 @@ async def cb_handler(bot: Client, query: CallbackQuery):
         await query.message.delete()
         await query.answer("Successfully Closed ❌")
 
-    elif data["type"] == "P":  # Player
+    elif data=="P":  # Player
         if game.player1["id"] == query.from_user.id:
             bot.answer_callback_query(
                 query.id,
@@ -306,7 +306,7 @@ async def cb_handler(bot: Client, query: CallbackQuery):
                 message_text,
                 reply_markup=InlineKeyboardMarkup(game.board_keys)
             )
-    elif data["type"] == "K":  # Keyboard
+    elif data=="K":  # Keyboard
         if data["end"]:
             bot.answer_callback_query(
                 query.id,
@@ -370,7 +370,7 @@ async def cb_handler(bot: Client, query: CallbackQuery):
                 query.id,
                 "This one is already taken!"
             )
-    elif data["type"] == "R":  # Reset
+    elif data=="R":  # Reset
         game = reset_game(game)
 
         message_text = "{}({})  {}  {}({})\n\n{} **{} ({})**".format(
@@ -389,7 +389,7 @@ async def cb_handler(bot: Client, query: CallbackQuery):
             message_text,
             reply_markup=InlineKeyboardMarkup(game.board_keys)
         )
-    elif data["type"] == "C":  # Contact
+    elif data=="C":  # Contact
         if data["action"] == "email":
             bot.edit_message_text(
                 query.from_user.id,
@@ -406,7 +406,7 @@ async def cb_handler(bot: Client, query: CallbackQuery):
                     )]]
                 )
             )
-        elif data["action"] == "email-back":
+        elif data=="email-back":
             bot.edit_message_text(
                 query.from_user.id,
                 query.message.message_id,
