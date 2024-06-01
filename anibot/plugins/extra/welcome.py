@@ -81,13 +81,17 @@ async def greet_group(bot, member: ChatMemberUpdated):
         pic = "assets/NODP.PNG"
     if (temp.MELCOW).get(f"welcome-{member.chat.id}") is not None:
         try:
-            welcomeimg = welcomepic(
-                pic, user.first_name, member.chat.title, user.id, user.username
-            )
-            temp.MELCOW[f"welcome-{member.chat.id}"] = await bot.send_photo(
-                member.chat.id,
-                photo=welcomeimg,
-                caption= f"""
+            await temp.MELCOW[f"welcome-{member.chat.id}"].delete()
+        except Exception as e:
+            LOGGER.error(e)
+    try:
+        welcomeimg = welcomepic(
+            pic, user.first_name, member.chat.title, user.id, user.username
+        )
+        temp.MELCOW[f"welcome-{member.chat.id}"] = await bot.send_photo(
+            member.chat.id,
+            photo=welcomeimg,
+            caption= f"""
 **⁣Welcome to my ๛ {member.chat.title} Group♡゙**
 
 **× Name:-** {user.mention}
@@ -96,19 +100,19 @@ async def greet_group(bot, member: ChatMemberUpdated):
 **× Time:-** {joined_date}
 
 __๛ Hey {user.first_name} Your are here {count}Th member of the group! and thanks for joining here ;)__
-""", 
+""",
 reply_markup=InlineKeyboardMarkup(
 [
-[InlineKeyboardButton(f"Welcome {user.first_name}!", callback_data=f"hshdjdh"),
+[InlineKeyboardButton(f"Welcome {user.first_name}!", url=f"t.me/{user.username}"),
 ]
 ]
 ))
 
-        except Exception as e:
-            LOGGER.error(e)
-        try:
-            os.remove(f"downloads/welcome#{user.id}.png")
-            os.remove(f"downloads/pp{user.id}.png")
-        except Exception as e:
-            pass
+    except Exception as e:
+        LOGGER.error(e)
+    try:
+        os.remove(f"downloads/welcome#{user.id}.png")
+        os.remove(f"downloads/pp{user.id}.png")
+    except Exception as e:
+        pass
   
