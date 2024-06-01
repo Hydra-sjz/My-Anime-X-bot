@@ -416,10 +416,11 @@ __I have some more Extra commands, you can just try it out.
 
 Use /afk [Reason > Optional] - Tell others that you are AFK (Away From Keyboard).
 /afk [reply to media] - AFK with media.
-Use /askai Ask questions using ai for responding to user queries feom Gamini.
+Use /askai or /mai Ask questions using ai for responding to user queries feom Gamini.
 Use /aii Reply to image to containing text that you want transcripts, and  I'll process the image and provide you with the transcribed text.
 Use /aicook Reply to image To get cooking instruction of the food in it.
 Use /aiseller Reply to image and create you product desc.
+Use /imagine Generate ai image from text
 Use /gptai /gpt2 /iri /assis Ask anything to gpt ai.
 Use /bard Ask anything to Bard ai.
 Use /deep ask questions to Deep Ai.
@@ -427,7 +428,7 @@ Use /bing2 search any from Bing browser.
 Use /info To get your information.
 Use /ginfo, /cinfo To get Group informations.
 Use /upscale Upscales your image quality.
-Use /tagall to Mention all members in Group, or you can type /stop to mentioning to.__
+Use /tagall or /mentionall to Mention all members in Group, or you can type /stop to mentioning to.__
 Use /tmail to generate your fakemail address.
 Use /ping to ping me.
 """
@@ -440,13 +441,14 @@ EXT_BUTTONS = InlineKeyboardMarkup(
     ) 
 
 EXT2_TEXT = """
-**Extra module 2**
+**Extra module 2️⃣**
 __Use /ranking /today to Check it out your Top ranking.
 Use /nightmode To set your group night Mod.
 Use /rmbg Reply to image to remove Background.
 Use /sangmata_set [on/off] created simple detection to check user data include username, first_name, and last_name sangmata in groups.
 Use /tmdb to get Move informations from The Movie Database [[TMDB](https://www.themoviedb.org)]
 Use /unpic, /unrand to get images from [Unsplash](https://unsplash.com/)
+Use /zip Reply to file to zip files.
 Use /unzip Reply to Zipped files to separates files from zip.
 **Whisper:**
 Use `@GojoSatoru_Xbot (Target Username or ID) (Your Message)` In inline to use this on group.
@@ -457,6 +459,7 @@ Use /bingimg It retrieves and displays images obtained through a Bing image sear
 Use /bingsearch To get Bing search result with links.
 Use /news_search To search Latest news.
 Use /wikisearch To Search Wikipedia quarys.
+Use /short | /unshort [link] ex: /short t.me/GojoSatoru_Xbot 
 """
 EXT2_BUTTONS = InlineKeyboardMarkup(
         [[
@@ -467,7 +470,7 @@ EXT2_BUTTONS = InlineKeyboardMarkup(
     ) 
 
 EXT3_TEXT = """
-**Extra module 3**
+**Extra module 3️⃣**
 __Use /meme cmd to get meme from meme api.
 Use /mormeme cmd to get more memes.
 Use /reddit cmd to get Random image from Reddit.
@@ -485,6 +488,7 @@ Use /ggimg cmd to get 10 Images from Google.
 Use /bingimg cmd to get 10 Images from Bing.
 Use /yandeximg cmd to get 10 Images from Yandex.
 Use /ddgimg cmd to get 10 Images from DuckDuckGo.
+Use /pimg cmd to get 6 images from Pinterest.
 × [Auto welcome] Just add me to your group, and i will greetings to New members with my advansed future.__
 """
 EXT3_BUTTONS = InlineKeyboardMarkup(
@@ -497,16 +501,19 @@ EXT3_BUTTONS = InlineKeyboardMarkup(
 
 
 EXT4_TEXT = """
+**Extra module 4️⃣**
 Adds MongoDB to database so that u can access­ Database 
 Use /adddb [mongo uri]­ Get access to the MongoDB uri u added using /adddb & and type /showdb­.
 Use /q [reply to a text message / give text as input] to Converts your text into a quote­
 Use /wallpapers To Get random Wallpapers
-Use  /webgame To play web Games here.
+Use /webgame To play web Games here.
 Use /downl To save your photos and files to local server and /upload to get your saved files.
 Use /paste [reply to message/text file]­ to Pastes the given text in spacebin­.
 Use /ocr [reply to photo] Extract Text From Image
 Use /txt_qr [text] To Convert Text to QR Code.
 Use /qr_txt [Reply to qr photo] recognise qr code form given image.
+Use /couples Get Todays Couples Of The Group In Interactive View
+Use /figlet make finglet of the given text
 """
 EXT4_BUTTONS = InlineKeyboardMarkup(
         [[
