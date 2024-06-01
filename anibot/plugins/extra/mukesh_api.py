@@ -22,6 +22,10 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE."""
+
+
+import time
+import requests
 from pyrogram import filters
 from pyrogram.types import  Message
 from pyrogram.types import InputMediaPhoto
@@ -50,10 +54,21 @@ async def imagine_(b, message: Message):
     except Exception as e:
         await mukesh.edit_text(f"error {e}")
     
-# -----------CREDITS -----------
-# telegram : @legend_coder
-# github : noob-mukesh
-__mod_name__ = "Aɪ ɪᴍᴀɢᴇ"
-__help__ = """
- ➻ /imagine : ɢᴇɴᴇʀᴀᴛᴇ Aɪ ɪᴍᴀɢᴇ ғʀᴏᴍ ᴛᴇxᴛ
- """
+
+from .. import pbot as Mukesh,BOT_NAME,BOT_USERNAME
+
+@Mukesh.on_message(filters.command(["mai","mask"],  prefixes=["+", ".", "/", "-", "?", "$","#","&"]))
+async def chat_mgpt(bot, message):
+    
+    try:
+        await bot.send_chat_action(message.chat.id, ChatAction.TYPING)
+        if len(message.command) < 2:
+            await message.reply_text(
+            "Example:**\n\n`/chatgpt Where is TajMahal?`")
+        else:
+            a = message.text.split(' ', 1)[1]
+            r=api.gemini(a)["results"]
+            await message.reply_text(f" {r} \n\n**Powered by: @XBOTS_X | ©️ @GojoSatoru_Xbot** ")     
+    except Exception as e:
+        await message.reply_text(f"**#Error: {e} ")
+
