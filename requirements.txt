@@ -5,7 +5,6 @@ requests
 aiofiles>=0.6.0
 aiohttp[speedups]>=3.7.3
 apscheduler
-anime-api==1.0.1
 
 tracemoepy
 bs4
@@ -14,7 +13,6 @@ dnspython
 natsort
 
 lxml
-lexica-api
 lottie
 lexica-api==1.5.5
 
@@ -55,3 +53,9 @@ youtube_dl
 yt_dlp
 pyfiglet
 pyshorteners
+
+#======api-tools=======#
+MukeshAPI
+anime-api==1.0.1
+lexica-api
+#======================#
