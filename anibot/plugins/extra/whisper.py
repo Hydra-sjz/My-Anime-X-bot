@@ -33,17 +33,16 @@ async def _whisper(_, inline_query):
                 reply_markup=InlineKeyboardMarkup(
                     [[InlineKeyboardButton(
                         emojis.swords + " Accept",
-                    json.dumps(
-                        {"type": "P",
-                         "id": inline_query.from_user.id,
-                         "name": inline_query.from_user.first_name
-                         }
-                    )
-                )]]
-            )],
-        cache_time=1
-    
-   
+                        json.dumps(
+                            {"type": "P",
+                             "id": inline_query.from_user.id,
+                             "name": inline_query.from_user.first_name
+                             }
+                        )
+                    )]]
+              ),
+              cache_time=1
+         ]
         
     else:
         try:
