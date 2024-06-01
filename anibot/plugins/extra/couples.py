@@ -11,14 +11,7 @@ from pyrogram.enums import *
 from anibot import anibot as app
 from anibot.utils2.Database.couples_db import _get_image, get_couple
 
-POLICE = [
-    [
-        InlineKeyboardButton(
-            text=f"{N1} 💘 {N2}",
-            callback_data=f"hwhwheheh",
-        ),
-    ],
-]
+
 
 
 def dt():
@@ -104,7 +97,14 @@ async def ctest(_, message):
          img.paste(img2, (805, 215), img2)
 
          img.save(f'test_{cid}.png')
-    
+         POLICE = [
+             [
+                 InlineKeyboardButton(
+                     text=f"{N1} 💘 {N2}",
+                     callback_data=f"hwhwheheh",
+                 ),
+             ],
+         ]
          TXT = f"""
 **Today's Couple of the day
 
