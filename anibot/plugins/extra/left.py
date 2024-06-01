@@ -91,7 +91,7 @@ async def member_has_left(client: app, member: ChatMemberUpdated):
                 profile_path=photo,
             )
         
-            caption = f"{user.mention} **Has left this group :(**"
+            caption = f"{user.first_name} **Has left this group :(**"
             #button_text = "View user"
 
             # Generate a deep link to open the user's profile
