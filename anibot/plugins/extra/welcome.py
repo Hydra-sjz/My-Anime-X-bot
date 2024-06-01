@@ -48,9 +48,9 @@ def welcomepic(pic, user, chat, id, uname):
     draw = ImageDraw.Draw(background)
     font = ImageFont.truetype('assets/font.ttf', size=50)
     font2 = ImageFont.truetype('assets/font2.ttf', size=90)
-    draw.text((65, 250), f'NAME : {unidecode(user)}', fill=(255, 255, 255), font=font)
+    draw.text((65, 250), f'Name : {unidecode(user)}', fill=(255, 255, 255), font=font)
     draw.text((65, 340), f'ID : {id}', fill=(255, 255, 255), font=font)
-    draw.text((65, 430), f"USERNAME : {uname}", fill=(255,255,255),font=font)
+    draw.text((65, 430), f"Username : {uname}", fill=(255,255,255),font=font)
     pfp_position = (767, 133)  
     background.paste(pfp, pfp_position, pfp)  
     background.save(
@@ -94,12 +94,12 @@ async def greet_group(bot, member: ChatMemberUpdated):
             caption= f"""
 **⁣Welcome to my ๛ {member.chat.title} Group♡゙**
 
-× Name: {user.mention}
-× User name: @{user.username}
-× User id: {user.id}
+**× Name:-** {user.mention}
+**× User name:-** @{user.username}
+**× User id:-** {user.id}
+**× Time:-** {joined_date}
 
- ๛ Hey {user.first_name} Your are here {count}Th member of the group!
-**Time »** {joined_date}
+__๛ Hey {user.first_name} Your are here {count}Th member of the group! and thanks for joining here ;)__
 """,
 reply_markup=InlineKeyboardMarkup(
 [
