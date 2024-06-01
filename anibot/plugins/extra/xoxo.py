@@ -64,7 +64,7 @@ def inline_query_handler(_, query: InlineQuery):
         cache_time=1
     )
 
-
+"""
 @app.on_callback_query()
 def callback_query_handler(bot: Client, query: CallbackQuery):
     data = json.loads(query.data)
@@ -206,3 +206,4 @@ def callback_query_handler(bot: Client, query: CallbackQuery):
                 reply_markup=CONTACT_KEYS
             )
 
+"""
