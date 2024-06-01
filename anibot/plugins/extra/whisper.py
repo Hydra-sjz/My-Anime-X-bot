@@ -40,8 +40,7 @@ async def _whisper(_, inline_query):
                          }
                     )
                 )]]
-            )
-        ]
+            )],
         cache_time=1
     
    
