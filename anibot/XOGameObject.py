@@ -1,5 +1,5 @@
 import json
-from anibot.emojis import emojis
+import emojis
 from pyrogram.types import InlineKeyboardButton
 
 
