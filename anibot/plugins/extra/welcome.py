@@ -81,12 +81,8 @@ async def greet_group(bot, member: ChatMemberUpdated):
         pic = "assets/NODP.PNG"
     if (temp.MELCOW).get(f"welcome-{member.chat.id}") is not None:
         try:
-            #await temp.MELCOW[f"welcome-{member.chat.id}"].delete()
-        except Exception as e:
-            LOGGER.error(e)
-    try:
-        welcomeimg = welcomepic(
-            pic, user.first_name, member.chat.title, user.id, user.username
+            welcomeimg = welcomepic(
+                pic, user.first_name, member.chat.title, user.id, user.username
         )
         temp.MELCOW[f"welcome-{member.chat.id}"] = await bot.send_photo(
             member.chat.id,
