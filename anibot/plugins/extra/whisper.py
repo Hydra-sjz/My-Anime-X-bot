@@ -22,6 +22,13 @@ async def _whisper(_, inline_query):
                 input_message_content=InputTextMessageContent(f"💌 Usage:\n\n@GojoSatoru_Xbot [ USERNAME | ID ] [ TEXT ]"),
                 thumb_url="https://telegra.ph/file/10e0f3296a52580094bac.jpg",
                 reply_markup=switch_btn
+            ),
+            InlineQueryResultArticle(
+                title="🎮 Tic-Tac-Toe",
+                description="Tap here to challenge your friends in XO!",
+                input_message_content=InputTextMessageContent(f"**{query.from_user.first_name}** challenged you in XO!"),
+                thumb_url="https://telegra.ph/file/a64892c281f1fa45e2af9.jpg",
+                reply_markup=switch_btn
             )
         ]
     else:
