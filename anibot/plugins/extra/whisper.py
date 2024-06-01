@@ -28,15 +28,15 @@ async def _whisper(_, inline_query):
             InlineQueryResultArticle(
                 title="🎮 Tic-Tac-Toe",
                 description="Tap here to challenge your friends in XO!",
-                input_message_content=InputTextMessageContent(f"**{query.from_user.first_name}** challenged you in XO!"),
+                input_message_content=InputTextMessageContent(f"**{inline_query.from_user.first_name}** challenged you in XO!"),
                 thumb_url="https://telegra.ph/file/a64892c281f1fa45e2af9.jpg",
                 reply_markup=InlineKeyboardMarkup(
                     [[InlineKeyboardButton(
                         emojis.swords + " Accept",
                     json.dumps(
                         {"type": "P",
-                         "id": query.from_user.id,
-                         "name": query.from_user.first_name
+                         "id": inline_query.from_user.id,
+                         "name": inline_query.from_user.first_name
                          }
                     )
                 )]]
