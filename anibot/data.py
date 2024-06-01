@@ -1,4 +1,4 @@
-from XOGameObject import *
+from anibot.XOGameObject import *
 
 
 games = []
