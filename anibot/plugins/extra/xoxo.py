@@ -1,6 +1,6 @@
 import os
 
-from data import *
+from anibot.data import *
 from pyrogram import Client, filters
 from pyrogram.types import InlineQuery, InlineQueryResultArticle, InputTextMessageContent, \
     InlineKeyboardMarkup, CallbackQuery, Message
