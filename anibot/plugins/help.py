@@ -489,7 +489,7 @@ Use /bingimg cmd to get 10 Images from Bing.
 Use /yandeximg cmd to get 10 Images from Yandex.
 Use /ddgimg cmd to get 10 Images from DuckDuckGo.
 Use /pimg cmd to get 6 images from Pinterest.
-× [Auto welcome] Just add me to your group, and i will greetings to New members with my advansed future.__
+× [Auto welcome & Auto Left] Just add me to your group, and i will greetings | left, to New members with my advansed future.__
 """
 EXT3_BUTTONS = InlineKeyboardMarkup(
         [[
