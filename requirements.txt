@@ -53,3 +53,4 @@ telegraph
 
 youtube_dl
 yt_dlp
+pyfiglet
