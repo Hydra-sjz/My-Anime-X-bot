@@ -29,6 +29,6 @@ async def echo(bot, message):
 async def figlet_handler(Client, query: CallbackQuery):
   try:
       kul_text, keyboard = figle(text)
-      await query.message.edit_text(f"๏ Here is your Figlet.\n<pre>{kul_text}</pre>", reply_markup=keyboard)
+      await query.message.edit_text(f"Here is your Figlet.\n<pre>{kul_text}</pre>", reply_markup=keyboard)
   except Exception as e : 
       await message.reply(e)
