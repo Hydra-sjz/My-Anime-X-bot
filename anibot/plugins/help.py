@@ -4,7 +4,10 @@ import traceback
 import logging
 
 from pyrogram import filters
-from pyrogram.types import CallbackQuery, InlineKeyboardButton, InlineKeyboardMarkup
+from pyrogram.types import InlineKeyboardButton
+from pyrogram.types import InlineQuery, InlineQueryResultArticle, InputTextMessageContent, \
+    InlineKeyboardMarkup, CallbackQuery, Message
+
 from anibot import anibot, LOG_CHANNEL_ID
 import wget
 import requests as re
@@ -142,7 +145,8 @@ email=''
 @anibot.on_callback_query()
 async def cb_handler(bot, update):
     response=update.data
-    
+    data = json.loads(update.data)
+    game = get_game(update.inline_message_id, data)
     if update.data == "hlp":
         await update.message.edit_text(
             text=hlp_cmd, #update.from_user.first_name
@@ -268,6 +272,143 @@ async def cb_handler(bot, update):
     elif update.data == "close":
         await update.message.delete()
         await update.answer("Successfully Closed ❌")
+
+    elif data["type"] == "P":  # Player
+        if game.player1["id"] == update.from_user.id:
+            bot.answer_callback_query(
+                update,
+                "Wait for opponent!",
+                show_alert=True
+            )
+        elif game.player1["id"] != update.from_user.id:
+            game.player2 = {"type": "P",
+                            "id": update.from_user.id,
+                            "name": update
+                            }
+
+            message_text = "{}({})  {}  {}({})\n\n{} **{} ({})**".format(
+                mention(game.player1["name"], game.player1["id"]),
+                emojis.X,
+                emojis.vs,
+                mention(game.player2["name"], game.player2["id"]),
+                emojis.O,
+                emojis.game,
+                mention(game.player1["name"], game.player1["id"]),
+                emojis.X
+            )
+
+            bot.edit_inline_text(
+                update.inline_message_id,
+                message_text,
+                reply_markup=InlineKeyboardMarkup(game.board_keys)
+            )
+    elif data["type"] == "K":  # Keyboard
+        if data["end"]:
+            bot.answer_callback_query(
+                update.id,
+                "Match has ended!",
+                show_alert=True
+            )
+
+            return
+
+        if (game.whose_turn and update.from_user.id != game.player1["id"]) \
+                or (not game.whose_turn and update.from_user.id != game.player2["id"]):
+            bot.answer_callback_query(
+                update.id,
+                "Not your turn!"
+            )
+
+            return
+
+        if game.fill_board(update.from_user.id, data["coord"]):
+            game.whose_turn = not game.whose_turn
+
+            if game.check_winner():
+                message_text = "{}({})  {}  {}({})\n\n{} **{} won!**".format(
+                    mention(game.player1["name"], game.player1["id"]),
+                    emojis.X,
+                    emojis.vs,
+                    mention(game.player2["name"], game.player2["id"]),
+                    emojis.O,
+                    emojis.trophy,
+                    mention(game.winner["name"], game.winner["id"])
+                )
+            elif game.is_draw():
+                message_text = "{}({})  {}  {}({})\n\n{} **Draw!**".format(
+                    mention(game.player1["name"], game.player1["id"]),
+                    emojis.X,
+                    emojis.vs,
+                    mention(game.player2["name"], game.player2["id"]),
+                    emojis.O,
+                    emojis.draw
+                )
+            else:
+                message_text = "{}({})  {}  {}({})\n\n{} **{} ({})**".format(
+                    mention(game.player1["name"], game.player1["id"]),
+                    emojis.X,
+                    emojis.vs,
+                    mention(game.player2["name"], game.player2["id"]),
+                    emojis.O,
+                    emojis.game,
+                    mention(game.player1["name"], game.player1["id"]) if game.whose_turn else
+                    mention(game.player2["name"], game.player2["id"]),
+                    emojis.X if game.whose_turn else emojis.O
+                )
+
+            bot.edit_inline_text(
+                update.inline_message_id,
+                message_text,
+                reply_markup=InlineKeyboardMarkup(game.board_keys)
+            )
+        else:
+            bot.answer_callback_query(
+                update.id,
+                "This one is already taken!"
+            )
+    elif data["type"] == "R":  # Reset
+        game = reset_game(game)
+
+        message_text = "{}({})  {}  {}({})\n\n{} **{} ({})**".format(
+            mention(game.player1["name"], game.player1["id"]),
+            emojis.X,
+            emojis.vs,
+            mention(game.player2["name"], game.player2["id"]),
+            emojis.O,
+            emojis.game,
+            mention(game.player1["name"], game.player1["id"]),
+            emojis.X
+        )
+
+        bot.edit_inline_text(
+            update.inline_message_id,
+            message_text,
+            reply_markup=InlineKeyboardMarkup(game.board_keys)
+        )
+    elif data["type"] == "C":  # Contact
+        if data["action"] == "email":
+            bot.edit_message_text(
+                update.from_user.id,
+                update.message.message_id,
+                "reza.farjam78@gmail.com",
+                reply_markup=InlineKeyboardMarkup(
+                    [[InlineKeyboardButton(
+                        emojis.back + " Back",
+                        json.dumps(
+                            {"type": "C",
+                             "action": "email-back"
+                             }
+                        )
+                    )]]
+                )
+            )
+        elif data["action"] == "email-back":
+            bot.edit_message_text(
+                update.from_user.id,
+                update.message.message_id,
+                "Feel free to share your thoughts on XO bot with me.",
+                reply_markup=CONTACT_KEYS
+            )
 
 #===============
 
