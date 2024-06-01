@@ -70,17 +70,17 @@ font_path = "assets/hiroko.ttf"
 
 
 INFO_TEXT = """
-ㅤ× User Information ×
+ㅤ**× User Information ×**
 ×───────────────×
-  
-× User Id: `{}`
-× Username: @{}
-× Mention: {}
-× Status: `{}`
-× Dc Id: {}
-× Bio: {}
 
-๏ Powered by: [X Bots](https://t.me/xbots_x)
+× **User Id:** `{}`
+× **Username:** @{}
+× **Mention:** {}
+× **Status:** `{}`
+× **Dc Id:** {}
+× **Bio:** {}
+
+**Powered by: [X Bots](https://t.me/xbots_x)**
 """
 
 # --------------------------------------------------------------------------------- #
