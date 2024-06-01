@@ -18,6 +18,7 @@ from anibot.utils2.broadcast_db.check_user import handle_user_status
 from anibot.utils2.broadcast_db.database import Database
 from config import AUTH_USERS, DB_URL, DB_NAME
 
+from anibot.data import *
 
 db = Database(DB_URL, DB_NAME)
 
