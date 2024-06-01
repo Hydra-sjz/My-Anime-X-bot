@@ -100,7 +100,7 @@ async def ctest(_, message):
          POLICE = [
              [
                  InlineKeyboardButton(
-                     text=f"{N1} 💘 {N2}",
+                     text=f"⟨💘⟩",
                      callback_data=f"hwhwheheh",
                  ),
              ],
