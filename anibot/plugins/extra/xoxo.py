@@ -3,7 +3,7 @@ import os
 from anibot.data import *
 from pyrogram import Client, filters
 from pyrogram.types import InlineQuery, InlineQueryResultArticle, InputTextMessageContent, \
-    InlineKeyboardMarkup, CallbackQuery, Message
+    InlineKeyboardMarkup, CallbackQuery
 from anibot import anibot as app
 
 
