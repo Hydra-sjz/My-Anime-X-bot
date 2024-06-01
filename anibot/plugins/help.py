@@ -147,22 +147,22 @@ async def hlp_cmd(bot, message):
 #CALLBACK 1
 email=''
 @anibot.on_callback_query()
-async def cb_handler(bot, update):
-    response=update.data
-    data = json.loads(update.data)
-    game = get_game(update.inline_message_id, data)
-    if update.data == "hlp":
-        await update.message.edit_text(
+async def cb_handler(bot: Client, query: CallbackQuery):
+    response=query.data
+    data = json.loads(query.data)
+    game = get_game(query.inline_message_id, data)
+    if query.data == "hlp":
+        await query.message.edit_text(
             text=hlp_cmd, #update.from_user.first_name
             reply_markup=hlp_bt,
             disable_web_page_preview=True
         )
-        await update.answer("👋Hey i am Gojo Satoru 𝕏 Bot")
+        await query.answer("👋Hey i am Gojo Satoru 𝕏 Bot")
 
     elif response=='generate':
        global email
        email = re.get("https://www.1secmail.com/api/v1/?action=genRandomMailbox&count=1").json()[0]
-       await update.edit_message_text('__**Your Temporary E-mail: **__`'+str(email)+'`',
+       await query.edit_message_text('__**Your Temporary E-mail: **__`'+str(email)+'`',
                                        reply_markup=buttons)
        print(email)
 
@@ -170,7 +170,7 @@ async def cb_handler(bot, update):
         print(email)
         try:
             if email=='':
-                await update.edit_message_text('Genaerate a email',reply_markup=buttons)
+                await query.edit_message_text('Genaerate a email',reply_markup=buttons)
             else: 
                 getmsg_endp =  "https://www.1secmail.com/api/v1/?action=getMessages&login=" + email[:email.find("@")] + "&domain=" + email[email.find("@") + 1:]
                 print(getmsg_endp)
@@ -180,10 +180,10 @@ async def cb_handler(bot, update):
                 from_msg=ref_response[0]['from']
                 subject=ref_response[0]['subject']
                 refreshrply='You a message from '+from_msg+'\n\nSubject : '+subject
-                await update.edit_message_text(refreshrply,
+                await query.edit_message_text(refreshrply,
                                                 reply_markup=msg_buttons)
         except:
-            await update.answer('No messages were received..\nin your Mailbox '+email)
+            await query.answer('No messages were received..\nin your Mailbox '+email)
     elif response=='view_msg':
         msg =re.get("https://www.1secmail.com/api/v1/?action=readMessage&login=" + email[:email.find("@")] + "&domain=" + email[email.find("@") + 1:] + "&id=" + idnum).json()
         print(msg)
@@ -199,95 +199,95 @@ async def cb_handler(bot, update):
         await update.edit_message_text(mailbox_view,reply_markup=buttons)
         mailbox_view='ID No : '+idnum+'\nFrom : '+from_mail+'\nDate : '+date+'\nSubject : '+subjectt+'\nmessage : \n'+body
         if attachments == "[]":
-            await update.edit_message_text(mailbox_view,reply_markup=buttons)
-            await update.answer("No Messages Were Recieved..", show_alert=True)
+            await query.edit_message_text(mailbox_view,reply_markup=buttons)
+            await query.answer("No Messages Were Recieved..", show_alert=True)
         else:
             dlattach=attachments['filename']
             attc="https://www.1secmail.com/api/v1/?action=download&login=" + email[:email.find("@")] + "&domain=" + email[email.find("@") + 1:] + "&id=" + idnum+"&file="+dlattach
             print(attc)
             mailbox_vieww='ID No : '+idnum+'\nFrom : '+from_mail+'\nDate : '+date+'\nSubject : '+subjectt+'\nmessage : \n'+body+'\n\n'+'[Download]('+attc+') Attachments'
             filedl=wget.download(attc)
-            await update.edit_message_text(mailbox_vieww,reply_markup=buttons)
+            await query.edit_message_text(mailbox_vieww,reply_markup=buttons)
             os.remove(dlattach)
     
  #MAINE CM
-    elif update.data == "adl":
-        await update.message.edit_text(
+    elif query.data == "adl":
+        await query.message.edit_text(
             text=ADL_TEXT,
             reply_markup=ADL_BUTTONS,
             disable_web_page_preview=True
         )
-        await update.answer("👋Hey i am Gojo Satoru 𝕏 Bot")
+        await query.answer("👋Hey i am Gojo Satoru 𝕏 Bot")
         
-    elif update.data == "anl":
-        await update.message.edit_text(
+    elif query.data == "anl":
+        await query.message.edit_text(
             text=ANL_TEXT,
             reply_markup=ANL_BUTTONS,
             disable_web_page_preview=True
         )
-        await update.answer("👋Hey i am Gojo Satoru 𝕏 Bot")
+        await query.answer("👋Hey i am Gojo Satoru 𝕏 Bot")
 
-    elif update.data == "grp":
-        await update.message.edit_text(
+    elif query.data == "grp":
+        await query.message.edit_text(
             text=GRP_TEXT,
             reply_markup=GRP_BUTTONS,
             disable_web_page_preview=True
         )
-        await update.answer("👋Hey i am Gojo Satoru 𝕏 Bot")
+        await query.answer("👋Hey i am Gojo Satoru 𝕏 Bot")
 
-    elif update.data == "oth":
-        await update.message.edit_text(
+    elif query.data == "oth":
+        await query.message.edit_text(
             text=OTH_TEXT,
             reply_markup=OTH_BUTTONS,
             disable_web_page_preview=True
         )
-        await update.answer("👋Hey i am Gojo Satoru 𝕏 Bot")
+        await query.answer("👋Hey i am Gojo Satoru 𝕏 Bot")
         
-    elif update.data == "ext":
-        await update.message.edit_text(
+    elif query.data == "ext":
+        await query.message.edit_text(
             text=EXT_TEXT,
             reply_markup=EXT_BUTTONS,
             disable_web_page_preview=True
         )
-        await update.answer("👋Hey i am Gojo Satoru 𝕏 Bot")
-    elif update.data == "ext2":
-        await update.message.edit_text(
+        await query.answer("👋Hey i am Gojo Satoru 𝕏 Bot")
+    elif query.data == "ext2":
+        await query.message.edit_text(
             text=EXT2_TEXT,
             reply_markup=EXT2_BUTTONS,
             disable_web_page_preview=True
         )
-        await update.answer("👋Hey i am Gojo Satoru 𝕏 Bot")
-    elif update.data == "ext3":
-        await update.message.edit_text(
+        await query.answer("👋Hey i am Gojo Satoru 𝕏 Bot")
+    elif query.data == "ext3":
+        await query.message.edit_text(
             text=EXT3_TEXT,
             reply_markup=EXT3_BUTTONS,
             disable_web_page_preview=True
         )
-        await update.answer("👋Hey i am Gojo Satoru 𝕏 Bot")
+        await query.answer("👋Hey i am Gojo Satoru 𝕏 Bot")
       
-    elif update.data == "ext4":
-        await update.message.edit_text(
+    elif query.data == "ext4":
+        await query.message.edit_text(
             text=EXT4_TEXT,
             reply_markup=EXT4_BUTTONS,
             disable_web_page_preview=True
         )
-        await update.answer("👋Hey i am Gojo Satoru 𝕏 Bot")
+        await query.answer("👋Hey i am Gojo Satoru 𝕏 Bot")
 
-    elif update.data == "close":
-        await update.message.delete()
-        await update.answer("Successfully Closed ❌")
+    elif query.data == "close":
+        await query.message.delete()
+        await query.answer("Successfully Closed ❌")
 
     elif data["type"] == "P":  # Player
-        if game.player1["id"] == update.from_user.id:
+        if game.player1["id"] == query.from_user.id:
             bot.answer_callback_query(
-                update,
+                query.id,
                 "Wait for opponent!",
                 show_alert=True
             )
-        elif game.player1["id"] != update.from_user.id:
+        elif game.player1["id"] != query.from_user.id:
             game.player2 = {"type": "P",
-                            "id": update.from_user.id,
-                            "name": update
+                            "id": query.from_user.id,
+                            "name": query.from_user.first_name
                             }
 
             message_text = "{}({})  {}  {}({})\n\n{} **{} ({})**".format(
@@ -302,30 +302,30 @@ async def cb_handler(bot, update):
             )
 
             bot.edit_inline_text(
-                update.inline_message_id,
+                query.inline_message_id,
                 message_text,
                 reply_markup=InlineKeyboardMarkup(game.board_keys)
             )
     elif data["type"] == "K":  # Keyboard
         if data["end"]:
             bot.answer_callback_query(
-                update.id,
+                query.id,
                 "Match has ended!",
                 show_alert=True
             )
 
             return
 
-        if (game.whose_turn and update.from_user.id != game.player1["id"]) \
-                or (not game.whose_turn and update.from_user.id != game.player2["id"]):
+        if (game.whose_turn and query.from_user.id != game.player1["id"]) \
+                or (not game.whose_turn and query.from_user.id != game.player2["id"]):
             bot.answer_callback_query(
-                update.id,
+                query.id,
                 "Not your turn!"
             )
 
             return
 
-        if game.fill_board(update.from_user.id, data["coord"]):
+        if game.fill_board(query.from_user.id, data["coord"]):
             game.whose_turn = not game.whose_turn
 
             if game.check_winner():
@@ -361,13 +361,13 @@ async def cb_handler(bot, update):
                 )
 
             bot.edit_inline_text(
-                update.inline_message_id,
+                query.inline_message_id,
                 message_text,
                 reply_markup=InlineKeyboardMarkup(game.board_keys)
             )
         else:
             bot.answer_callback_query(
-                update.id,
+                query.id,
                 "This one is already taken!"
             )
     elif data["type"] == "R":  # Reset
@@ -385,15 +385,15 @@ async def cb_handler(bot, update):
         )
 
         bot.edit_inline_text(
-            update.inline_message_id,
+            query.inline_message_id,
             message_text,
             reply_markup=InlineKeyboardMarkup(game.board_keys)
         )
     elif data["type"] == "C":  # Contact
         if data["action"] == "email":
             bot.edit_message_text(
-                update.from_user.id,
-                update.message.message_id,
+                query.from_user.id,
+                query.message.message_id,
                 "reza.farjam78@gmail.com",
                 reply_markup=InlineKeyboardMarkup(
                     [[InlineKeyboardButton(
@@ -408,37 +408,13 @@ async def cb_handler(bot, update):
             )
         elif data["action"] == "email-back":
             bot.edit_message_text(
-                update.from_user.id,
-                update.message.message_id,
+                query.from_user.id,
+                query.message.message_id,
                 "Feel free to share your thoughts on XO bot with me.",
                 reply_markup=CONTACT_KEYS
             )
 
-#===============
 
-#Callback 2=========
-"""
-@anibot.on_callback_query(filters.regex("help_callback"))
-async def cb_handler(client, CallbackQuery):
-    callback_data = CallbackQuery.data.strip()
-    cb = callback_data.split(None, 1)[1]
-    if cb == "hlp":
-        await CallbackQuery.edit_message_text(
-            text=hlp_cmd, 
-            reply_markup=hlp_bt
-        )
-    elif cb == "adl":
-        await CallbackQuery.edit_message_text(
-            text=ADL_TEXT, 
-            reply_markup=ADL_BUTTONS
-        )
-    elif cb == "anl":
-        await CallbackQuery.edit_message_text(
-            text=ANL_TEXT, 
-            reply_markup=ANL_BUTTONS
-        )
-    
-"""
 #==========≠==
 
 
