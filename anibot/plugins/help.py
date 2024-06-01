@@ -6,7 +6,7 @@ import logging
 from pyrogram import filters
 from pyrogram.types import InlineKeyboardButton
 from pyrogram.types import InlineQuery, InlineQueryResultArticle, InputTextMessageContent, \
-    InlineKeyboardMarkup, CallbackQuery, Message
+    InlineKeyboardMarkup, CallbackQuery
 
 from anibot import anibot, LOG_CHANNEL_ID
 import wget
