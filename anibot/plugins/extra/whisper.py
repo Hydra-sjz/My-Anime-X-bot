@@ -4,7 +4,7 @@ from pyrogram.types import (
     InlineQueryResultArticle, InputTextMessageContent,
     InlineKeyboardMarkup, InlineKeyboardButton
 )
-
+#
 
 whisper_db = {}
 
