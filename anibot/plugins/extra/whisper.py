@@ -138,8 +138,8 @@ async def in_help():
                     )]]
                 )
             )
-        ]
-        return answers
+      ]
+    return answers
 
 
 @app.on_inline_query()
