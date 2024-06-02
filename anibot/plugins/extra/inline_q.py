@@ -8,7 +8,7 @@ from pyrogram.types import InlineQuery, CallbackQuery
     
 from anibot.data import *
 
-
+from pyrogram import Client, errors
 
 
 
