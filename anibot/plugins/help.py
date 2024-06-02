@@ -425,11 +425,10 @@ Use /rmbg Reply to image to remove Background.
 Use /sangmata_set [on/off] created simple detection to check user data include username, first_name, and last_name sangmata in groups.
 Use /tmdb to get Move informations from The Movie Database [[TMDB](https://www.themoviedb.org)]
 Use /unpic, /unrand to get images from [Unsplash](https://unsplash.com/)
-Use /zip Reply to file to zip files.
-Use /unzip Reply to Zipped files to separates files from zip.
+Use /ocr [reply to photo] Extract Text From Image.
 **Whisper:**
 Use `@GojoSatoru_Xbot (Target Username or ID) (Your Message)` In inline to use this on group.
-Use /imdb [Movename/Series Name]­ Get information about a Movie/Series­..
+Use /imdb [Movename/Series Name]­ Get information about a Movie/Series­.
 Use /googleimg It retrieves and displays images obtained through a Google image search.
 Use /google_search To get Google search result with links.
 Use /bingimg It retrieves and displays images obtained through a Bing image search.
@@ -487,12 +486,14 @@ Use /wallpapers To Get random Wallpapers
 Use /webgame To play web Games here.
 Use /downl To save your photos and files to local server and /upload to get your saved files.
 Use /paste [reply to message/text file]­ to Pastes the given text in spacebin­.
-Use /ocr [reply to photo] Extract Text From Image
+
 Use /txt_qr [text] To Convert Text to QR Code.
 Use /qr_txt [Reply to qr photo] recognise qr code form given image.
 Use /couples Get Todays Couples Of The Group In Interactive View
 Use /figlet make finglet of the given text
 Use /short | /unshort [link] ex: /short t.me/GojoSatoru_Xbot
+Use /zip Reply to file to zip files.
+Use /unzip Reply to Zipped files to separates files from zip.
 """
 EXT4_BUTTONS = InlineKeyboardMarkup(
         [[
