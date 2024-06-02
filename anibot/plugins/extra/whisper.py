@@ -43,7 +43,8 @@ async def _whisper(_, inline_query):
                         )
                     )]]
                 )
-            )],         
+            )
+        ]
         
     else:
         try:
