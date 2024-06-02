@@ -124,7 +124,7 @@ async def bot_inline(_, inline_query):
     string = inline_query.query.lower()
     
     if string.strip() == "":
-        answers = await in_help(_, inline_query)
+        answers = await in_help()
         await inline_query.answer(answers)
     else:
         answers = await _whisper(_, inline_query)
