@@ -435,8 +435,7 @@ Use /google_search To get Google search result with links.
 Use /bingimg It retrieves and displays images obtained through a Bing image search.
 Use /bingsearch To get Bing search result with links.
 Use /news_search To search Latest news.
-Use /wikisearch To Search Wikipedia quarys.
-Use /short | /unshort [link] ex: /short t.me/GojoSatoru_Xbot 
+Use /wikisearch To Search Wikipedia quarys. 
 """
 EXT2_BUTTONS = InlineKeyboardMarkup(
         [[
@@ -493,6 +492,7 @@ Use /txt_qr [text] To Convert Text to QR Code.
 Use /qr_txt [Reply to qr photo] recognise qr code form given image.
 Use /couples Get Todays Couples Of The Group In Interactive View
 Use /figlet make finglet of the given text
+Use /short | /unshort [link] ex: /short t.me/GojoSatoru_Xbot
 """
 EXT4_BUTTONS = InlineKeyboardMarkup(
         [[
