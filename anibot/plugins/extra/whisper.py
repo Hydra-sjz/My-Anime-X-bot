@@ -139,7 +139,7 @@ async def in_help(_, inline_query):
                 )
             )
       ]
-    return answers
+    #return answers
 
 
 @app.on_inline_query()
