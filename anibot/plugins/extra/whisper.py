@@ -110,7 +110,7 @@ async def whispes_cb(_, query):
 
 
 
-async def in_help(b, inline_query):
+async def in_help(b, query):
     answers = [
         InlineQueryResultArticle(
             title="💌 Whisper",
@@ -131,8 +131,8 @@ async def in_help(b, inline_query):
                         emojis.swords + " Accept",
                         json.dumps(
                             {"type": "P",
-                             "id": inline_query.from_user.id,
-                             "name": inline_query.from_user.first_name
+                             "id": query.from_user.id,
+                             "name": query.from_user.first_name
                             }
                         )
                     )]]
