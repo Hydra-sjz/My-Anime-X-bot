@@ -110,7 +110,7 @@ async def whispes_cb(_, query):
 
 
 
-async def in_help():
+async def in_help(_, inline_query):
     answers = [
         InlineQueryResultArticle(
             title="💌 Whisper",
