@@ -4,9 +4,7 @@ from pyrogram.types import (
     InlineQueryResultArticle, InputTextMessageContent,
     InlineKeyboardMarkup, InlineKeyboardButton
 )
-from pyrogram.types import InlineQuery, CallbackQuery
-    
-from anibot.data import *
+
 
 whisper_db = {}
 
@@ -26,7 +24,6 @@ async def _whisper(_, inline_query):
                 reply_markup=switch_btn
             )
         ]
-        
     else:
         try:
             user_id = data.split()[0]
@@ -109,7 +106,6 @@ async def whispes_cb(_, query):
             await query.edit_message_text("📬 Whisper has been read!\n\nPress the button below to send a whisper!", reply_markup=SWITCH)
 
 
-
 async def in_help():
     answers = [
         InlineQueryResultArticle(
@@ -120,7 +116,9 @@ async def in_help():
             reply_markup=switch_btn
         )
     ]
-    
+    return answers
+
+
 @app.on_inline_query()
 async def bot_inline(_, inline_query):
     string = inline_query.query.lower()
