@@ -110,7 +110,7 @@ async def whispes_cb(_, query):
 
 
 
-async def in_help(_, inline_query):
+async def in_help():
     answers = [
         InlineQueryResultArticle(
             title="💌 Whisper",
@@ -118,37 +118,16 @@ async def in_help(_, inline_query):
             input_message_content=InputTextMessageContent(f"**📍Usage:**\n\n@GojoSatoru_Xbot (Target Username or ID) (Your Message).\n\n**Example:**\n@GojoSatoru_Xbot @username I Wanna Phuck You"),
             thumb_url="https://telegra.ph/file/10e0f3296a52580094bac.jpg",
             reply_markup=switch_btn
-        ),
-        InlineQueryResultArticle(
-                title="🎮 Tic-Tac-Toe",
-                description="Tap here to challenge your friends in XO!",
-                input_message_content=InputTextMessageContent(
-                    f"**{inline_query.from_user.first_name}** challenged you in XO!"
-                ),
-                thumb_url="https://telegra.ph/file/a64892c281f1fa45e2af9.jpg",
-                reply_markup=InlineKeyboardMarkup(
-                    [[InlineKeyboardButton(
-                        emojis.swords + " Accept",
-                        json.dumps(
-                            {"type": "P",
-                             "id": inline_query.from_user.id,
-                             "name": inline_query.from_user.first_name
-                            }
-                        )
-                    )]]
-                )
-            )
-       ]
-    #return answers
-
-
+        )
+    ]
+    
 @app.on_inline_query()
 async def bot_inline(_, inline_query):
     string = inline_query.query.lower()
     
     if string.strip() == "":
-        answers = await in_help(_, inline_query)
-        await inline_query.answer(answers[-1], cache_time=0)
+        answers = await in_help()
+        await inline_query.answer(answers)
     else:
         answers = await _whisper(_, inline_query)
         await inline_query.answer(answers[-1], cache_time=0)
