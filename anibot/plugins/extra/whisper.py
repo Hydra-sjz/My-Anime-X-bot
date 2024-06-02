@@ -24,27 +24,8 @@ async def _whisper(_, inline_query):
                 input_message_content=InputTextMessageContent(f"💌 Usage:\n\n@GojoSatoru_Xbot [ USERNAME | ID ] [ TEXT ]"),
                 thumb_url="https://telegra.ph/file/10e0f3296a52580094bac.jpg",
                 reply_markup=switch_btn
-            ),
-            InlineQueryResultArticle(
-                title="🎮 Tic-Tac-Toe",
-                description="Tap here to challenge your friends in XO!",
-                input_message_content=InputTextMessageContent(
-                    f"**{inline_query.from_user.first_name}** challenged you in XO!"
-                ),
-                thumb_url="https://telegra.ph/file/a64892c281f1fa45e2af9.jpg",
-                reply_markup=InlineKeyboardMarkup(
-                    [[InlineKeyboardButton(
-                        emojis.swords + " Accept",
-                        json.dumps(
-                            {"type": "P",
-                             "id": inline_query.from_user.id,
-                             "name": inline_query.from_user.first_name
-                            }
-                        )
-                    )]]
-                )
             )
-        ],
+        ]
         
     else:
         try:
@@ -128,6 +109,7 @@ async def whispes_cb(_, query):
             await query.edit_message_text("📬 Whisper has been read!\n\nPress the button below to send a whisper!", reply_markup=SWITCH)
 
 
+
 async def in_help():
     answers = [
         InlineQueryResultArticle(
@@ -136,9 +118,28 @@ async def in_help():
             input_message_content=InputTextMessageContent(f"**📍Usage:**\n\n@GojoSatoru_Xbot (Target Username or ID) (Your Message).\n\n**Example:**\n@GojoSatoru_Xbot @username I Wanna Phuck You"),
             thumb_url="https://telegra.ph/file/10e0f3296a52580094bac.jpg",
             reply_markup=switch_btn
-        )
-    ]
-    return answers
+        ),
+        InlineQueryResultArticle(
+                title="🎮 Tic-Tac-Toe",
+                description="Tap here to challenge your friends in XO!",
+                input_message_content=InputTextMessageContent(
+                    f"**{inline_query.from_user.first_name}** challenged you in XO!"
+                ),
+                thumb_url="https://telegra.ph/file/a64892c281f1fa45e2af9.jpg",
+                reply_markup=InlineKeyboardMarkup(
+                    [[InlineKeyboardButton(
+                        emojis.swords + " Accept",
+                        json.dumps(
+                            {"type": "P",
+                             "id": inline_query.from_user.id,
+                             "name": inline_query.from_user.first_name
+                            }
+                        )
+                    )]]
+                )
+            )
+        ]
+        return answers
 
 
 @app.on_inline_query()
