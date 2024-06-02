@@ -1,0 +1,106 @@
+from anibot import anibot as app
+from pyrogram import filters
+from pyrogram.types import (
+    InlineQueryResultArticle, InputTextMessageContent,
+    InlineKeyboardMarkup, InlineKeyboardButton
+)
+from pyrogram.types import InlineQuery, CallbackQuery
+    
+from anibot.data import *
+
+from pyrogram import Client, errors
+
+
+
+
+switch_btn = InlineKeyboardMarkup([[InlineKeyboardButton("💌 Start Whisper", switch_inline_query_current_chat="")]])
+
+switch_btn2 = InlineKeyboardMarkup([[InlineKeyboardButton("Accept", switch_inline_query_current_chat="")]])
+
+
+
+@app.on_inline_query()
+async def inline_t(client: Client, query: InlineQuery):
+    string_given = query.query.strip()
+    data = query.query
+    q = string_given.lower()
+    if q == "":
+        answer = [
+            InlineQueryResultArticle(
+                title="💌 Whisper",
+                description="🍃 @GojoSatoru_Xbot [USERNAME | ID] [TEXT].",
+                thumb_url="https://telegra.ph/file/337cb9b64bb3c7462541e.jpg",
+                input_message_content=InputTextMessageContent("**📍Usage:**\n\n@GojoSatoru_Xbot (Target Username or ID) (Your Message).\n\n**Example:**\n@GojoSatoru_Xbot @username I Wanna Phuck You."),
+                reply_markup=InlineKeyboardMarkup(switch_btn)
+            ),
+            InlineQueryResultArticle(
+                title="❌Tic-Tac-Toe⭕",
+                description="Tap here to challenge your friends in XO!",
+                thumb_url="https://telegra.ph/file/a64892c281f1fa45e2af9.jpg",
+                input_message_content=InputTextMessageContent(f"**{query.from_user.first_name}** challenged you in XO!"),
+                reply_markup=InlineKeyboardMarkup(switch_btn2)
+            )
+        ]
+        await query.answer(results=answer, cache_time=5, switch_pm_text="Your in my Inline Quary", switch_pm_parameter="start")
+    else:
+        answers = await _whisper(_, inline_query)
+        await inline_query.answer(answers[-1], cache_time=0)
+    if len(data.split()) < 2:
+        mm = [
+            InlineQueryResultArticle(
+                title="💌 Whisper",
+                description="@GojoSatoru_Xbot [ USERNAME | ID ] [ TEXT ]",
+                input_message_content=InputTextMessageContent(f"💌 Usage:\n\n@GojoSatoru_Xbot [ USERNAME | ID ] [ TEXT ]"),
+                thumb_url="https://telegra.ph/file/10e0f3296a52580094bac.jpg",
+                reply_markup=switch_btn
+            )
+        ]
+    else:
+        try:
+            user_id = data.split()[0]
+            msg = data.split(None, 1)[1]
+        except IndexError as e:
+            pass
+        
+        try:
+            user = await _.get_users(user_id)
+        except:
+            mm = [
+                InlineQueryResultArticle(
+                    title="💒 Whisper",
+                    description="Invalid username or ID!",
+                    input_message_content=InputTextMessageContent("❌ Invalid username or ID!"),
+                    thumb_url="https://telegra.ph/file/10e0f3296a52580094bac.jpg",
+                    reply_markup=switch_btn
+                )
+            ]
+        
+        try:
+            whisper_btn = InlineKeyboardMarkup([[InlineKeyboardButton("❌ Whisper", callback_data=f"fdaywhisper_{inline_query.from_user.id}_{user.id}")]])
+            one_time_whisper_btn = InlineKeyboardMarkup([[InlineKeyboardButton("🔩 One-Time Whisper", callback_data=f"fdaywhisper_{inline_query.from_user.id}_{user.id}_one")]])
+            mm = [
+                InlineQueryResultArticle(
+                    title="💌 Whisper",
+                    description=f"Send a Whisper to {user.first_name}!",
+                    input_message_content=InputTextMessageContent(f"💌 You are sending a whisper to {user.first_name}.\n\nType your message/sentence."),
+                    thumb_url="https://telegra.ph/file/10e0f3296a52580094bac.jpg",
+                    reply_markup=whisper_btn
+                ),
+                InlineQueryResultArticle(
+                    title="🔩 One-Time Whisper",
+                    description=f"Send a one-time whisper to {user.first_name}!",
+                    input_message_content=InputTextMessageContent(f"🔩 You are sending a one-time whisper to {user.first_name}.\n\nType your message/sentence."),
+                    thumb_url="https://telegra.ph/file/10e0f3296a52580094bac.jpg",
+                    reply_markup=one_time_whisper_btn
+                )
+            ]
+        except:
+            pass
+        
+        try:
+            whisper_db[f"{inline_query.from_user.id}_{user.id}"] = msg
+        except:
+            pass
+    
+    results.append(mm)
+    return results
