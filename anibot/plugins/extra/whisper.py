@@ -148,7 +148,7 @@ async def bot_inline(_, inline_query):
     
     if string.strip() == "":
         answers = await in_help(_, inline_query)
-        await inline_query.answer(answers)
+        await inline_query.answer(results=answers, cache_time=0, switch_pm_text="💫 Welcome To @GojoSatoru_Xbot Inline", switch_pm_parameter="help")
     else:
         answers = await _whisper(_, inline_query)
         await inline_query.answer(answers[-1], cache_time=0)
