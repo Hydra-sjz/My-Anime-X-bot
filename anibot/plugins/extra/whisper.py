@@ -123,7 +123,7 @@ async def in_help():
 async def bot_inline(_, inline_query):
     string = inline_query.query.lower()
     
-    if string.strip() == "hi":
+    if string.strip() == "":
         answers = await in_help()
         await inline_query.answer(answers)
     else:
