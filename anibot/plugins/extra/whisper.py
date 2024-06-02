@@ -110,7 +110,7 @@ async def whispes_cb(_, query):
 
 
 
-async def in_help(b, query):
+async def in_help(_, inline_query):
     answers = [
         InlineQueryResultArticle(
             title="💌 Whisper",
@@ -131,8 +131,8 @@ async def in_help(b, query):
                         emojis.swords + " Accept",
                         json.dumps(
                             {"type": "P",
-                             "id": query.from_user.id,
-                             "name": query.from_user.first_name
+                             "id": inline_query.from_user.id,
+                             "name": inline_query.from_user.first_name
                             }
                         )
                     )]]
@@ -147,7 +147,7 @@ async def bot_inline(_, inline_query):
     string = inline_query.query.lower()
     
     if string.strip() == "":
-        answers = await in_help()
+        answers = await in_help(_, inline_query)
         await inline_query.answer(answers)
     else:
         answers = await _whisper(_, inline_query)
