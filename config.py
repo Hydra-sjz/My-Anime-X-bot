@@ -3,7 +3,11 @@ from os import getenv
 from os import environ, mkdir, path, sys
 
 
-OWNER_ID = int(environ["OWNER_ID"])
+#PREFIX
+CMDS = ["/","!",".","?","$","×",]
+
+
+OWNER_ID = int(environ["OWNER_ID", "784589736"])
 SUDO_USERS = environ.get("SUDO_USERS", str(OWNER_ID)).split()
 
 #MOMGO_DATABASE
