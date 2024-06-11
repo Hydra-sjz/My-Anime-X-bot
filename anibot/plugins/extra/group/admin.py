@@ -5,7 +5,7 @@ from pyrogram.errors import AdminRankInvalid
 from datetime import datetime as time
 
 
-from config import CMDS, DEVS
+from config import CMDS, DEVS, BOT_ID
 
 from anibot import anibot as Nandha
 
