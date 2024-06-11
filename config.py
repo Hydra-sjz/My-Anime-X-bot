@@ -7,7 +7,7 @@ from os import environ, mkdir, path, sys
 CMDS = ["/","!",".","?","$","×",]
 
 
-OWNER_ID = int(environ["OWNER_ID", "784589736"])
+OWNER_ID = int(environ["OWNER_ID"])
 SUDO_USERS = environ.get("SUDO_USERS", str(OWNER_ID)).split()
 
 #MOMGO_DATABASE
