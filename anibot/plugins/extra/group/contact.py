@@ -6,7 +6,7 @@ from pyrogram import filters
 from pyrogram.types import *
 from pyrogram import enums
 
-@Nandha.on_message(filters.command("contact",config.CMDS))
+@Nandha.on_message(filters.command("contact"))
 async def contact(_, message):
      user = message.from_user
      if message.chat.type == enums.ChatType.PRIVATE:
