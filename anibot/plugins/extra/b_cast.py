@@ -1,9 +1,9 @@
-from config import OWNER_ID, CMDS
+ from config import OWNER_ID, CMDS
 import asyncio
 from anibot import anibot as Nandha
 from pyrogram import filters
-from Nandha.help.chatsdb import *
-from Nandha.help.usersdb import *
+from anibot.utils2.help.chatsdb import *
+from anibot.utils2.help.usersdb import *
 from pyrogram.enums import ParseMode
 
 
