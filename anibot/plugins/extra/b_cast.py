@@ -1,4 +1,4 @@
- from config import OWNER_ID, CMDS
+from config import OWNER_ID, CMDS
 import asyncio
 from anibot import anibot as Nandha
 from pyrogram import filters
