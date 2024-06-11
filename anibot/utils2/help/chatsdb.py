@@ -1,4 +1,4 @@
-from Nandha import mongodb
+from anibot.utils2.Database import mongodb
 
 
 db = mongodb.CHATS
