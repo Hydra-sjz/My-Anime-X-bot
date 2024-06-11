@@ -1,7 +1,7 @@
-from anibot.utils2.Database import mongodb
+from anibot.utils2.Database.mongo import db
 
 
-db = mongodb.CHATS
+db = db.CHATS
 
 
 def get_chats():
