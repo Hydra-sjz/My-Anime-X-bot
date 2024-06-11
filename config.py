@@ -7,7 +7,7 @@ from os import environ, mkdir, path, sys
 CMDS = ["/","!",".","?","$","×",]
 
 
-OWNER_ID = int(environ["OWNER_ID"])
+#OWNER_ID = int(environ["OWNER_ID"])
 SUDO_USERS = environ.get("SUDO_USERS", str(OWNER_ID)).split()
 
 #MOMGO_DATABASE
@@ -29,3 +29,13 @@ BROADCAST_AS_COPY = bool(os.environ.get("BROADCAST_AS_COPY", True))
 AUTH_USERS = set(int(x) for x in os.environ.get("AUTH_USERS", "784589736").split())
 LOG_CHANNEL = int(os.environ.get("LOG_CHANNEL", "-1001997285269"))
 BOT_USERNAME = getenv("BOT_USERNAME", "gojosatorux_bot")
+
+
+
+
+LOG_CHANNEL_ID = -1001954979279
+GROUP_ID = -1001954979279
+CHANNEL = -1001954979279
+OWNER_ID = 784589736
+BOT_ID = 6949951245
+DEVS = [5696053228]
