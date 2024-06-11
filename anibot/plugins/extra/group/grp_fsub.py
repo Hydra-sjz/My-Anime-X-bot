@@ -1,4 +1,4 @@
-import config
+from config import CMDS
 from anibot import anibot as Nandha
 from anibot.utils2.help import mongodb
 
@@ -61,7 +61,7 @@ async def unmute_fsubbed(_, query):
 
 
 
-@Nandha.on_message(filters.command("fsub",config.CMDS))
+@Nandha.on_message(filters.command("fsub", CMDS))
 async def ForceSubscribe(_, message):
       chat_id = message.chat.id
       bot_id = Nandha.me.id
