@@ -16,12 +16,12 @@ async def contact(_, message):
      else: return await message.reply("hello Mr fucker this command only work in my dm 🤖!")
 
 @Nandha.on_callback_query(filters.regex("contact"))
-async def contact(_, query):
+async def contact(bot, query):
     chat = query.message.chat
     await query.message.delete()
     x = "Ok Send Me What Else You Want To Say to My Owner 🤖"
     format = "Send Media Text ect !"
-    ASK = await Nandha.ask(chat.id, text=x, reply_markup=ForceReply(selective=True, placeholder=format))
+    ASK = await bot.send_message(query.chat.id, text=x, reply_markup=ForceReply(selective=True, placeholder=format))
     success = "Successfully Message forward into my owner 🤖"
     ask_id = int(ASK.id)-1
     if ASK.text:
