@@ -5,6 +5,7 @@ from aiohttp import ClientSession
 import logging
 
 
+from aiohttp import ClientSession
 
 # Log
 logging.basicConfig(
@@ -36,6 +37,8 @@ class Log:
 log = Log(True, "bot.log")
 #====
 
+aiohttpsession = ClientSession()
+
 CMD = ["/", ".", "?", "#", "!", "mg", "mx", ","]
 
 RSS_DELAY = int(os.environ.get("RSS_DELAY", 300))
@@ -55,6 +58,8 @@ OWNER = list(filter(lambda x: x, map(int, os.environ.get("OWNER_ID", "1005170481
 
 DOWN_PATH = "anibot/downloads/"
 HELP_DICT = dict()
+
+
 
 session = ClientSession()
 plugins = dict(root="anibot/plugins")
