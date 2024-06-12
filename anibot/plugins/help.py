@@ -603,7 +603,7 @@ BAN_BUTTONS = InlineKeyboardMarkup(
         ]]
     ) 
 
-MAS = """
+MAS_TEXT = """
 **Group Admins only**:
 
 **Mass Action**
