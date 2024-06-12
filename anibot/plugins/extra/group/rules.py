@@ -44,10 +44,10 @@ async def rules(_, message):
     else: 
        if reply and chat_id in rules_chat():
           return await message.reply_to_message.reply_text("click below button to get rules in this chat!",
-           reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Rules" , url=f"https://t.me/{config.USERNAME}?start=rules{chat_id}")]]))
+           reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Rules" , url=f"https://t.me/GojoSatoru_Xbot?start=rules{chat_id}")]]))
        elif not reply and chat_id in rules_chat(): 
           return await message.reply_text("click below button to get rules in this chat!",
-           reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Rules" , url=f"https://t.me/{config.USERNAME}?start=rules{chat_id}")]]))
+           reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Rules" , url=f"https://t.me/GojoSatoru_Xbot?start=rules{chat_id}")]]))
        else: return await message.reply_text("Semms Like This Chat Don't Haven't Any Rules!")
 
     
