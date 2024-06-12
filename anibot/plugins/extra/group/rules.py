@@ -1,4 +1,4 @@
-import config
+from config import CMDS
 
 from anibot import anibot as Nandha
 
@@ -11,7 +11,7 @@ from pyrogram import enums
 from pyrogram.types import *
 
 
-@Nandha.on_message(filters.command("setrules",config.CMDS))
+@Nandha.on_message(filters.command("setrules", CMDS))
 async def setrules(_, message):
    chat_id = message.chat.id
    user_id = message.from_user.id
@@ -35,7 +35,7 @@ async def setrules(_, message):
                  await message.reply("`Group Rules set Successfully!`")
              
               
-@Nandha.on_message(filters.command("rules",config.CMDS))
+@Nandha.on_message(filters.command("rules", CMDS))
 async def rules(_, message):
     chat_id = int(message.chat.id)
     reply = message.reply_to_message
@@ -52,7 +52,7 @@ async def rules(_, message):
 
     
     
-@Nandha.on_message(filters.command(["removerules","clearrules"],config.CMDS))
+@Nandha.on_message(filters.command(["removerules","clearrules"], CMDS))
 async def remove(_, message):
      chat_id = message.chat.id
      user_id = message.from_user.id
