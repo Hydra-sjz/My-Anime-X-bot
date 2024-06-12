@@ -59,3 +59,5 @@ MukeshAPI
 anime-api==1.0.1
 lexica-api
 #======================#
+
+feedparser~=6.0.11
