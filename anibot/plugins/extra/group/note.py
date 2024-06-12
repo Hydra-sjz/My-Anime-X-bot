@@ -1,4 +1,4 @@
-from config import CMDS,
+from config import CMDS
 
 from anibot import anibot as Nandha
 from pyrogram import filters
