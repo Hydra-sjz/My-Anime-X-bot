@@ -76,6 +76,7 @@ hlp_bt = InlineKeyboardMarkup(
                 InlineKeyboardButton("👥 Group", callback_data="grp"),
                 InlineKeyboardButton("🕵️ Oauth", callback_data="oth")
             ],[
+                InlineKeyboardButton("👮Mod-CMDS", callback_data="mod"),
                 InlineKeyboardButton("➕ Extras", callback_data="ext")
             ]
         ]
@@ -265,6 +266,34 @@ async def cb_handler(bot, query):
         await query.message.edit_text(
             text=EXT4_TEXT,
             reply_markup=EXT4_BUTTONS,
+            disable_web_page_preview=True
+        )
+        await query.answer("👋Hey i am Gojo Satoru 𝕏 Bot")
+    elif query.data == "mod":
+        await query.message.edit_text(
+            text=MOD_TEXT,
+            reply_markup=MOD_BUTTONS,
+            disable_web_page_preview=True
+        )
+        await query.answer("👋Hey i am Gojo Satoru 𝕏 Bot")
+    elif query.data == "adm":
+        await query.message.edit_text(
+            text=ADM_TEXT,
+            reply_markup=ADM_BUTTONS,
+            disable_web_page_preview=True
+        )
+        await query.answer("👋Hey i am Gojo Satoru 𝕏 Bot")
+    elif query.data == "ban":
+        await query.message.edit_text(
+            text=BAN_TEXT,
+            reply_markup=BAN_BUTTONS,
+            disable_web_page_preview=True
+        )
+        await query.answer("👋Hey i am Gojo Satoru 𝕏 Bot")
+    elif query.data == "mas":
+        await query.message.edit_text(
+            text=MAS_TEXT,
+            reply_markup=MAS_BUTTONS,
             disable_web_page_preview=True
         )
         await query.answer("👋Hey i am Gojo Satoru 𝕏 Bot")
@@ -498,6 +527,98 @@ Use /unzip Reply to Zipped files to separates files from zip.
 EXT4_BUTTONS = InlineKeyboardMarkup(
         [[
         InlineKeyboardButton("⬅️ Back", callback_data="ext3"),
+        InlineKeyboardButton("❌ Cancel", callback_data="close")
+        ]]
+    ) 
+
+MOD_TEXT = """
+Click the below buttons to find out my Group Admin commands! [👮📝]
+"""
+MOD_BUTTONS = InlineKeyboardMarkup(
+        [[
+        InlineKeyboardButton("👮Admin", callback_data="adm")
+        ],[
+        InlineKeyboardButton("🔰Ban", callback_data="ban")
+        ],[
+        InlineKeyboardButton("💥MassAction", callback_data="mas")
+        ],[
+        InlineKeyboardButton("⬅️ Back", callback_data="hlp"),
+        InlineKeyboardButton("❌ Cancel", callback_data="close")
+        ]]
+    ) 
+
+ADM_TEXT = """
+**Group Admins only**:
+
+/admins to know group admins.
+/title (query) custom admin title.
+/purge reply to message and bot delete your msg to reply message and also instead all msgs. 
+/del delete a message.
+/glink get group private link.
+/cglink creat group new link.
+/promote promote a member to admin.
+/mpromote medium promote a member to admin.
+/fpromote full promote a member to admin.
+/demote demote a admin to member.
+/setgphoto set group profile photo.
+/setgtitle set group title.
+/setgdesc set group description.
+/pin reply to message and pin.
+/unpin reply to pinned message to unpin.
+/zombies send this to group to remove deleted accounts.
+"""
+ADM_BUTTONS = InlineKeyboardMarkup(
+        [[
+        InlineKeyboardButton("⬅️ Back", callback_data="mod"),
+        InlineKeyboardButton("❌ Cancel", callback_data="close")
+        ]]
+    ) 
+
+BAN_TEXT = """
+**Group Admins only**:
+
+Some people need to be publicly banned; spammers, annoyances, or just trolls.
+This module allows you to do that easily, by exposing some common actions, so everyone will see!
+
+!kick **kick the user.**
+**Example:**
+/kick id + reason
+/kick reply to user + reason.
+
+!ban **ban the user.**
+**Example:**
+/ban id + reason
+/ban reply to user + reason.
+/unban reply to user or give id to unban!.
+
+!mute: **mute the user.**
+**Example:**
+/mute id + reason
+/mute reply to user + reason.
+"""
+BAN_BUTTONS = InlineKeyboardMarkup(
+        [[
+        InlineKeyboardButton("⬅️ Back", callback_data="mod"),
+        InlineKeyboardButton("❌ Cancel", callback_data="close")
+        ]]
+    ) 
+
+MAS = """
+**Group Admins only**:
+
+**Mass Action**
+Only work for group owners!
+
+/banall ban all members from group.
+/kickall kick all members from group.
+/unbanall unban all members from group.
+
+to avoid service messages use instead "s"
+for example: /skickall /sbanall.
+"""
+MAS_BUTTONS = InlineKeyboardMarkup(
+        [[
+        InlineKeyboardButton("⬅️ Back", callback_data="mod"),
         InlineKeyboardButton("❌ Cancel", callback_data="close")
         ]]
     ) 
