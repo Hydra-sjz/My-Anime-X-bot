@@ -112,6 +112,12 @@ from ..utils.data_parser import (
 )
 from .anilist import auth_link_cmd, code_cmd, logout_cmd
 
+
+from anibot.utils2.help.rulesdb import (
+rules_chat, get_rules)
+
+
+
 USERS = get_collection("USERS")
 GROUPS = get_collection("GROUPS")
 SFW_GROUPS = get_collection("SFW_GROUPS")
@@ -415,6 +421,18 @@ ID: `{user}`""",
                         "No description available!!!"
                     )
                 return
+
+            
+            if deep_cmd_list[0:5] == "rules":
+               chat_id = int(deep_cmd_list.split("s")[1])
+               if not chat_id in rules_chat():
+                  await message.reply(f"`Semms like the chat Don't haven't any rules!`")
+                  return
+               else: 
+                    x = get_rules(chat_id)
+                    return await message.reply_text(x)
+
+            
             if deep_cmd_list[0]=="anime":
                 auth = False
                 if (await AUTH_USERS.find_one({"id": user})):
