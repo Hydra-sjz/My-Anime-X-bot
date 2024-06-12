@@ -13,7 +13,7 @@ from anibot.utils2.help.admin import *
 
 
 
-@Nandha.on_message(filters.command(["rdacc","removezombies"], CMDS))
+@Nandha.on_message(filters.command(["rdacc","zombies"], CMDS))
 async def remove_delete_acc(_, message):
      user_id = message.from_user.id
      chat_id = message.chat.id
