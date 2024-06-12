@@ -21,7 +21,7 @@ async def contact(bot, query):
     await query.message.delete()
     x = "Ok Send Me What Else You Want To Say to My Owner 🤖"
     format = "Send Media Text ect !"
-    ASK = await bot.send_message(query.chat.id, text=x, reply_markup=ForceReply(selective=True, placeholder=format))
+    ASK = await bot.send_message(chat.id, text=x, reply_markup=ForceReply(selective=True, placeholder=format))
     success = "Successfully Message forward into my owner 🤖"
     ask_id = int(ASK.id)-1
     if ASK.text:
