@@ -12,7 +12,7 @@ from pyrogram.types import Message
 
 
 from anibot import RSS_DELAY, anibot as app, log
-from wbb.core.decorators.errors import capture_err
+from anibot.utils2.help.errors import capture_err
 
 from anibot.utils2.help.rssdb import (
     add_rss_feed,
