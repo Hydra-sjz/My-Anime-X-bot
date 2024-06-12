@@ -76,9 +76,10 @@ async def ForceSubscribe(_, message):
           message.text.split()[1]
       except: return await message.reply_text("Format: /fsub on/off")
       if message.text.split()[1] == "on":
-           ASK = await message.chat.ask( 
-                  text="okay send me Force Subscribe channel username.", 
-                  reply_to_message_id=message.id, reply_markup=ForceReply(selective=True))
+           ASK = "okay send me Force Subscribe channel username." #chat.ask
+           await message.reply_text( 
+               text=ASK, 
+               reply_to_message_id=message.id, reply_markup=ForceReply(selective=True))
            try:
                Fsub_channel = ASK.text
                hmm = await Nandha.get_chat_member(chat_id=Fsub_channel, user_id=bot_id)
