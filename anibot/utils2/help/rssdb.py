@@ -26,7 +26,7 @@ import pickle
 from string import ascii_lowercase
 from typing import Dict, List, Union
 
-from wbb import db
+from anibot.utils2.help import mongodb
 
 # SOME THINGS ARE FUCKED UP HERE, LIKE TOGGLEABLES HAVE THEIR OWN COLLECTION
 # (SHOULD FIX IT WITH SOMETHING LIKE TOGGLEDB), MOST OF THE CODE IS BAD AF
@@ -34,7 +34,7 @@ from wbb import db
 # TOO MUCH TIME AND WILL BE BAD FOR ALREADY STORED DATA
 
 
-rssdb = db.rss
+rssdb = mongodb.rss
 
 async def add_rss_feed(chat_id: int, url: str, last_title: str):
     return await rssdb.update_one(
