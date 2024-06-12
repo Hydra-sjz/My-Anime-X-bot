@@ -77,11 +77,11 @@ async def ForceSubscribe(_, message):
       except: return await message.reply_text("Format: /fsub on/off")
       if message.text.split()[1] == "on":
            ASK = "okay send me Force Subscribe channel username." #chat.ask
-           await message.reply_text( 
+           ask2 = await message.reply_text( 
                text=ASK, 
                reply_to_message_id=message.id, reply_markup=ForceReply(selective=True))
            try:
-               Fsub_channel = ASK.text
+               Fsub_channel = ask2.text
                hmm = await Nandha.get_chat_member(chat_id=Fsub_channel, user_id=bot_id)
            except UserNotParticipant:
                  return await message.reply_text("Add Me there and make me sure Am Admin!")
