@@ -36,6 +36,8 @@ class Log:
                 
 log = Log(True, "bot.log")
 
+
+from pymongo import MongoClient
 # MongoDB client
 log.info("Initializing MongoDB client")
 mongo_client = MongoClient(DB_URL)
