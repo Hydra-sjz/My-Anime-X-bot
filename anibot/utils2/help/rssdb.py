@@ -54,10 +54,7 @@ async def update_rss_feed(chat_id: int, last_title: str):
     )
 
 async def is_rss_active(chat_id: int) -> bool:    
-    result = await rssdb.find_one({ "chat_id": chat_id}) #return await rssdb.find_one({"chat_id": chat_id})
-    if result is not None:
-        return result
-
+    return rssdb.find_one({"chat_id": chat_id})
 async def get_rss_feeds() -> list:
     data = []
     async for feed in rssdb.find({"chat_id": {"$exists": 1}}):
