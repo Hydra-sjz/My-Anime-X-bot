@@ -4,7 +4,7 @@ from aiohttp import ClientSession
 import time
 import logging
 
-
+from config import DB_URL
 from aiohttp import ClientSession
 
 # Log
@@ -35,6 +35,13 @@ class Log:
                 f.write(f"[ERROR]({time.ctime(time.time())}): {msg}\n")
                 
 log = Log(True, "bot.log")
+
+# MongoDB client
+log.info("Initializing MongoDB client")
+mongo_client = MongoClient(DB_URL)
+db = mongo_client.wbb
+
+
 #====
 
 aiohttpsession = ClientSession()
