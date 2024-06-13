@@ -67,7 +67,3 @@ async def get_rss_feeds() -> list:
             )
         )
     return data
-
-
-async def get_rss_feeds_count() -> int:
-    return len([i async for i in rssdb.find({"chat_id": {"$exists": 1}})])
