@@ -35,9 +35,9 @@ from anibot import db
 
 
 rssdb = db.rss
-
+#await
 async def add_rss_feed(chat_id: int, url: str, last_title: str):
-    return await rssdb.update_one(
+    return rssdb.update_one(
         {"chat_id": chat_id},
         {"$set": {"url": url, "last_title": last_title}},
         upsert=True,
@@ -45,11 +45,11 @@ async def add_rss_feed(chat_id: int, url: str, last_title: str):
     
 
 async def remove_rss_feed(chat_id: int):
-    return await rssdb.delete_one({"chat_id": chat_id})
+    return rssdb.delete_one({"chat_id": chat_id})
     
 
 async def update_rss_feed(chat_id: int, last_title: str):
-    return await rssdb.update_one(
+    return rssdb.update_one(
         {"chat_id": chat_id},
         {"$set": {"last_title": last_title}},
         upsert=True,
