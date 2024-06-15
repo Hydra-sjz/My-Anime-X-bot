@@ -460,7 +460,7 @@ ID: `{user}`""",
             gid,
             text=(
                 f"Kon'nichiwa!!! [😈](https://telegra.ph/file/cadfaa11fcc628b2ac385.jpg)\n"
-                +f"🕵️ I'm {bot.first_name}, and I can help you get info on "
+                +f"🕵️ I'm {bot.first_name}, and I can help you get information from [Anilist](https://anilist.com) on "
                 +f"🎱Animes,🎍 Mangas,👯 Characters,🎐 Airings, 🗓️Schedules, 📺Watch "
                 +f"Orders of Animes, etc. 😜"
                 +f"\n\nFor more info send /help command in here.😌 "
