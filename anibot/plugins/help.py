@@ -595,6 +595,14 @@ This module allows you to do that easily, by exposing some common actions, so ev
 **Example:**
 /mute id + reason
 /mute reply to user + reason.
+
+!warn: **warn the user.**
+Maximum Warns 3 if the user got 3 the we'll get banned  in your chat
+to warn member in your group use:
+/warn 123456789
+/warn reply to user
+you want to remove users warning use: /clearwarns
+check user warn count use: /warns
 """
 BAN_BUTTONS = InlineKeyboardMarkup(
         [[
