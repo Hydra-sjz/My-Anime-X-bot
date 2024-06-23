@@ -269,6 +269,13 @@ async def cb_handler(bot, query):
             disable_web_page_preview=True
         )
         await query.answer("👋Hey i am Gojo Satoru 𝕏 Bot")
+    elif query.data == "ext5":
+        await query.message.edit_text(
+            text=EXT5_TEXT,
+            reply_markup=EXT5_BUTTONS,
+            disable_web_page_preview=True
+        )
+        await query.answer("👋Hey i am Gojo Satoru 𝕏 Bot")
     elif query.data == "mod":
         await query.message.edit_text(
             text=MOD_TEXT,
@@ -527,6 +534,19 @@ Use /unzip Reply to Zipped files to separates files from zip.
 EXT4_BUTTONS = InlineKeyboardMarkup(
         [[
         InlineKeyboardButton("⬅️ Back", callback_data="ext3"),
+        InlineKeyboardButton("❌ Cancel", callback_data="close"),
+        InlineKeyboardButton("Next ➡️", callback_data="ext5")
+        ]]
+    ) 
+
+EXT4_TEXT = """
+**Extra module 5️⃣**
+Use /cat command to get random cats image.
+Use 
+"""
+EXT4_BUTTONS = InlineKeyboardMarkup(
+        [[
+        InlineKeyboardButton("⬅️ Back", callback_data="ext4"),
         InlineKeyboardButton("❌ Cancel", callback_data="close")
         ]]
     ) 
