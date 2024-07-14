@@ -539,12 +539,12 @@ EXT4_BUTTONS = InlineKeyboardMarkup(
         ]]
     ) 
 
-EXT4_TEXT = """
+EXT5_TEXT = """
 **Extra module 5️⃣**
 Use /cat command to get random cats image.
 Use 
 """
-EXT4_BUTTONS = InlineKeyboardMarkup(
+EXT5_BUTTONS = InlineKeyboardMarkup(
         [[
         InlineKeyboardButton("⬅️ Back", callback_data="ext4"),
         InlineKeyboardButton("❌ Cancel", callback_data="close")
