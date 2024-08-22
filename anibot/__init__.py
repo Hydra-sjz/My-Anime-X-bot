@@ -46,7 +46,7 @@ db = mongo_client.wbb
 
 #====
 
-#aiohttpsession = ClientSession()
+aiohttpsession = ClientSession()
 
 CMD = ["/", ".", "?", "#", "!", "mg", "mx", ","]
 
