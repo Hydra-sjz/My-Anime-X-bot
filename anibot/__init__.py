@@ -68,11 +68,28 @@ OWNER = list(filter(lambda x: x, map(int, os.environ.get("OWNER_ID", "1005170481
 DOWN_PATH = "anibot/downloads/"
 HELP_DICT = dict()
 
-
+#=====
 
 session = ClientSession()
 plugins = dict(root="anibot/plugins")
-anibot = Client("anibot", bot_token=BOT_TOKEN, api_id=API_ID, api_hash=API_HASH, plugins=plugins)
+#anibot = Client("anibot", bot_token=BOT_TOKEN, api_id=API_ID, api_hash=API_HASH, plugins=plugins)
+
+class anibot(Client):
+    def __init__(self):
+        name = self.__class__.__name__.lower()
+        super().__init__(
+            ":memory:",
+            plugins=plugins,
+            workdir="./cache/",
+            api_id=API_ID,
+            api_hash=API_HASH,
+            bot_token=BOT_TOKEN,
+            sleep_threshold=30,
+        )
+   # async def start(self):
+logger.info("ANIME BOT STARTED🥀🟢....")
+        
+#=======
 
 has_user: bool = False
 if os.environ.get('USER_SESSION'):
