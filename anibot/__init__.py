@@ -39,12 +39,10 @@ OWNER = list(filter(lambda x: x, map(int, os.environ.get("OWNER_ID", "1005170481
 DOWN_PATH = "anibot/downloads/"
 HELP_DICT = dict()
 
-#=====
-
+#=====BOT=====
 session = ClientSession()
 plugins = dict(root="anibot/plugins")
 #anibot = Client("anibot", bot_token=BOT_TOKEN, api_id=API_ID, api_hash=API_HASH, plugins=plugins)
-
 class anibot(Client):
     def __init__(self):
         name = self.__class__.__name__.lower()
@@ -60,12 +58,24 @@ class anibot(Client):
    # async def start(self):
 logger.info("ANIME BOT STARTED🥀🟢....")
         
-#=======
+#=================
 
+#=======Userbot======
 has_user: bool = False
 if os.environ.get('USER_SESSION'):
     has_user: bool = True
-    user = Client(os.environ.get('USER_SESSION'), api_id=API_ID, api_hash=API_HASH)
+   # user = Client(os.environ.get('USER_SESSION'), api_id=API_ID, api_hash=API_HASH)
+
+class user(Client):
+    def __init__(self):
+        self.one = Client(
+            name="animx",
+            api_id=config.API_ID,
+            api_hash=config.API_HASH,
+            session_string=str('USER_SESSION'),
+            no_updates=True,
+        )
+#==========
 
 HELP_DICT['Group'] = '''
 Group based commands:
