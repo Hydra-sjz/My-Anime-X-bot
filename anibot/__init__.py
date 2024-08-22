@@ -5,7 +5,7 @@ import time
 import logging
 
 from config import DB_URL
-from aiohttp import ClientSession
+#from aiohttp import ClientSession
 
 # Log
 logging.basicConfig(
@@ -46,7 +46,7 @@ db = mongo_client.wbb
 
 #====
 
-aiohttpsession = ClientSession()
+#aiohttpsession = ClientSession()
 
 CMD = ["/", ".", "?", "#", "!", "mg", "mx", ","]
 
