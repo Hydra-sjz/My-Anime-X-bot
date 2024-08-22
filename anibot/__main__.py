@@ -9,6 +9,7 @@ if has_user:
 
 async def main():
     await anibot.start()
+    print("your Bot has been started")
     if user is not None:
         await user.start()
     await idle()
