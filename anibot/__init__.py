@@ -6,6 +6,7 @@ import logging
 
 from config import DB_URL
 from aiohttp import ClientSession
+from pymongo import MongoClient
 
 # Log
 logging.basicConfig(
@@ -16,43 +17,14 @@ logging.basicConfig(
 logging.getLogger("pyrogram").setLevel(logging.WARNING)
 LOGGER = logging.getLogger(__name__)
 
-#====
-class Log:
-    def __init__(self, save_to_file=False, file_name="wbb.log"):
-        self.save_to_file = save_to_file
-        self.file_name = file_name
-
-    def info(self, msg):
-        print(f"[+]: {msg}")
-        if self.save_to_file:
-            with open(self.file_name, "a") as f:
-                f.write(f"[INFO]({time.ctime(time.time())}): {msg}\n")
-
-    def error(self, msg):
-        print(f"[-]: {msg}")
-        if self.save_to_file:
-            with open(self.file_name, "a") as f:
-                f.write(f"[ERROR]({time.ctime(time.time())}): {msg}\n")
-                
-log = Log(True, "bot.log")
-
-
-from pymongo import MongoClient
 # MongoDB client
 log.info("Initializing MongoDB client")
 mongo_client = MongoClient(DB_URL)
 db = mongo_client.wbb
 
-
 #====
 
-aiohttpsession = ClientSession()
-
 CMD = ["/", ".", "?", "#", "!", "mg", "mx", ","]
-
-RSS_DELAY = int(os.environ.get("RSS_DELAY", 300))
-
-
 TRIGGERS = os.environ.get("TRIGGERS", "/ !").split()
 API_HASH = os.environ.get("API_HASH")
 BOT_TOKEN = os.environ.get("BOT_TOKEN")
@@ -99,7 +71,7 @@ if os.environ.get('USER_SESSION'):
 HELP_DICT['Group'] = '''
 Group based commands:
 
-/settings - Toggle stuff like whether to allow 18+ stuff in group or whether to notify about aired animes, etc and change UI
+/settings - Toggle stuff like whether to allow 18+ stuff in gro up or whether to notify about aired animes, etc and change UI
 
 /disable - Disable use of a cmd in the group (Disable multiple cmds by adding space between them)
 `/disable anime anilist me user`
