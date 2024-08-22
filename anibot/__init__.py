@@ -5,7 +5,6 @@ import time
 import logging
 
 from config import DB_URL
-from aiohttp import ClientSession
 from pymongo import MongoClient
 
 # Log
