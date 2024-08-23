@@ -3,10 +3,10 @@ import random
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from pyrogram.types import ReplyKeyboardMarkup, ReplyKeyboardRemove
 from pyrogram import filters
-from anibot import anibot as Mbot, CMD
+from tgbot import tgbot as Mbot, CMD
 #from walls import ANIM_PICS, ANIMALS_PICS, LOGO_PICS, CARS_PICS, DROWIG_PICS, FUNNY_PICS, ENTERT_PICS, GAME_PICS, LOVE_PICS, MUSIC_PICS, NATURE_PICS, SAYING_PICS, SPACE_PICS, COMIC_PICS, SPORT_PICS, PATTER_PICS, TECHNO_PICS, DESIN_PICS, HOLDAY_PICS, PEOPL_PICS, OTHERS_PICS                      
 from config import LOG_CHANNEL
-from anibot.utils2.helper import pyro_cooldown
+from tgbot.utils.helper import pyro_cooldown
 
 WBG = """
 🕹️ **WEB GAMES LOG ALERT** 🕹️
@@ -53,6 +53,7 @@ async def w_game(client, message):
             ],[
                 "❌ CLOSE ❌"
             ]], 
+            
             resize_keyboard=True
         ) 
     )
