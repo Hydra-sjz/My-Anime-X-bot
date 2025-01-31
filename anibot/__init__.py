@@ -17,7 +17,6 @@ logging.getLogger("pyrogram").setLevel(logging.WARNING)
 LOGGER = logging.getLogger(__name__)
 
 # MongoDB client
-log.info("Initializing MongoDB client")
 mongo_client = MongoClient(DB_URL)
 db = mongo_client.wbb
 
